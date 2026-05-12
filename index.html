@@ -54,9 +54,8 @@ input{font-family:inherit;-webkit-tap-highlight-color:transparent}
 /* APP */
 .app{position:relative;width:100%;min-height:100vh;min-height:100dvh;overflow:hidden;background:var(--cream)}
 
-/* HERO SUNSET — assinatura visual da institucional (ipê → tarde → tucano) */
-.hero-sunset{position:absolute;top:-40px;left:-10%;width:120%;height:62%;background:linear-gradient(315deg,var(--tucano) 0%,var(--tarde) 45%,var(--ipe) 100%);clip-path:ellipse(80% 55% at 35% 18%);opacity:.17;pointer-events:none;z-index:0;filter:blur(2px)}
-.hero-sunset-2{position:absolute;top:240px;right:-40%;width:90%;height:36%;background:linear-gradient(225deg,var(--ipe) 0%,var(--tarde) 60%,var(--tucano) 100%);clip-path:ellipse(60% 50% at 50% 50%);opacity:.10;pointer-events:none;z-index:0}
+/* HERO SUNSET — clip-path ellipse bottom-left, fiel à institucional */
+.hero-sunset{position:absolute;top:60px;left:0;width:100%;height:440px;background:linear-gradient(315deg,var(--tucano) 0%,var(--tarde) 50%,var(--ipe) 100%);clip-path:ellipse(108% 54% at left bottom);pointer-events:none;z-index:0}
 
 /* Bolten brand clouds — silhuetas oficiais via CSS mask */
 .cloud{position:absolute;pointer-events:none;z-index:1;background:#fff;-webkit-mask-repeat:no-repeat;-webkit-mask-size:contain;-webkit-mask-position:center;mask-repeat:no-repeat;mask-size:contain;mask-position:center}
@@ -358,7 +357,7 @@ h1.hero-headline em{font-style:normal;color:var(--tucano);font-weight:700}
 .final-cta{margin:42px 0 14px;background:radial-gradient(120% 130% at 30% 0%,#2A2926 0%,var(--ink) 60%);border-radius:24px;padding:32px 24px 28px;text-align:center;color:#fff;position:relative;overflow:hidden;box-shadow:0 20px 44px -18px rgba(15,14,12,.4)}
 .final-cta::before{content:"";position:absolute;top:-70px;right:-70px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,var(--tucano) 0%,transparent 65%);opacity:.45;pointer-events:none}
 .final-cta::after{content:"";position:absolute;bottom:-80px;left:-50px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,var(--ipe) 0%,transparent 70%);opacity:.22;pointer-events:none}
-.bolty-final{width:104px;height:128px;margin:0 auto 12px;position:relative;z-index:1;background:#fff;-webkit-mask:url('assets/bolty-clique.svg') no-repeat center/contain;mask:url('assets/bolty-clique.svg') no-repeat center/contain}
+.bolty-final{display:block;width:108px;height:auto;margin:0 auto 12px;position:relative;z-index:1;filter:brightness(0) invert(1)}
 .final-cta-eyebrow{display:inline-flex;align-items:center;gap:6px;padding:5px 13px;background:rgba(255,104,40,.22);border:1px solid rgba(255,104,40,.4);border-radius:999px;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--tucano);margin-bottom:12px;position:relative;z-index:1}
 .final-cta-title{font-family:'Arimo',system-ui,sans-serif;font-size:clamp(1.7rem,6.5vw,2.05rem);font-weight:700;letter-spacing:-0.035em;line-height:1.08;margin-bottom:10px;position:relative;z-index:1;color:#fff}
 .final-cta-title em{font-style:normal;color:var(--tucano);font-weight:700}
@@ -438,8 +437,8 @@ h2.success-title em{font-style:normal;color:var(--tucano);font-weight:700}
 .fade-up.d5{animation-delay:.38s}
 @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
 
-/* Reveal on scroll */
-.reveal{opacity:0;transform:translateY(24px);transition:all .7s cubic-bezier(.2,.8,.2,1)}
+/* Reveal — sempre visível (animação só no transform inicial) */
+.reveal{opacity:1;transform:translateY(0)}
 .reveal.is-in{opacity:1;transform:translateY(0)}
 
 ::selection{background:var(--tucano);color:#fff}
@@ -456,19 +455,17 @@ h2.success-title em{font-style:normal;color:var(--tucano);font-weight:700}
 
 <div class="app" id="app">
 
-  <!-- Hero sunset gradient — assinatura da institucional -->
-  <div class="hero-sunset"></div>
-  <div class="hero-sunset-2"></div>
-
-  <!-- Decorative Bolten clouds (silhuetas oficiais) -->
-  <div class="cloud cloud-1" aria-hidden="true"></div>
-  <div class="cloud cloud-2" aria-hidden="true"></div>
-  <div class="cloud cloud-3" aria-hidden="true"></div>
-
   <!-- ============================================ -->
   <!-- SCREEN 1: LANDING PAGE (scrollable) -->
   <!-- ============================================ -->
   <section class="screen is-active" data-screen="hero">
+
+    <!-- Hero sunset gradient (sharp clip-path, fiel à institucional) + nuvens -->
+    <div class="hero-sunset" aria-hidden="true"></div>
+    <div class="cloud cloud-1" aria-hidden="true"></div>
+    <div class="cloud cloud-2" aria-hidden="true"></div>
+    <div class="cloud cloud-3" aria-hidden="true"></div>
+
     <div class="topbar">
       <a href="#" class="brand" aria-label="Bolten">
         <svg class="brand-logo" viewBox="0 0 300 93.57" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-label="Bolten">
@@ -1012,8 +1009,8 @@ h2.success-title em{font-style:normal;color:var(--tucano);font-weight:700}
     </section>
 
     <!-- FINAL CTA — dark gradient, fiel à institucional "Comece a vender agora!" -->
-    <section class="final-cta reveal">
-      <div class="bolty-final" aria-hidden="true"></div>
+    <section class="final-cta">
+      <img class="bolty-final" src="assets/bolty-clique.svg" alt="" aria-hidden="true">
       <span class="final-cta-eyebrow">Tá esperando o quê?</span>
       <h2 class="final-cta-title">Comece a vender <em>agora mesmo</em>.</h2>
       <p class="final-cta-sub">Cadastro grátis, sem cartão. Em minutos você tem um SaaS pronto pra vender com sua marca.</p>
