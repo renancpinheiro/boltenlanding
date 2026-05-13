@@ -55,7 +55,7 @@ input{font-family:inherit;-webkit-tap-highlight-color:transparent}
 .app{position:relative;width:100%;min-height:100vh;min-height:100dvh;overflow:hidden;background:var(--cream)}
 
 /* HERO SUNSET — clip-path ellipse bottom-left, fiel à institucional */
-.hero-sunset{position:absolute;top:60px;left:0;width:100%;height:440px;background:linear-gradient(315deg,var(--tucano) 0%,var(--tarde) 50%,var(--ipe) 100%);clip-path:ellipse(108% 54% at left bottom);pointer-events:none;z-index:0}
+.hero-sunset{position:absolute;top:60px;left:0;width:100%;height:440px;pointer-events:none;z-index:0;display:block}
 
 /* Bolten brand clouds — silhuetas oficiais via CSS mask */
 .cloud{position:absolute;pointer-events:none;z-index:1;background:#fff;-webkit-mask-repeat:no-repeat;-webkit-mask-size:contain;-webkit-mask-position:center;mask-repeat:no-repeat;mask-size:contain;mask-position:center}
@@ -103,7 +103,7 @@ input{font-family:inherit;-webkit-tap-highlight-color:transparent}
 .bolty-hero{background-image:var(--bolty-boas);width:78px;height:96px;margin-top:-6px}
 
 h1.hero-headline{font-family:'Arimo',system-ui,sans-serif;font-weight:500;font-size:clamp(2.05rem,7.8vw,2.65rem);line-height:1.02;letter-spacing:-0.04em;color:var(--ink);margin-bottom:14px}
-h1.hero-headline em{font-style:normal;color:var(--tucano);font-weight:700}
+h1.hero-headline em{font-style:normal;color:#fff;font-weight:700}
 .hero-sub{font-size:1rem;color:var(--ink-2);max-width:520px;margin-bottom:18px;line-height:1.5;position:relative;z-index:2}
 .hero-sub strong{color:var(--ink);font-weight:700}
 
@@ -425,8 +425,9 @@ h1.hero-headline em{font-style:normal;color:var(--tucano);font-weight:700}
 h2.success-title{font-family:'Arimo',system-ui,sans-serif;font-weight:500;font-size:clamp(1.7rem,6.5vw,2.1rem);line-height:1.05;letter-spacing:-0.03em;color:var(--ink)}
 h2.success-title em{font-style:normal;color:var(--tucano);font-weight:700}
 .success-msg{font-size:1rem;color:var(--ink-mute);max-width:320px;line-height:1.5}
-.success-cta-wrap{width:100%;margin-top:8px;padding-top:14px;border-top:1px solid var(--line)}
-.success-cta-label{font-size:.86rem;color:var(--ink-mute);text-align:center;margin-bottom:10px}
+.success-cta-wrap{width:100%;margin-top:8px;padding-top:18px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
+.success-desktop-hint{display:inline-flex;align-items:center;justify-content:center;gap:6px;font-size:.78rem;color:var(--ink-mute);margin-top:-2px}
+.success-desktop-hint svg{width:14px;height:14px;flex-shrink:0;color:var(--ink-mute)}
 
 /* Fade animations */
 .fade-up{opacity:0;transform:translateY(14px);animation:fadeUp .6s cubic-bezier(.2,.8,.2,1) forwards}
@@ -460,8 +461,16 @@ h2.success-title em{font-style:normal;color:var(--tucano);font-weight:700}
   <!-- ============================================ -->
   <section class="screen is-active" data-screen="hero">
 
-    <!-- Hero sunset gradient (sharp clip-path, fiel à institucional) + nuvens -->
-    <div class="hero-sunset" aria-hidden="true"></div>
+    <!-- Hero sunset blob — SVG path com curvas Bézier suaves, sem ponta -->
+    <svg class="hero-sunset" viewBox="0 0 400 440" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="hero-sunset-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FF6828"/>
+          <stop offset="100%" stop-color="#FF8866"/>
+        </linearGradient>
+      </defs>
+      <path d="M0,0 H400 V150 C 388,234 332,300 248,326 C 184,346 116,346 56,322 C 24,308 6,274 0,222 Z" fill="url(#hero-sunset-grad)"/>
+    </svg>
     <div class="cloud cloud-1" aria-hidden="true"></div>
     <div class="cloud cloud-2" aria-hidden="true"></div>
     <div class="cloud cloud-3" aria-hidden="true"></div>
@@ -664,6 +673,9 @@ h2.success-title em{font-style:normal;color:var(--tucano);font-weight:700}
       <button class="btn btn-primary" onclick="goToForm('hero')">
         Quero começar agora, sem custo
         <span class="arrow">→</span>
+      </button>
+      <button class="btn btn-ghost" onclick="goToForm('hero-secondary')">
+        Falar com nosso time
       </button>
     </div>
 
@@ -1160,16 +1172,27 @@ h2.success-title em{font-style:normal;color:var(--tucano);font-weight:700}
       <div class="bolty bolty-success" aria-hidden="true"></div>
       <div class="success-eyebrow">Recebemos</div>
       <h2 class="success-title">Tudo certo, <em id="success-name">parceiro</em>!</h2>
-      <p class="success-msg">Nossa equipe vai te chamar no WhatsApp em até 1 dia útil pra te ajudar a montar sua plataforma.</p>
+      <p class="success-msg">Já te mandamos uma mensagem no WhatsApp com os primeiros passos.</p>
 
       <div class="success-cta-wrap">
-        <p class="success-cta-label">Não quer esperar?</p>
-        <button class="btn btn-wa" onclick="goWhatsApp()">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0">
+        <a class="btn btn-tucano" href="https://bolten.io/pt/partners/dashboard" target="_blank" rel="noopener">
+          Acessar meu dashboard
+          <span class="arrow">→</span>
+        </a>
+        <div class="success-desktop-hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+            <line x1="8" y1="21" x2="16" y2="21"/>
+            <line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+          Experiência otimizada pra desktop
+        </div>
+        <a class="btn btn-ghost" href="https://wa.me/5511998292921?text=Oi!%20Acabei%20de%20me%20cadastrar%20como%20parceiro%20Bolten%20e%20queria%20falar%20com%20voc%C3%AAs%20sobre%20os%20primeiros%20passos." target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0" aria-hidden="true">
             <path d="M17.6 6.3A7.85 7.85 0 0012 4a7.93 7.93 0 00-6.8 11.93L4 20l4.2-1.1A7.94 7.94 0 0012 19.93h.01a7.93 7.93 0 005.6-13.62l-.01-.01zM12 18.6h-.01a6.58 6.58 0 01-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25A6.6 6.6 0 1118.6 12 6.62 6.62 0 0112 18.6zm3.62-4.95c-.2-.1-1.18-.58-1.36-.65-.18-.07-.32-.1-.45.1s-.52.65-.64.78c-.12.14-.24.15-.44.05-.2-.1-.84-.31-1.6-.99a6 6 0 01-1.11-1.38c-.12-.2-.01-.31.09-.41.09-.09.2-.24.3-.36.1-.12.13-.21.2-.34.06-.14.03-.26-.02-.36-.05-.1-.45-1.08-.62-1.48-.16-.39-.33-.34-.45-.34h-.39c-.13 0-.36.05-.55.26-.19.2-.71.7-.71 1.7s.73 1.97.83 2.1c.1.14 1.44 2.2 3.5 3.08 1.21.52 1.69.56 2.3.47.37-.06 1.18-.48 1.34-.95.17-.46.17-.86.12-.95-.06-.09-.18-.14-.39-.24z"/>
           </svg>
-          Chama a gente no WhatsApp agora
-        </button>
+          Falar com nosso time no WhatsApp
+        </a>
       </div>
     </div>
   </section>
@@ -1453,13 +1476,6 @@ function submitForm(e){
   navigate('success','forward');
 }
 
-function goWhatsApp(){
-  const phone='5511998292021'; // Bolten official WhatsApp
-  const msg=`Oi! Vim do site parceiros.bolten.io. Meu nome é ${state.nome}. Meu perfil: ${state.perfilLabel||'?'}. Clientes: ${state.clientesLabel||'?'}. Quero começar agora.`;
-  const url=`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
-  console.log('[MOCK] WhatsApp redirect:',url);
-  window.open(url,'_blank');
-}
 </script>
 
 </body>
