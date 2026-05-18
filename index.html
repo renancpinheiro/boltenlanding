@@ -372,18 +372,15 @@ h1.hero-headline em{font-style:normal;color:var(--tucano);font-weight:700}
 .faq-body{padding:0 16px 16px;font-size:.9rem;color:var(--ink-mute);line-height:1.55}
 .faq-body strong{color:var(--ink-2);font-weight:700}
 
-/* FINAL CTA — dark radial, fiel à institucional "Comece a vender agora!" */
-.final-cta{margin:42px 0 14px;background:var(--ink);border-radius:24px;padding:32px 24px 28px;text-align:center;color:#fff;position:relative;overflow:hidden;box-shadow:0 20px 44px -18px rgba(15,14,12,.4)}
-.bolty-final{display:block;width:88px;height:auto;margin:-8px auto 8px;position:relative;z-index:1;filter:brightness(0) invert(1)}
-.final-cta-eyebrow{display:inline-flex;align-items:center;gap:6px;padding:5px 13px;background:rgba(255,104,40,.22);border:1px solid rgba(255,104,40,.4);border-radius:999px;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--tucano);margin-bottom:12px;position:relative;z-index:1}
-.final-cta-title{font-family:'Arimo',system-ui,sans-serif;font-size:clamp(1.7rem,6.5vw,2.05rem);font-weight:700;letter-spacing:-0.035em;line-height:1.08;margin-bottom:10px;position:relative;z-index:1;color:#fff}
-.final-cta-title em{font-style:normal;color:var(--tucano);font-weight:700}
-.final-cta-sub{font-size:.96rem;color:rgba(255,255,255,.72);margin-bottom:22px;line-height:1.45;position:relative;z-index:1;max-width:340px;margin-left:auto;margin-right:auto}
-.btn-on-dark{background:var(--tucano);color:#fff;position:relative;z-index:1;box-shadow:0 10px 26px -10px rgba(255,104,40,.6),inset 0 1px 0 rgba(255,255,255,.2)}
-.btn-on-dark:hover{background:var(--tucano-deep);transform:translateY(-1px);box-shadow:0 14px 30px -10px rgba(255,104,40,.8)}
-.final-cta-trust{display:flex;align-items:center;justify-content:center;gap:8px 14px;margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);font-size:.74rem;color:rgba(255,255,255,.7);position:relative;z-index:1;flex-wrap:wrap}
-.final-cta-trust span{display:inline-flex;align-items:center;gap:6px}
-.final-cta-trust svg{width:12px;height:12px;color:var(--tucano);flex-shrink:0}
+/* FINAL CTA — Tucano sólido, mascote Bolty Clique à direita */
+.final-cta{margin:42px -22px 14px;background:var(--tucano);padding:80px 22px;text-align:center;color:#fff;position:relative;overflow:hidden}
+.final-cta-inner{position:relative;z-index:1;max-width:430px;margin:0 auto;display:flex;flex-direction:column;align-items:center}
+.bolty-final{display:block;width:120px;height:auto;margin:0 auto 18px;position:relative;z-index:1}
+.final-cta-title{font-family:'Arimo',system-ui,sans-serif;font-size:clamp(1.8rem,6.8vw,2.15rem);font-weight:700;letter-spacing:-0.035em;line-height:1.08;margin-bottom:12px;position:relative;z-index:1;color:#fff}
+.final-cta-sub{font-size:1rem;color:#fff;margin-bottom:24px;line-height:1.5;position:relative;z-index:1;max-width:360px;margin-left:auto;margin-right:auto;font-weight:400}
+.btn-on-tucano{background:#fff;color:var(--tucano);position:relative;z-index:1;font-weight:700;box-shadow:0 10px 26px -10px rgba(15,14,12,.25)}
+.btn-on-tucano:hover{background:var(--ink);color:#fff;transform:translateY(-1px);box-shadow:0 14px 30px -10px rgba(15,14,12,.5)}
+.final-cta-trust{margin-top:16px;font-size:.82rem;color:rgba(255,255,255,.85);position:relative;z-index:1;line-height:1.5;font-weight:500}
 
 /* MINI FOOTER */
 .mini-footer{margin-top:22px;padding-top:20px;border-top:1px solid var(--line);text-align:center;font-size:.72rem;color:var(--ink-mute);position:relative;z-index:2}
@@ -1033,20 +1030,17 @@ h2.success-title em{font-style:normal;color:var(--tucano);font-weight:700}
       </div>
     </section>
 
-    <!-- FINAL CTA — dark gradient, fiel à institucional "Comece a vender agora!" -->
+    <!-- FINAL CTA — Tucano sólido, Bolty Clique -->
     <section class="final-cta">
-      <img class="bolty-final" src="assets/bolty-clique.svg" alt="" aria-hidden="true">
-      <span class="final-cta-eyebrow">Tá esperando o quê?</span>
-      <h2 class="final-cta-title">Comece a vender <em>agora mesmo</em>.</h2>
-      <p class="final-cta-sub">Cadastro grátis, sem cartão. Em minutos você tem um SaaS pronto pra vender com sua marca.</p>
-      <button class="btn btn-on-dark" onclick="goToForm('final')">
-        Quero começar agora
-        <span class="arrow">→</span>
-      </button>
-      <div class="final-cta-trust">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sem cartão</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sem mensalidade</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 70% pra sempre</span>
+      <div class="final-cta-inner">
+        <img class="bolty-final" src="assets/bolty-clique.svg" alt="" aria-hidden="true">
+        <h2 class="final-cta-title">Comece a vender hoje, com a sua marca.</h2>
+        <p class="final-cta-sub">Cadastro grátis, sem cartão. Em minutos sua plataforma tá pronta pra revender.</p>
+        <button class="btn btn-on-tucano" onclick="goToForm('final')">
+          Quero começar agora
+          <span class="arrow">→</span>
+        </button>
+        <div class="final-cta-trust">Sem cartão · Sem mensalidade · 70% pra sempre</div>
       </div>
     </section>
 
