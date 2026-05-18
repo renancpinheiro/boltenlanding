@@ -135,76 +135,136 @@ h1.hero-headline em{font-style:normal;color:var(--tucano);font-weight:700}
 .carousel{display:flex;gap:14px;padding:6px 22px 6px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none}
 .carousel::-webkit-scrollbar{display:none}
 
-.mockup{flex-shrink:0;width:calc(100vw - 84px);max-width:300px;background:#fff;border-radius:18px;border:1px solid var(--line);box-shadow:0 14px 32px -16px rgba(15,14,12,.22),0 4px 12px -4px rgba(15,14,12,.08);scroll-snap-align:center;overflow:hidden;height:340px;display:flex;flex-direction:column}
+/* ============== MOCKUPS — phone-frame mimicking real Bolten product ============== */
+.mockup{flex-shrink:0;width:calc(100vw - 56px);max-width:328px;background:#F4F4F5;border-radius:22px;border:1px solid var(--line);box-shadow:0 18px 40px -18px rgba(15,14,12,.22),0 4px 12px -4px rgba(15,14,12,.08);scroll-snap-align:center;overflow:hidden;height:520px;display:flex;flex-direction:column;position:relative}
+.m-hamb{display:flex;flex-direction:column;gap:3px;padding:14px 14px 10px;background:#fff;flex-shrink:0}
+.m-hamb span{display:block;width:18px;height:2px;background:#4B5563;border-radius:2px}
 
-.mockup-bar{display:flex;align-items:center;gap:7px;padding:9px 11px;border-bottom:1px solid var(--line);background:var(--cream-2);flex-shrink:0}
-.mockup-bar .dots{display:flex;gap:3px}
-.mockup-bar .dots span{width:6px;height:6px;border-radius:50%;background:#fff}
-.mockup-url{flex:1;background:#fff;border:1px solid var(--line);padding:4px 8px;border-radius:6px;font-size:.58rem;color:var(--ink-mute);font-weight:500;display:flex;align-items:center;gap:5px;overflow:hidden;white-space:nowrap}
-.mockup-url::before{content:"";width:5px;height:5px;border:1.4px solid var(--selva);border-radius:50%;flex-shrink:0}
+/* mockup-wide animations */
+@keyframes m-slideIn{from{transform:translateY(8px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes m-pulseBadge{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+@keyframes m-pulseGlow{0%,100%{box-shadow:0 0 0 0 rgba(255,104,40,.45)}50%{box-shadow:0 0 0 7px rgba(255,104,40,0)}}
+@keyframes m-typingDot{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-2px);opacity:1}}
+@keyframes m-growBar{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes m-bounceArrow{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+@keyframes m-fadeSeg{from{opacity:0}to{opacity:1}}
 
-.mockup-body{flex:1;padding:13px 12px;display:flex;flex-direction:column;gap:9px;overflow:hidden}
+.m-slide-in{opacity:0;animation:m-slideIn .55s cubic-bezier(.2,.7,.2,1) forwards}
+.m-pulse-badge{animation:m-pulseBadge 2.2s ease-in-out infinite;transform-origin:center}
+.m-pulse-glow{animation:m-pulseGlow 2s ease-in-out infinite}
+.m-typing-dot{animation:m-typingDot 1.4s ease-in-out infinite}
+.m-grow-bar{transform-origin:bottom;transform:scaleY(0);animation:m-growBar .8s cubic-bezier(.2,.7,.2,1) forwards}
+.m-bounce-arrow{animation:m-bounceArrow 1.8s ease-in-out infinite}
+.m-fade-seg{opacity:0;animation:m-fadeSeg .7s ease-out forwards}
 
-.mock-head{display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
-.mock-brand{display:flex;align-items:center;gap:6px;font-weight:800;font-size:.74rem;color:var(--ink);letter-spacing:-0.01em}
-.mock-brand .mark{width:18px;height:18px;border-radius:5px;display:grid;place-items:center;color:#fff;font-size:.58rem;font-weight:800}
-.mock-pill{font-size:.5rem;padding:2px 6px;border-radius:999px;background:var(--cream);color:var(--ink-mute);font-weight:700;letter-spacing:.05em;text-transform:uppercase}
-.mock-pill.live{background:var(--selva-soft);color:var(--selva-deep)}
-.mock-pill.live::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--selva);margin-right:4px;vertical-align:1px}
+/* ====== 1) CRM ====== */
+.m-crm-filters{padding:0 14px 8px;background:#fff;display:flex;gap:6px}
+.m-crm-filters button{padding:5px 10px;font-size:.62rem;border:1px solid #E5E7EB;border-radius:7px;color:#374151;background:#fff;font-weight:500}
+.m-crm-toolbar{padding:8px 14px 10px;background:#fff;display:flex;align-items:center;justify-content:space-between}
+.m-crm-toolbar .tg{display:flex;gap:5px}
+.m-crm-toolbar .tg button{width:28px;height:28px;border-radius:6px;display:grid;place-items:center;background:transparent}
+.m-crm-toolbar .tg button.act{background:var(--tucano)}
+.m-crm-toolbar .add{background:#1B1F26;color:#fff;padding:7px 11px;border-radius:8px;font-size:.66rem;font-weight:700;display:inline-flex;align-items:center;gap:5px}
+.m-crm-toolbar .add .pl{width:14px;height:14px;background:#fff;color:#1B1F26;border-radius:50%;display:inline-grid;place-items:center;font-weight:800;font-size:.66rem;line-height:1}
+.m-crm-col{margin:10px;background:#fff;border-radius:14px;padding:11px 11px 12px}
+.m-crm-col-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1px}
+.m-crm-col-head .lf{display:flex;align-items:center;gap:6px}
+.m-crm-col-head .lf .nm{font-weight:700;font-size:.78rem;color:#1B1F26}
+.m-crm-col-head .lf .ct{background:#E5E7EB;color:#374151;font-size:.56rem;font-weight:700;padding:1px 6px;border-radius:5px;display:inline-block}
+.m-crm-col-head .pls{width:20px;height:20px;border:1px solid #E5E7EB;border-radius:50%;color:var(--tucano);font-size:.86rem;line-height:1;display:grid;place-items:center;background:#fff}
+.m-crm-col-sub{font-size:.62rem;color:#6B7280;margin-bottom:9px}
+.m-crm-card{background:#fff;border:1px solid #F3F4F6;border-radius:10px;padding:9px 10px;box-shadow:0 1px 2px rgba(15,14,12,.04);margin-bottom:7px}
+.m-crm-card .gr{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:7px}
+.m-crm-card .lb{font-weight:700;font-size:.54rem;color:#374151;line-height:1.1}
+.m-crm-card .vl{font-size:.6rem;color:#374151;line-height:1.2}
+.m-crm-card .obs{margin-bottom:8px}
+.m-crm-card .obs .tx{font-size:.6rem;color:#6B7280;line-height:1.25}
+.m-crm-card .ft{display:flex;justify-content:space-between;align-items:center}
+.m-crm-card .ft .pr{font-weight:700;font-size:.66rem;color:var(--selva)}
+.m-crm-card .ft .av{width:20px;height:20px;border-radius:50%;background:#E5E7EB;color:#374151;font-size:.5rem;font-weight:800;display:grid;place-items:center}
 
-.mock-section-title{font-family:'Arimo',system-ui,sans-serif;font-size:.86rem;font-weight:700;letter-spacing:-0.025em;color:var(--ink);flex-shrink:0}
+/* ====== 2) ATENDIMENTO ====== */
+.m-at-pat{position:absolute;top:0;right:0;bottom:0;width:70px;opacity:.10;background-image:radial-gradient(circle at 20% 20%, #999 1.5px, transparent 2px),radial-gradient(circle at 70% 50%, #999 1px, transparent 2px),radial-gradient(circle at 30% 80%, #999 1.5px, transparent 2px);background-size:34px 34px;pointer-events:none;z-index:0}
+.m-at-num{padding:0 14px 8px;background:#fff;display:flex;align-items:center;justify-content:space-between}
+.m-at-num .pill{display:inline-flex;align-items:center;gap:5px;background:#F3F4F6;padding:5px 9px;border-radius:7px;font-size:.6rem;color:#6B7280}
+.m-at-num .pill svg{width:10px;height:10px}
+.m-at-num .cog{color:#6B7280}
+.m-at-search{padding:10px 14px 8px;background:#fff;position:relative;z-index:1}
+.m-at-search .ip{position:relative}
+.m-at-search input{width:100%;background:#fff;border:1px solid #E5E7EB;border-radius:9px;padding:8px 30px 8px 11px;font-size:.62rem;color:#6B7280;outline:none}
+.m-at-search input::placeholder{color:#9CA3AF}
+.m-at-search .ic{position:absolute;right:9px;top:50%;transform:translateY(-50%);color:#9CA3AF}
+.m-at-tabs{display:flex;gap:6px;padding:10px 14px 10px;background:#fff;position:relative;z-index:1}
+.m-at-tabs button{padding:5px 12px;border-radius:999px;font-size:.62rem;font-weight:700}
+.m-at-tabs .on{background:#E5E7EB;color:#374151}
+.m-at-tabs .off{border:1px solid #D1D5DB;color:#6B7280;background:transparent}
+.m-at-list{padding:2px 6px 8px;position:relative;z-index:1}
+.m-at-row{display:flex;align-items:flex-start;gap:9px;padding:8px 8px}
+.m-at-av{width:32px;height:32px;border-radius:50%;flex-shrink:0;display:grid;place-items:center;color:#fff;font-weight:700;font-size:.6rem}
+.m-at-av.purple{background:linear-gradient(135deg,#A78BFA,#7C3AED)}
+.m-at-av.gray{background:#E5E7EB;color:#374151}
+.m-at-av.orange{background:linear-gradient(135deg,#FDBA74,#FB7185)}
+.m-at-av.blue{background:linear-gradient(135deg,#93C5FD,#3B82F6)}
+.m-at-av.yellow{background:linear-gradient(135deg,#FDE047,#EAB308)}
+.m-at-info{flex:1;min-width:0}
+.m-at-top{display:flex;align-items:center;justify-content:space-between}
+.m-at-name{font-weight:700;font-size:.7rem;color:#1F2937;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.m-at-date{font-size:.52rem;color:#6B7280;margin-left:7px;flex-shrink:0}
+.m-at-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:1px}
+.m-at-msg{font-size:.62rem;color:#4B5563;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:flex;align-items:center;gap:4px;min-width:0}
+.m-at-msg.muted{color:#6B7280}
+.m-at-msg .it{font-style:italic;color:#6B7280}
+.m-at-msg svg{width:11px;height:11px;flex-shrink:0}
+.m-at-dots{display:inline-flex;gap:2px}
+.m-at-dots span{width:3px;height:3px;border-radius:50%;background:#9CA3AF}
+.m-at-badge{margin-left:7px;width:15px;height:15px;border-radius:50%;background:var(--tucano);color:#fff;font-size:.54rem;font-weight:800;display:grid;place-items:center;flex-shrink:0}
 
-/* KANBAN MOCKUP */
-.mock-kanban .mock-brand .mark{background:linear-gradient(135deg,#5A4FCF,#2A1F8E)}
-.kanban-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;flex:1;min-height:0}
-.k-col{background:var(--cream);border-radius:7px;padding:6px 5px;display:flex;flex-direction:column;gap:4px;overflow:hidden}
-.k-col-head{display:flex;justify-content:space-between;align-items:center;font-size:.5rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:1px}
-.k-col-head b{background:#fff;padding:1px 4px;border-radius:999px;font-weight:700;color:var(--ink);font-size:.46rem}
-.k-card{background:#fff;border:1px solid var(--line);border-radius:5px;padding:5px 5px}
-.k-card .name{font-size:.54rem;font-weight:700;color:var(--ink);margin-bottom:2px;line-height:1.1}
-.k-card .val{display:flex;justify-content:space-between;align-items:center;font-size:.48rem;color:var(--ink-mute);font-weight:600}
-.k-card .tag{padding:1px 4px;border-radius:999px;font-size:.44rem;font-weight:700;letter-spacing:.03em;background:#DEDAF8;color:#2A1F8E}
-.k-card.hot .tag{background:#FBE5C8;color:#8B4A0E}
-.k-card.won .tag{background:var(--selva-soft);color:var(--selva-deep)}
+/* ====== 3) CONVERSÕES ====== */
+.m-cv-head{padding:0 14px 10px;background:#fff;display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.m-cv-head h2{font-size:1.05rem;font-weight:700;color:#111827;line-height:1.05}
+.m-cv-head .igt{padding:4px 8px;border:1px solid #E5E7EB;border-radius:7px;font-size:.52rem;color:#374151;font-weight:600;text-align:right;line-height:1.15;white-space:nowrap}
+.m-cv-card{margin:8px 10px 0;background:#fff;border:1px solid #F3F4F6;border-radius:14px;padding:10px}
+.m-cv-card input{width:100%;background:#fff;border:1px solid #E5E7EB;border-radius:8px;padding:6px 9px;font-size:.6rem;color:#6B7280;outline:none;margin-bottom:6px}
+.m-cv-card .dr{display:flex;gap:6px;margin-bottom:6px}
+.m-cv-card .dr .dt{flex:1;background:#fff;border:1px solid #E5E7EB;border-radius:8px;padding:5px 8px;font-size:.6rem;color:#374151}
+.m-cv-card .bts{display:flex;gap:6px}
+.m-cv-card .bts button{flex:1;background:#1B1F26;color:#fff;padding:5px;border-radius:8px;font-size:.6rem;font-weight:700}
+.m-cv-orig-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.m-cv-orig-head h3{font-size:.7rem;font-weight:700;color:#111827}
+.m-cv-orig-row{display:flex;align-items:center;justify-content:space-between;padding:6px 9px;border:1px solid #F3F4F6;border-radius:8px;margin-bottom:5px}
+.m-cv-orig-row .lf{display:flex;align-items:center;gap:6px;min-width:0}
+.m-cv-orig-row .lf svg{flex-shrink:0;color:#9CA3AF}
+.m-cv-orig-row .lf span{font-size:.6rem;font-weight:700;color:#374151;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.m-cv-orig-row .ct{font-size:.66rem;font-weight:800;color:#111827;margin-left:7px}
 
-/* WHATSAPP MOCKUP */
-.mock-wa .mock-brand .mark{background:linear-gradient(135deg,#5DBB6A,#1A6D2E)}
-.mock-wa .mockup-body{padding:0;flex-direction:row;gap:0}
-.wa-side{width:96px;background:var(--cream-2);padding:8px 6px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:4px;overflow:hidden;flex-shrink:0}
-.wa-side-head{display:flex;align-items:center;gap:5px;padding:0 2px 7px;border-bottom:1px solid var(--line);margin-bottom:3px}
-.wa-side-mark{width:16px;height:16px;border-radius:4px;background:linear-gradient(135deg,#5DBB6A,#1A6D2E);display:grid;place-items:center;color:#fff;font-size:.5rem;font-weight:800}
-.wa-side-name{font-size:.58rem;font-weight:800;color:var(--ink);letter-spacing:-0.01em}
-.wa-conv{display:flex;align-items:center;gap:5px;padding:5px 4px;border-radius:6px;transition:background .2s}
-.wa-conv.active{background:#fff;box-shadow:0 2px 6px -2px rgba(15,14,12,.08)}
-.wa-ava{width:20px;height:20px;border-radius:50%;flex-shrink:0;display:grid;place-items:center;color:#fff;font-size:.48rem;font-weight:700;background:linear-gradient(135deg,var(--tucano),var(--tucano-deep))}
-.wa-ava.gr{background:linear-gradient(135deg,var(--selva),var(--selva-deep))}
-.wa-ava.dk{background:linear-gradient(135deg,#3A2E22,#1A1410)}
-.wa-ava.pu{background:linear-gradient(135deg,#9B7BFF,#5A3FB8)}
-.wa-conv-info{flex:1;min-width:0}
-.wa-conv-name{font-size:.54rem;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.1}
-.wa-conv-msg{font-size:.46rem;color:var(--ink-mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.2;margin-top:1px}
-
-.wa-chat{flex:1;padding:10px 11px;display:flex;flex-direction:column;gap:7px;background:#FFFCF7;overflow:hidden;justify-content:flex-end}
-.wa-bubble{padding:7px 9px;border-radius:11px;font-size:.54rem;line-height:1.3;max-width:90%}
-.wa-bubble.them{background:#fff;border:1px solid var(--line);align-self:flex-start;border-bottom-left-radius:3px}
-.wa-bubble.us{background:var(--tucano);color:#fff;align-self:flex-end;border-bottom-right-radius:3px}
-
-/* CONVERSÕES MOCKUP */
-.mock-conv .mock-brand .mark{background:linear-gradient(135deg,#FF8866,#C44C12)}
-.conv-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;flex-shrink:0}
-.conv-stat{background:var(--cream);border-radius:7px;padding:6px 7px}
-.conv-stat-num{font-family:'Arimo',system-ui,sans-serif;font-size:1rem;font-weight:700;color:var(--ink);line-height:1;letter-spacing:-0.035em;margin-bottom:2px}
-.conv-stat-num.acc{color:var(--tucano)}
-.conv-stat-num.green{color:var(--selva-deep)}
-.conv-stat-label{font-size:.44rem;color:var(--ink-mute);font-weight:700;letter-spacing:.04em;text-transform:uppercase}
-.conv-chart{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center;flex:1;min-height:0}
-.conv-donut{width:78px;height:78px;border-radius:50%;background:conic-gradient(var(--tucano) 0 38%,var(--selva) 38% 60%,#5A4FCF 60% 78%,#FFB46E 78% 92%,var(--cream-2) 92% 100%);display:grid;place-items:center;flex-shrink:0;position:relative}
-.conv-donut::after{content:"";width:42px;height:42px;border-radius:50%;background:#fff;position:absolute}
-.conv-donut-center{position:relative;z-index:1;text-align:center;font-size:.5rem;font-weight:700;color:var(--ink);line-height:1}
-.conv-donut-center b{font-family:'Arimo',system-ui,sans-serif;font-size:.86rem;font-weight:700;display:block;line-height:1}
-.conv-legend{display:flex;flex-direction:column;gap:4px;font-size:.5rem;min-width:0}
-.conv-legend-item{display:flex;align-items:center;gap:5px;color:var(--ink-2);white-space:nowrap;overflow:hidden}
-.conv-legend-item .sq{width:7px;height:7px;border-radius:2px;flex-shrink:0}
+/* ====== 4) REDE SOCIAL ====== */
+.m-rs-head{padding:0 14px 10px;background:#fff;display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.m-rs-head h2{font-size:.92rem;font-weight:700;color:#111827;line-height:1.05}
+.m-rs-head button{padding:4px 9px;border:1px solid #E5E7EB;border-radius:7px;font-size:.55rem;color:#374151;font-weight:600}
+.m-rs-acc{padding:0 14px 8px;background:#fff;display:flex;align-items:center;gap:9px}
+.m-rs-ava{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#FEB494,#FF6828,#FD8BAA);padding:2px;flex-shrink:0}
+.m-rs-ava-in{width:100%;height:100%;border-radius:50%;background:#fff;display:grid;place-items:center;font-weight:800;font-size:.6rem;color:#1F2937}
+.m-rs-acc .nm{font-size:.66rem;font-weight:700;color:#111827}
+.m-rs-acc .dt{font-size:.5rem;color:#6B7280}
+.m-rs-stats{padding:8px 14px 10px;background:#fff;display:grid;grid-template-columns:repeat(3,1fr);gap:5px;text-align:center;border-top:1px solid #F3F4F6}
+.m-rs-stats .nb{font-weight:700;font-size:.78rem;color:#111827}
+.m-rs-stats .lb{font-size:.5rem;color:#6B7280;line-height:1.1}
+.m-rs-metrics{padding:8px 10px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
+.m-rs-metric{background:#fff;border:1px solid #F3F4F6;border-radius:9px;padding:7px}
+.m-rs-metric .lb{font-size:.5rem;color:#4B5563;font-weight:700;margin-bottom:1px}
+.m-rs-metric .nb{font-size:.88rem;font-weight:700;color:#111827;line-height:1}
+.m-rs-metric .up{font-size:.5rem;font-weight:800;color:var(--selva);display:inline-flex;align-items:center;gap:2px;margin-top:5px}
+.m-rs-metric .up svg{width:6px;height:6px}
+.m-rs-mini{padding:6px 10px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
+.m-rs-mini .it{background:#fff;border:1px solid #F3F4F6;border-radius:8px;padding:6px}
+.m-rs-mini .it .lb{font-size:.48rem;color:#4B5563}
+.m-rs-mini .it .nb{font-size:.7rem;font-weight:700;color:#111827}
+.m-rs-mini .it .up{font-size:.48rem;font-weight:700;color:var(--selva)}
+.m-rs-chart{margin:8px 10px 0;background:#fff;border:1px solid #F3F4F6;border-radius:13px;padding:10px}
+.m-rs-chart .tt{font-size:.6rem;font-weight:700;color:#111827;margin-bottom:6px}
+.m-rs-bars{display:flex;align-items:flex-end;gap:3px;height:42px}
+.m-rs-bars div{flex:1;background:var(--selva);border-top-left-radius:2px;border-top-right-radius:2px}
+.m-rs-chart .xl{display:flex;justify-content:space-between;font-size:.46rem;color:#9CA3AF;margin-top:3px}
 
 /* CAROUSEL DOTS */
 .carousel-dots{display:flex;justify-content:center;gap:6px;margin:8px 0 14px;flex-shrink:0;position:relative;z-index:2}
@@ -576,136 +636,266 @@ h2.success-title em{font-style:normal;color:var(--tucano);font-weight:700}
     <!-- Carousel of product mockups -->
     <div class="carousel-wrap fade-up d3">
       <div class="carousel" id="carousel">
-        <!-- KANBAN -->
-        <div class="mockup mock-kanban">
-          <div class="mockup-bar">
-            <div class="dots"><span></span><span></span><span></span></div>
-            <div class="mockup-url">app.suamarca.com.br/funil</div>
+
+        <!-- 1) CRM — Funil -->
+        <div class="mockup" id="mk-crm" aria-label="CRM — Funil de vendas">
+          <div class="m-hamb"><span></span><span></span><span></span></div>
+          <div class="m-crm-filters">
+            <button>+ Filtro</button>
+            <button>Buscar</button>
           </div>
-          <div class="mockup-body">
-            <div class="mock-head">
-              <div class="mock-brand"><span class="mark">M</span>Sua Marca</div>
-              <span class="mock-pill live">Live</span>
+          <div class="m-crm-toolbar">
+            <div class="tg">
+              <button class="act" aria-label="Kanban">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="#fff"><rect x="3" y="3" width="7" height="18" rx="1.5"/><rect x="14" y="3" width="7" height="10" rx="1.5"/></svg>
+              </button>
+              <button aria-label="Lista">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="#9CA3AF"><rect x="3" y="5" width="18" height="2.5" rx="1.25"/><rect x="3" y="11" width="18" height="2.5" rx="1.25"/><rect x="3" y="17" width="18" height="2.5" rx="1.25"/></svg>
+              </button>
             </div>
-            <div class="mock-section-title">Funil de vendas</div>
-            <div class="kanban-cols">
-              <div class="k-col">
-                <div class="k-col-head"><span>Novo</span><b>4</b></div>
-                <div class="k-card"><div class="name">Cliente A</div><div class="val">R$ 2k <span class="tag">novo</span></div></div>
-                <div class="k-card"><div class="name">Cliente B</div><div class="val">R$ 3k <span class="tag">novo</span></div></div>
-                <div class="k-card"><div class="name">Cliente C</div><div class="val">R$ 1k <span class="tag">novo</span></div></div>
+            <span class="add"><span class="pl">+</span>Adicionar</span>
+          </div>
+          <div class="m-crm-col">
+            <div class="m-crm-col-head">
+              <div class="lf"><span class="nm">Novo lead</span><span class="ct m-pulse-badge">4</span></div>
+              <span class="pls">+</span>
+            </div>
+            <div class="m-crm-col-sub">R$ 12.400,00</div>
+            <div class="m-crm-card m-slide-in" style="animation-delay:0s">
+              <div class="gr">
+                <div><div class="lb">Contato</div><div class="vl">João Silva</div></div>
+                <div><div class="lb">Prioridade</div><div class="vl">Alta</div></div>
               </div>
-              <div class="k-col">
-                <div class="k-col-head"><span>Quente</span><b>3</b></div>
-                <div class="k-card hot"><div class="name">Cliente D</div><div class="val">R$ 6k <span class="tag">hot</span></div></div>
-                <div class="k-card hot"><div class="name">Cliente E</div><div class="val">R$ 4k <span class="tag">hot</span></div></div>
+              <div class="obs"><div class="lb">Observação</div><div class="tx">Pediu proposta de white-label, fazer follow-up amanhã às 10h</div></div>
+              <div class="ft"><span class="pr">R$ 2.800,00</span><span class="av">JS</span></div>
+            </div>
+            <div class="m-crm-card m-slide-in" style="animation-delay:.15s">
+              <div class="gr">
+                <div><div class="lb">Contato</div><div class="vl">Maria Costa</div></div>
+                <div><div class="lb">Prioridade</div><div class="vl">Média</div></div>
               </div>
-              <div class="k-col">
-                <div class="k-col-head"><span>Won</span><b>5</b></div>
-                <div class="k-card won"><div class="name">Cliente F</div><div class="val">R$ 9k <span class="tag">won</span></div></div>
-                <div class="k-card won"><div class="name">Cliente G</div><div class="val">R$ 5k <span class="tag">won</span></div></div>
+              <div class="obs"><div class="lb">Observação</div><div class="tx">Quer entender modelo de pagamento Pix automático</div></div>
+              <div class="ft"><span class="pr">R$ 1.900,00</span><span class="av">MC</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2) Atendimento — WhatsApp -->
+        <div class="mockup" id="mk-at" aria-label="Atendimento — WhatsApp">
+          <div class="m-at-pat"></div>
+          <div class="m-hamb"><span></span><span></span><span></span></div>
+          <div class="m-at-num">
+            <span class="pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+              +55 11 93620-4338
+            </span>
+            <svg class="cog" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </div>
+          <div class="m-at-search">
+            <div class="ip">
+              <input type="text" placeholder="Pesquisar por nome ou número" readonly />
+              <svg class="ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+          </div>
+          <div class="m-at-tabs">
+            <button class="on">Tudo</button>
+            <button class="off">Minhas</button>
+          </div>
+          <div class="m-at-list">
+            <div class="m-at-row m-slide-in" style="animation-delay:0s">
+              <div class="m-at-av purple">JS</div>
+              <div class="m-at-info">
+                <div class="m-at-top"><div class="m-at-name">João Silva</div><div class="m-at-date">18/05/2026</div></div>
+                <div class="m-at-bottom">
+                  <div class="m-at-msg">
+                    <span class="m-at-dots"><span class="m-typing-dot" style="animation-delay:0s"></span><span class="m-typing-dot" style="animation-delay:.2s"></span><span class="m-typing-dot" style="animation-delay:.4s"></span></span>
+                    <span class="it">digitando…</span>
+                  </div>
+                  <span class="m-at-badge m-pulse-glow">1</span>
+                </div>
+              </div>
+            </div>
+            <div class="m-at-row m-slide-in" style="animation-delay:.1s">
+              <div class="m-at-av gray">MC</div>
+              <div class="m-at-info">
+                <div class="m-at-top"><div class="m-at-name">Maria Costa</div><div class="m-at-date">18/05/2026</div></div>
+                <div class="m-at-bottom">
+                  <div class="m-at-msg">Pode confirmar o agendamento?</div>
+                  <span class="m-at-badge">1</span>
+                </div>
+              </div>
+            </div>
+            <div class="m-at-row m-slide-in" style="animation-delay:.2s">
+              <div class="m-at-av orange">DD</div>
+              <div class="m-at-info">
+                <div class="m-at-top"><div class="m-at-name">Decole Digital</div><div class="m-at-date">18/05/2026</div></div>
+                <div class="m-at-bottom">
+                  <div class="m-at-msg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#6B7280" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                    Proposta_v2.pdf
+                  </div>
+                  <span class="m-at-badge">2</span>
+                </div>
+              </div>
+            </div>
+            <div class="m-at-row m-slide-in" style="animation-delay:.3s">
+              <div class="m-at-av gray">PA</div>
+              <div class="m-at-info">
+                <div class="m-at-top"><div class="m-at-name">Pedro Almeida</div><div class="m-at-date">18/05/2026</div></div>
+                <div class="m-at-msg muted">Tudo certo, sem problemas. Mas, para essa questão, vo…</div>
+              </div>
+            </div>
+            <div class="m-at-row m-slide-in" style="animation-delay:.4s">
+              <div class="m-at-av blue">AS</div>
+              <div class="m-at-info">
+                <div class="m-at-top"><div class="m-at-name">Ana Souza</div><div class="m-at-date">18/05/2026</div></div>
+                <div class="m-at-msg muted">Após o pagamento, basta entrar no seu acesso…</div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- WHATSAPP -->
-        <div class="mockup mock-wa">
-          <div class="mockup-bar">
-            <div class="dots"><span></span><span></span><span></span></div>
-            <div class="mockup-url">app.suamarca.com.br/whatsapp</div>
+        <!-- 3) Conversões -->
+        <div class="mockup" id="mk-cv" aria-label="Conversões — Rastreamento">
+          <div class="m-hamb"><span></span><span></span><span></span></div>
+          <div class="m-cv-head">
+            <h2>Conversões</h2>
+            <span class="igt">Integrações<br/>Meta Ads</span>
           </div>
-          <div class="mockup-body">
-            <div class="wa-side">
-              <div class="wa-side-head">
-                <span class="wa-side-mark">M</span>
-                <span class="wa-side-name">Sua Marca</span>
-              </div>
-              <div class="wa-conv active">
-                <div class="wa-ava">SP</div>
-                <div class="wa-conv-info">
-                  <div class="wa-conv-name">Sabrina P.</div>
-                  <div class="wa-conv-msg">Bom dia, tudo bem?</div>
-                </div>
-              </div>
-              <div class="wa-conv">
-                <div class="wa-ava gr">JR</div>
-                <div class="wa-conv-info">
-                  <div class="wa-conv-name">João R.</div>
-                  <div class="wa-conv-msg">Recebi a proposta</div>
-                </div>
-              </div>
-              <div class="wa-conv">
-                <div class="wa-ava dk">AC</div>
-                <div class="wa-conv-info">
-                  <div class="wa-conv-name">Ana C.</div>
-                  <div class="wa-conv-msg">Obrigada!</div>
-                </div>
-              </div>
-              <div class="wa-conv">
-                <div class="wa-ava pu">MR</div>
-                <div class="wa-conv-info">
-                  <div class="wa-conv-name">Márcia R.</div>
-                  <div class="wa-conv-msg">Pode confirmar?</div>
-                </div>
-              </div>
+          <div class="m-cv-card">
+            <input type="text" placeholder="Origem, nome ou número" readonly />
+            <div class="dr">
+              <div class="dt">18/04/2026</div>
+              <div class="dt">18/05/2026</div>
             </div>
-            <div class="wa-chat">
-              <div class="wa-bubble them">Bom dia! Vocês têm a vacina?</div>
-              <div class="wa-bubble us">Temos sim! Posso te ajudar com o agendamento.</div>
-              <div class="wa-bubble them">Perfeito, queria ver os horários.</div>
-              <div class="wa-bubble us">Te mando agora.</div>
+            <div class="bts">
+              <button>Buscar</button>
+              <button>Limpar filtros</button>
+            </div>
+          </div>
+          <div class="m-cv-card">
+            <div class="m-cv-orig-head">
+              <h3>Origem</h3>
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#6B7280" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="m-cv-orig-row m-slide-in" style="animation-delay:.05s">
+              <div class="lf">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                <span>Anúncio Instagram</span>
+              </div>
+              <span class="ct" data-count-to="218">0</span>
+            </div>
+            <div class="m-cv-orig-row m-slide-in" style="animation-delay:.15s">
+              <div class="lf">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                <span>Botão site</span>
+              </div>
+              <span class="ct" data-count-to="142">0</span>
+            </div>
+            <div class="m-cv-orig-row m-slide-in" style="animation-delay:.25s">
+              <div class="lf">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                <span>Link bio</span>
+              </div>
+              <span class="ct" data-count-to="84">0</span>
+            </div>
+            <div class="m-cv-orig-row m-slide-in" style="animation-delay:.35s">
+              <div class="lf">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                <span>Indicação</span>
+              </div>
+              <span class="ct" data-count-to="43">0</span>
+            </div>
+          </div>
+          <div class="m-cv-card" style="margin-bottom:10px">
+            <div class="m-cv-orig-head"><h3>Distribuição por origem</h3></div>
+            <div style="display:flex;align-items:center;gap:11px">
+              <svg viewBox="0 0 42 42" width="86" height="86" style="flex-shrink:0">
+                <circle cx="21" cy="21" r="15.915" fill="#fff" stroke="#F3F4F6" stroke-width="6"/>
+                <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#FF6828" stroke-width="6" stroke-dasharray="60 40" stroke-dashoffset="0" transform="rotate(-90 21 21)" class="m-fade-seg" style="animation-delay:.2s"/>
+                <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#1FB041" stroke-width="6" stroke-dasharray="25 75" stroke-dashoffset="-60" transform="rotate(-90 21 21)" class="m-fade-seg" style="animation-delay:.4s"/>
+                <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#FEB494" stroke-width="6" stroke-dasharray="10 90" stroke-dashoffset="-85" transform="rotate(-90 21 21)" class="m-fade-seg" style="animation-delay:.6s"/>
+                <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#ECD7BA" stroke-width="6" stroke-dasharray="5 95" stroke-dashoffset="-95" transform="rotate(-90 21 21)" class="m-fade-seg" style="animation-delay:.8s"/>
+              </svg>
+              <div style="display:flex;flex-direction:column;gap:5px;font-size:.55rem;color:#374151">
+                <div style="display:flex;align-items:center;gap:5px"><span style="width:8px;height:8px;border-radius:2px;background:#FF6828"></span>Anúncio IG</div>
+                <div style="display:flex;align-items:center;gap:5px"><span style="width:8px;height:8px;border-radius:2px;background:#1FB041"></span>Botão site</div>
+                <div style="display:flex;align-items:center;gap:5px"><span style="width:8px;height:8px;border-radius:2px;background:#FEB494"></span>Link bio</div>
+                <div style="display:flex;align-items:center;gap:5px"><span style="width:8px;height:8px;border-radius:2px;background:#ECD7BA"></span>Indicação</div>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- CONVERSÕES -->
-        <div class="mockup mock-conv">
-          <div class="mockup-bar">
-            <div class="dots"><span></span><span></span><span></span></div>
-            <div class="mockup-url">app.suamarca.com.br/conversoes</div>
+        <!-- 4) Rede Social — Relatórios -->
+        <div class="mockup" id="mk-rs" aria-label="Rede Social — Relatórios">
+          <div class="m-hamb"><span></span><span></span><span></span></div>
+          <div class="m-rs-head">
+            <h2>Relatórios e Insights</h2>
+            <button>Voltar</button>
           </div>
-          <div class="mockup-body">
-            <div class="mock-head">
-              <div class="mock-brand"><span class="mark">M</span>Sua Marca</div>
-              <span class="mock-pill">Maio</span>
+          <div class="m-rs-acc">
+            <div class="m-rs-ava"><div class="m-rs-ava-in">SM</div></div>
+            <div style="min-width:0;flex:1">
+              <div class="nm">Instagram — suamarca</div>
+              <div class="dt">18/04/2026 a 18/05/2026</div>
             </div>
-            <div class="conv-stats">
-              <div class="conv-stat">
-                <div class="conv-stat-num">128</div>
-                <div class="conv-stat-label">Ad HPV</div>
-              </div>
-              <div class="conv-stat">
-                <div class="conv-stat-num acc">240</div>
-                <div class="conv-stat-label">Botão LP</div>
-              </div>
-              <div class="conv-stat">
-                <div class="conv-stat-num green">120</div>
-                <div class="conv-stat-label">Domicilar</div>
-              </div>
+          </div>
+          <div class="m-rs-stats">
+            <div><div class="nb" data-count-to="103">0</div><div class="lb">publicações</div></div>
+            <div><div class="nb" data-count-to="10236">0</div><div class="lb">seguidores</div></div>
+            <div><div class="nb" data-count-to="2">0</div><div class="lb">seguindo</div></div>
+          </div>
+          <div class="m-rs-metrics">
+            <div class="m-rs-metric">
+              <div class="lb">Alcance</div>
+              <div class="nb" data-count-to="410" data-suffix="k">0</div>
+              <span class="up m-bounce-arrow"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 22 22 2 22"/></svg>87,5%</span>
             </div>
-            <div class="mock-section-title">Origem das conversões</div>
-            <div class="conv-chart">
-              <div class="conv-donut">
-                <div class="conv-donut-center"><b>488</b>leads</div>
-              </div>
-              <div class="conv-legend">
-                <div class="conv-legend-item"><span class="sq" style="background:var(--tucano)"></span>Ad HPV</div>
-                <div class="conv-legend-item"><span class="sq" style="background:var(--selva)"></span>Botão LP</div>
-                <div class="conv-legend-item"><span class="sq" style="background:#5A4FCF"></span>IG Bio</div>
-                <div class="conv-legend-item"><span class="sq" style="background:#FFB46E"></span>Ad Pneumo</div>
-                <div class="conv-legend-item"><span class="sq" style="background:var(--cream-2)"></span>Outras</div>
-              </div>
+            <div class="m-rs-metric">
+              <div class="lb">Visualizações</div>
+              <div class="nb" data-count-to="1.5" data-suffix="M" data-decimal="1">0</div>
+              <span class="up m-bounce-arrow" style="animation-delay:.15s"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 22 22 2 22"/></svg>31,2%</span>
             </div>
+            <div class="m-rs-metric">
+              <div class="lb">Interações</div>
+              <div class="nb" data-count-to="9" data-suffix="k">0</div>
+              <span class="up m-bounce-arrow" style="animation-delay:.3s"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 22 22 2 22"/></svg>31,5%</span>
+            </div>
+          </div>
+          <div class="m-rs-mini">
+            <div class="it"><div class="lb">Curtidas</div><div class="nb" data-count-to="5.1" data-suffix="k" data-decimal="1">0</div><div class="up">▲ 33,5%</div></div>
+            <div class="it"><div class="lb">Comentários</div><div class="nb" data-count-to="280">0</div><div class="up">▲ 46,3%</div></div>
+            <div class="it"><div class="lb">Compart.</div><div class="nb" data-count-to="1.2" data-suffix="k" data-decimal="1">0</div><div class="up">▲ 46,9%</div></div>
+          </div>
+          <div class="m-rs-chart">
+            <div class="tt">Evolução de seguidores</div>
+            <div class="m-rs-bars">
+              <div class="m-grow-bar" style="height:50%;animation-delay:.1s"></div>
+              <div class="m-grow-bar" style="height:65%;animation-delay:.15s"></div>
+              <div class="m-grow-bar" style="height:60%;animation-delay:.2s"></div>
+              <div class="m-grow-bar" style="height:70%;animation-delay:.25s"></div>
+              <div class="m-grow-bar" style="height:85%;animation-delay:.3s"></div>
+              <div class="m-grow-bar" style="height:55%;animation-delay:.35s"></div>
+              <div class="m-grow-bar" style="height:78%;animation-delay:.4s"></div>
+              <div class="m-grow-bar" style="height:90%;animation-delay:.45s"></div>
+              <div class="m-grow-bar" style="height:72%;animation-delay:.5s"></div>
+              <div class="m-grow-bar" style="height:80%;animation-delay:.55s"></div>
+              <div class="m-grow-bar" style="height:68%;animation-delay:.6s"></div>
+              <div class="m-grow-bar" style="height:95%;animation-delay:.65s"></div>
+            </div>
+            <div class="xl"><span>18/04</span><span>02/05</span><span>18/05</span></div>
           </div>
         </div>
+
       </div>
     </div>
 
     <div class="carousel-dots fade-up d4">
-      <button class="active" data-dot="0" aria-label="Funil de vendas"></button>
-      <button data-dot="1" aria-label="WhatsApp"></button>
+      <button class="active" data-dot="0" aria-label="CRM — Funil"></button>
+      <button data-dot="1" aria-label="Atendimento"></button>
       <button data-dot="2" aria-label="Conversões"></button>
+      <button data-dot="3" aria-label="Rede Social"></button>
     </div>
 
     <div class="hero-ctas fade-up d4">
@@ -1491,27 +1681,76 @@ function playDemoVideo(){
   console.log('[Video] demo played');
 }
 
-// ===== CAROUSEL DOTS =====
+// ===== CAROUSEL DOTS + AUTO-ROTATION =====
 const carousel=document.getElementById('carousel');
 const dots=document.querySelectorAll('.carousel-dots button');
-let scrollTimeout;
+let scrollTimeout,autoTimer,userInteracted=false;
+
+function currentIdx(){
+  const cards=carousel.querySelectorAll('.mockup');
+  if(!cards.length)return 0;
+  const cardWidth=cards[0].offsetWidth+14;
+  return Math.round(carousel.scrollLeft/cardWidth);
+}
+function goTo(i){
+  const cards=carousel.querySelectorAll('.mockup');
+  if(!cards.length)return;
+  const cardWidth=cards[0].offsetWidth+14;
+  carousel.scrollTo({left:i*cardWidth,behavior:'smooth'});
+}
 carousel.addEventListener('scroll',()=>{
   clearTimeout(scrollTimeout);
   scrollTimeout=setTimeout(()=>{
-    const cards=carousel.querySelectorAll('.mockup');
-    const scrollLeft=carousel.scrollLeft;
-    const cardWidth=cards[0].offsetWidth+14;
-    const idx=Math.round(scrollLeft/cardWidth);
+    const idx=currentIdx();
     dots.forEach((d,i)=>d.classList.toggle('active',i===idx));
   },80);
 });
 dots.forEach((dot,i)=>{
-  dot.addEventListener('click',()=>{
-    const cards=carousel.querySelectorAll('.mockup');
-    const cardWidth=cards[0].offsetWidth+14;
-    carousel.scrollTo({left:i*cardWidth,behavior:'smooth'});
-  });
+  dot.addEventListener('click',()=>{userInteracted=true;clearInterval(autoTimer);goTo(i);});
 });
+['touchstart','pointerdown','wheel'].forEach(ev=>{
+  carousel.addEventListener(ev,()=>{userInteracted=true;clearInterval(autoTimer);},{passive:true});
+});
+function startAutoRotate(){
+  if(userInteracted)return;
+  clearInterval(autoTimer);
+  autoTimer=setInterval(()=>{
+    if(userInteracted){clearInterval(autoTimer);return;}
+    const cards=carousel.querySelectorAll('.mockup');
+    const next=(currentIdx()+1)%cards.length;
+    goTo(next);
+  },3000);
+}
+const rotObs=new IntersectionObserver((es)=>{
+  es.forEach(e=>{if(e.isIntersecting)startAutoRotate();else clearInterval(autoTimer);});
+},{threshold:.4});
+rotObs.observe(carousel);
+
+// ===== MOCKUP COUNT-UP =====
+function easeOutCubic(t){return 1-Math.pow(1-t,3);}
+function animateCount(el){
+  const target=parseFloat(el.dataset.countTo);
+  const suffix=el.dataset.suffix||'';
+  const decimal=parseInt(el.dataset.decimal||'0');
+  const duration=1600,start=performance.now();
+  function tick(now){
+    const t=Math.min((now-start)/duration,1);
+    const v=target*easeOutCubic(t);
+    const f=decimal>0?v.toFixed(decimal).replace('.',','):Math.floor(v).toLocaleString('pt-BR');
+    el.textContent=f+suffix;
+    if(t<1)requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+const countObs=new IntersectionObserver((es)=>{
+  es.forEach(e=>{
+    if(e.isIntersecting&&!e.target.dataset.animated){
+      e.target.dataset.animated='1';
+      animateCount(e.target);
+    }
+  });
+},{threshold:.3});
+document.querySelectorAll('[data-count-to]').forEach(el=>countObs.observe(el));
 
 // ===== SIMULATOR =====
 const simPrice=document.getElementById('sim-price');
