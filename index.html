@@ -672,7 +672,7 @@ h2.success-title em{font-style:normal;color:var(--tucano);font-weight:700}
     </div>
 
     <p class="hero-reforco hero-stagger d-100">
-      Plataforma pronta. <strong>70% da receita é seu, pra sempre.</strong>
+      Plataforma pronta. <strong>Você fica com 70% da mensalidade enquanto o cliente for ativo.</strong>
     </p>
 
     <div class="hero-ctas hero-stagger d-200">
@@ -685,7 +685,7 @@ h2.success-title em{font-style:normal;color:var(--tucano);font-weight:700}
 
     <div class="hero-stats hero-stagger d-300" id="hero-stats">
       <div class="hero-stat">
-        <span class="hero-stat-num acc" data-count-to="70" data-count-format="percent">70<small>%</small></span>
+        <span class="hero-stat-num acc"><span class="hero-stat-val" data-count-to="70">70</span><small>%</small></span>
         <span class="hero-stat-label">Da Receita</span>
       </div>
       <span class="hero-stat-sep" aria-hidden="true">·</span>
@@ -695,7 +695,7 @@ h2.success-title em{font-style:normal;color:var(--tucano);font-weight:700}
       </div>
       <span class="hero-stat-sep" aria-hidden="true">·</span>
       <div class="hero-stat">
-        <span class="hero-stat-num" data-count-to="10" data-count-format="mil">10mil<small>+</small></span>
+        <span class="hero-stat-num"><span class="hero-stat-val" data-count-to="10">10</span>mil<small>+</small></span>
         <span class="hero-stat-label">Parceiros</span>
       </div>
     </div>
@@ -1751,32 +1751,21 @@ function playDemoVideo(){
 const heroStatsEl=document.getElementById('hero-stats');
 const reducedMotionQuery=window.matchMedia('(prefers-reduced-motion: reduce)');
 if(heroStatsEl){
-  const renderStat=(el,value)=>{
-    const fmt=el.dataset.countFormat;
-    if(fmt==='percent'){
-      el.innerHTML=value+'<small>%</small>';
-    }else if(fmt==='mil'){
-      el.innerHTML=value+'mil<small>+</small>';
-    }else{
-      el.textContent=value;
-    }
-  };
   const animateStat=(el)=>{
     const to=parseInt(el.dataset.countTo,10);
     if(!Number.isFinite(to))return;
-    if(reducedMotionQuery.matches){renderStat(el,to);return;}
+    if(reducedMotionQuery.matches){el.textContent=to;return;}
     const duration=800;
     const start=performance.now();
     const ease=t=>1-Math.pow(1-t,3);
-    renderStat(el,0);
+    el.textContent='0';
     const tick=(now)=>{
       const p=Math.min((now-start)/duration,1);
-      renderStat(el,Math.round(to*ease(p)));
+      el.textContent=Math.round(to*ease(p));
       if(p<1)requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
   };
-  const statsRoot=document.querySelector('[data-screen="hero"]');
   const statsIO=new IntersectionObserver((entries)=>{
     entries.forEach(entry=>{
       if(entry.isIntersecting){
@@ -1784,7 +1773,7 @@ if(heroStatsEl){
         statsIO.disconnect();
       }
     });
-  },{root:statsRoot,threshold:0.35});
+  },{threshold:0.35});
   statsIO.observe(heroStatsEl);
 }
 
