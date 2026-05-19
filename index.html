@@ -292,7 +292,7 @@ h1.hero-headline em{font-style:normal;color:var(--tucano);font-weight:700}
 .btn-wa{background:var(--wa);color:#fff;font-size:.96rem;box-shadow:0 8px 22px -10px rgba(37,211,102,.55)}
 .btn-wa:hover{background:var(--wa-deep);transform:translateY(-1px);box-shadow:0 12px 24px -10px rgba(37,211,102,.6)}
 
-.hero-ctas{display:flex;flex-direction:column;gap:10px;padding-top:6px;flex-shrink:0;position:relative;z-index:2}
+.hero-ctas{display:flex;flex-direction:column;gap:8px;padding-top:4px;margin-bottom:18px;flex-shrink:0;position:relative;z-index:2}
 
 /* ==========================================
    LANDING SECTIONS (between hero and quiz)
@@ -540,6 +540,74 @@ h2.success-title em{font-style:normal;color:var(--tucano);font-weight:700}
 .fade-up.d3{animation-delay:.22s}
 .fade-up.d4{animation-delay:.30s}
 .fade-up.d5{animation-delay:.38s}
+
+/* HERO STAGGER — translateY(8px), 300ms, delays 100→400ms */
+.hero-stagger{opacity:0;transform:translateY(8px);animation:heroStaggerIn .3s cubic-bezier(.2,.8,.2,1) forwards}
+.hero-stagger.d-100{animation-delay:.1s}
+.hero-stagger.d-200{animation-delay:.2s}
+.hero-stagger.d-300{animation-delay:.3s}
+.hero-stagger.d-400{animation-delay:.4s}
+@keyframes heroStaggerIn{to{opacity:1;transform:translateY(0)}}
+
+/* HERO REFORÇO — 1 linha de reforço sob o H1 */
+.hero-reforco{font-size:1.02rem;color:var(--ink-2);line-height:1.4;margin:0 0 18px;max-width:520px;position:relative;z-index:2}
+.hero-reforco strong{color:var(--ink);font-weight:700}
+
+/* HERO STATS — linha única, 3 colunas com separador · */
+.hero-stats{display:flex;align-items:baseline;justify-content:center;gap:8px;flex-wrap:nowrap;margin:2px 0 16px;position:relative;z-index:2;font-family:'Arimo',system-ui,sans-serif}
+.hero-stat{display:inline-flex;align-items:baseline;gap:5px;min-width:0;white-space:nowrap}
+.hero-stat-num{font-size:1.04rem;font-weight:700;color:var(--ink);line-height:1;letter-spacing:-0.03em;font-variant-numeric:tabular-nums}
+.hero-stat-num.acc{color:var(--tucano)}
+.hero-stat-num small{font-size:.7em;font-weight:600;color:inherit;opacity:.85}
+.hero-stat-label{font-size:.72rem;font-weight:500;color:var(--ink-mute);letter-spacing:-0.005em;white-space:nowrap}
+.hero-stat-sep{color:var(--line-strong);font-weight:400;font-size:.95rem;line-height:1}
+@media (max-width:390px){
+  .hero-stats{gap:5px}
+  .hero-stat{gap:4px}
+  .hero-stat-num{font-size:.96rem}
+  .hero-stat-label{font-size:.66rem}
+}
+
+/* HERO CTA SECONDARY — text link discreto sob o botão */
+.hero-cta-secondary{display:block;width:100%;text-align:center;margin-top:2px;font-size:.92rem;font-weight:500;color:var(--ink-mute);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;background:none;border:0;padding:8px;cursor:pointer;font-family:inherit;transition:color .2s ease}
+.hero-cta-secondary:hover{color:var(--ink)}
+
+/* HERO MICROCOPY — abaixo do mockup */
+.hero-microcopy{text-align:center;font-size:.78rem;color:var(--ink-mute);font-weight:500;margin:2px 0 22px;position:relative;z-index:2}
+
+/* CTA PRIMÁRIO — glow breathing sutil (pausa no hover/focus) */
+.btn-cta-glow{animation:ctaGlow 2s ease-in-out infinite}
+@keyframes ctaGlow{
+  0%,100%{box-shadow:0 8px 22px -10px rgba(31,176,65,.55), 0 0 0 0 rgba(255,104,40,0), inset 0 1px 0 rgba(255,255,255,.18)}
+  50%{box-shadow:0 8px 22px -10px rgba(31,176,65,.55), 0 0 24px 4px rgba(255,104,40,.22), inset 0 1px 0 rgba(255,255,255,.18)}
+}
+.btn-cta-glow:hover,.btn-cta-glow:focus-visible{animation:none}
+
+/* CLOUDS PARALLAX — float infinito (mantém rotate base) */
+.cloud-1{animation:cloudFloatA 7s ease-in-out infinite}
+.cloud-2{animation:cloudFloatB 8.5s ease-in-out infinite .4s}
+.cloud-3{animation:cloudFloatC 6s ease-in-out infinite .2s}
+@keyframes cloudFloatA{0%,100%{transform:rotate(6deg) translateY(0)}50%{transform:rotate(6deg) translateY(-10px)}}
+@keyframes cloudFloatB{0%,100%{transform:rotate(-14deg) translateY(0)}50%{transform:rotate(-14deg) translateY(-7px)}}
+@keyframes cloudFloatC{0%,100%{transform:rotate(18deg) translateY(0)}50%{transform:rotate(18deg) translateY(-12px)}}
+
+/* CRM LIVE DEMO — card "Cliente novo" surge a cada 4s */
+.m-crm-card.live-new{position:relative;border-color:var(--tucano);background:linear-gradient(180deg,var(--tucano-soft) 0%,#fff 80%);animation:liveCardIn 4s cubic-bezier(.2,.8,.2,1) infinite;transform-origin:left center;will-change:transform,opacity}
+.m-crm-card.live-new::after{content:"";position:absolute;top:6px;right:7px;width:6px;height:6px;border-radius:50%;background:var(--tucano);box-shadow:0 0 0 3px rgba(255,104,40,.18)}
+@keyframes liveCardIn{
+  0%{opacity:0;transform:translateX(22px) scale(.96)}
+  8%,86%{opacity:1;transform:translateX(0) scale(1)}
+  100%{opacity:0;transform:translateX(22px) scale(.96)}
+}
+
+/* PREFERS-REDUCED-MOTION — desliga animações de movimento */
+@media (prefers-reduced-motion: reduce){
+  .hero-stagger{opacity:1;transform:none;animation:none}
+  .btn-cta-glow{animation:none}
+  .cloud-1,.cloud-2,.cloud-3{animation:none}
+  .m-crm-card.live-new{animation:none;opacity:1;transform:none}
+  .hero-eyebrow .dot{animation:none}
+}
 @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
 
 /* Reveal — sempre visível (animação só no transform inicial) */
@@ -594,52 +662,46 @@ h2.success-title em{font-style:normal;color:var(--tucano);font-weight:700}
     </div>
 
     <!-- HERO -->
-    <div class="hero-eyebrow fade-up">
-      <span class="dot"></span>
-      <span>Programa de Parceiros</span>
-    </div>
-
     <div class="hero-top">
       <div class="hero-top-text">
-        <h1 class="hero-headline fade-up d1">
-          Crie e venda um <em>SaaS com a sua marca</em>, em poucos passos.
+        <h1 class="hero-headline hero-stagger">
+          Crie e venda um <em>SaaS com a sua marca</em>.
         </h1>
       </div>
-      <div class="bolty bolty-hero fade-up d1" aria-hidden="true"></div>
+      <div class="bolty bolty-hero hero-stagger" aria-hidden="true"></div>
     </div>
 
-    <p class="hero-sub fade-up d2">
-      Plataforma completa: <strong>CRM, WhatsApp, IA, Redes Sociais e Conversões</strong>. Você fica com até 70% da receita recorrente de cada cliente.
+    <p class="hero-reforco hero-stagger d-100">
+      Plataforma pronta. <strong>70% da receita é seu, pra sempre.</strong>
     </p>
 
-    <ul class="hero-checks fade-up d2">
-      <li>
-        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-        <span>Não sabe como começar? <b>A gente te apoia em cada passo</b></span>
-      </li>
-      <li>
-        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-        <span><b>Sem risco:</b> cadastro 100% grátis, sem cartão</span>
-      </li>
-    </ul>
+    <div class="hero-ctas hero-stagger d-200">
+      <button class="btn btn-primary btn-cta-glow" onclick="goToForm('hero')">
+        Quero começar agora, sem custo
+        <span class="arrow">→</span>
+      </button>
+      <button type="button" class="hero-cta-secondary" onclick="goToForm('hero-secondary')">Falar com nosso time</button>
+    </div>
 
-    <div class="value-strip fade-up d3">
-      <div class="value-pill accent">
-        <span class="value-num acc">70<small>%</small></span>
-        <span class="value-label">Da Receita</span>
+    <div class="hero-stats hero-stagger d-300" id="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num acc" data-count-to="70" data-count-format="percent">70<small>%</small></span>
+        <span class="hero-stat-label">Da Receita</span>
       </div>
-      <div class="value-pill">
-        <span class="value-num">R$0</span>
-        <span class="value-label">Pra Começar</span>
+      <span class="hero-stat-sep" aria-hidden="true">·</span>
+      <div class="hero-stat">
+        <span class="hero-stat-num">R$0</span>
+        <span class="hero-stat-label">Pra Começar</span>
       </div>
-      <div class="value-pill">
-        <span class="value-num">10mil<small>+</small></span>
-        <span class="value-label">Parceiros</span>
+      <span class="hero-stat-sep" aria-hidden="true">·</span>
+      <div class="hero-stat">
+        <span class="hero-stat-num" data-count-to="10" data-count-format="mil">10mil<small>+</small></span>
+        <span class="hero-stat-label">Parceiros</span>
       </div>
     </div>
 
     <!-- Carousel of product mockups -->
-    <div class="carousel-wrap fade-up d3">
+    <div class="carousel-wrap hero-stagger d-400">
       <div class="carousel" id="carousel">
 
         <!-- 1) CRM — Funil -->
@@ -681,6 +743,13 @@ h2.success-title em{font-style:normal;color:var(--tucano);font-weight:700}
               </div>
               <div class="obs"><div class="lb">Observação</div><div class="tx">Quer entender modelo de pagamento Pix automático</div></div>
               <div class="ft"><span class="pr">R$ 1.900,00</span><span class="av">MC</span></div>
+            </div>
+            <div class="m-crm-card live-new" aria-hidden="true">
+              <div class="gr">
+                <div><div class="lb">Contato</div><div class="vl">Cliente novo</div></div>
+                <div><div class="lb">Origem</div><div class="vl">Anúncio</div></div>
+              </div>
+              <div class="ft"><span class="pr">Acabou de chegar</span><span class="av">+</span></div>
             </div>
           </div>
         </div>
@@ -896,34 +965,14 @@ h2.success-title em{font-style:normal;color:var(--tucano);font-weight:700}
       </div>
     </div>
 
-    <div class="carousel-dots fade-up d4">
+    <div class="carousel-dots hero-stagger d-400">
       <button class="active" data-dot="0" aria-label="CRM — Funil"></button>
       <button data-dot="1" aria-label="Atendimento"></button>
       <button data-dot="2" aria-label="Conversões"></button>
       <button data-dot="3" aria-label="Rede Social"></button>
     </div>
 
-    <div class="hero-ctas fade-up d4">
-      <button class="btn btn-primary" onclick="goToForm('hero')">
-        Quero começar agora, sem custo
-        <span class="arrow">→</span>
-      </button>
-      <button class="btn btn-ghost" onclick="goToForm('hero-secondary')">
-        Falar com nosso time
-      </button>
-    </div>
-
-    <!-- VIDEO DEMO — click-to-play, sem autoplay no load -->
-    <section class="video-section reveal">
-      <span class="video-eyebrow">Veja em 90 segundos</span>
-      <h2 class="video-headline">A plataforma que você vai <em>vender</em>.</h2>
-      <div class="video-frame" id="video-frame" data-video-id="1t9ZQAMOjvU">
-        <img src="https://i.ytimg.com/vi/1t9ZQAMOjvU/maxresdefault.jpg" alt="Demo da plataforma Bolten" loading="lazy" width="1280" height="720">
-        <button type="button" class="video-play" aria-label="Ver demo da plataforma Bolten" onclick="playDemoVideo()">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-        </button>
-      </div>
-    </section>
+    <p class="hero-microcopy hero-stagger d-400">Sem cartão · sem mensalidade · 70% pra sempre</p>
 
     <!-- TRUST STRIP — banner preto profundo, 5 selos -->
     <div class="trust-strip">
@@ -950,6 +999,18 @@ h2.success-title em{font-style:normal;color:var(--tucano);font-weight:700}
         </div>
       </div>
     </div>
+
+    <!-- VIDEO DEMO — click-to-play, sem autoplay no load -->
+    <section class="video-section reveal">
+      <span class="video-eyebrow">Veja em 90 segundos</span>
+      <h2 class="video-headline">A plataforma que você vai <em>vender</em>.</h2>
+      <div class="video-frame" id="video-frame" data-video-id="1t9ZQAMOjvU">
+        <img src="https://i.ytimg.com/vi/1t9ZQAMOjvU/maxresdefault.jpg" alt="Demo da plataforma Bolten" loading="lazy" width="1280" height="720">
+        <button type="button" class="video-play" aria-label="Ver demo da plataforma Bolten" onclick="playDemoVideo()">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+      </div>
+    </section>
 
     <!-- PRODUCTS SECTION -->
     <section class="section reveal">
@@ -1631,7 +1692,7 @@ function navigate(target,direction='forward'){
   }
 
   setTimeout(()=>{
-    nxt.querySelectorAll('.fade-up').forEach(el=>{
+    nxt.querySelectorAll('.fade-up, .hero-stagger').forEach(el=>{
       el.style.animation='none';
       el.offsetHeight;
       el.style.animation='';
@@ -1684,6 +1745,47 @@ function playDemoVideo(){
   frame.style.cursor='default';
   frame.dataset.loaded='1';
   console.log('[Video] demo played');
+}
+
+// ===== HERO STATS COUNTER — anima 0→valor quando entra em viewport (800ms) =====
+const heroStatsEl=document.getElementById('hero-stats');
+const reducedMotionQuery=window.matchMedia('(prefers-reduced-motion: reduce)');
+if(heroStatsEl){
+  const renderStat=(el,value)=>{
+    const fmt=el.dataset.countFormat;
+    if(fmt==='percent'){
+      el.innerHTML=value+'<small>%</small>';
+    }else if(fmt==='mil'){
+      el.innerHTML=value+'mil<small>+</small>';
+    }else{
+      el.textContent=value;
+    }
+  };
+  const animateStat=(el)=>{
+    const to=parseInt(el.dataset.countTo,10);
+    if(!Number.isFinite(to))return;
+    if(reducedMotionQuery.matches){renderStat(el,to);return;}
+    const duration=800;
+    const start=performance.now();
+    const ease=t=>1-Math.pow(1-t,3);
+    renderStat(el,0);
+    const tick=(now)=>{
+      const p=Math.min((now-start)/duration,1);
+      renderStat(el,Math.round(to*ease(p)));
+      if(p<1)requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  const statsRoot=document.querySelector('[data-screen="hero"]');
+  const statsIO=new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        heroStatsEl.querySelectorAll('[data-count-to]').forEach(animateStat);
+        statsIO.disconnect();
+      }
+    });
+  },{root:statsRoot,threshold:0.35});
+  statsIO.observe(heroStatsEl);
 }
 
 // ===== CAROUSEL DOTS + AUTO-ROTATION =====
