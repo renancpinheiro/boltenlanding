@@ -50,6 +50,10 @@
   <style>
     [x-cloak]{ display:none !important; }
     body{ font-family:'Arimo', ui-sans-serif, system-ui, sans-serif; }
+    @keyframes logoscroll{ from{ transform:translateX(0) } to{ transform:translateX(-50%) } }
+    .logo-track{ animation:logoscroll 45s linear infinite; }
+    .logo-marquee:hover .logo-track{ animation-play-state:paused; }
+    @media (prefers-reduced-motion: reduce){ .logo-track{ animation:none } }
   </style>
 </head>
 <body class="antialiased bg-gray-50 text-gray-900 tracking-tight">
@@ -936,30 +940,23 @@
 
         <!-- ============================================================ -->
         <!-- PROVA SOCIAL — faixa de credibilidade no caminho principal    -->
-        <!-- Números reais já publicados no site. Itens [PREENCHER]        -->
-        <!-- aguardam dado oficial antes de ir ao ar.                      -->
         <!-- ============================================================ -->
         <section class="relative bg-white">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
         <div class="py-10 md:py-14 border-t border-gray-100">
             <p class="text-center text-xs font-semibold uppercase tracking-widest text-gray-400 mb-8" data-aos="fade-up">Parceiros de verdade, resultados de verdade</p>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-8 text-center" data-aos="fade-up" data-aos-delay="100">
+            <div class="grid grid-cols-3 gap-x-4 gap-y-8 text-center max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
                 <div class="relative after:hidden md:after:block after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-px after:h-10 after:bg-gray-200 last:after:hidden">
                     <h4 class="text-3xl md:text-4xl font-bold tabular-nums text-gray-900"><span x-data="counter(15)" x-text="counterValue">0</span>K+</h4>
                     <p class="text-sm text-gray-500 mt-1">Parceiros ativos</p>
                 </div>
                 <div class="relative after:hidden md:after:block after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-px after:h-10 after:bg-gray-200 last:after:hidden">
-                    <h4 class="text-3xl md:text-4xl font-bold tabular-nums text-gray-900"><span x-data="counter(22)" x-text="counterValue">0</span>M+</h4>
+                    <h4 class="text-3xl md:text-4xl font-bold tabular-nums text-gray-900"><span x-data="counter(22)" x-text="counterValue">0</span> mi+</h4>
                     <p class="text-sm text-gray-500 mt-1">Mensagens processadas</p>
                 </div>
                 <div class="relative after:hidden md:after:block after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-px after:h-10 after:bg-gray-200 last:after:hidden">
                     <h4 class="text-3xl md:text-4xl font-bold tabular-nums text-gray-900"><span x-data="counter(30)" x-text="counterValue">0</span>K+</h4>
                     <p class="text-sm text-gray-500 mt-1">Modelos criados</p>
-                </div>
-                <!-- PREENCHER: total real já repassado aos parceiros (ex: "R$ 4,2 mi"). Enquanto não houver dado oficial, este item fica com marcador visível. -->
-                <div class="relative">
-                    <h4 class="text-3xl md:text-4xl font-bold tabular-nums text-selva-500">R$&nbsp;<span class="text-gray-300 font-medium">[valor]</span></h4>
-                    <p class="text-sm text-gray-500 mt-1">Já pagos aos parceiros <span class="align-top text-[10px] text-tucano-400 font-semibold">[PREENCHER]</span></p>
                 </div>
             </div>
 
@@ -967,44 +964,47 @@
             <!-- Card do Marco é escuro (logo clara). DMarketing e Facilito Smart não têm Instagram. -->
             <div class="mt-12">
                 <p class="text-center text-xs font-medium uppercase tracking-widest text-gray-400 mb-6">Marcas de parceiros criadas na Bolten</p>
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4 max-w-4xl mx-auto">
-                    <a href="https://instagram.com/agencia.hadigitais" target="_blank" rel="noopener" title="@agencia.hadigitais" aria-label="HA DigitAIs no Instagram" class="flex items-center justify-center h-20 rounded-xl bg-white border border-gray-100 shadow-sm px-4 transition hover:shadow-md hover:-translate-y-0.5">
+                <div class="logo-marquee relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+                  <div class="logo-track flex gap-3 md:gap-4 w-max" id="logo-track">
+                    <a href="https://instagram.com/agencia.hadigitais" target="_blank" rel="noopener" title="@agencia.hadigitais" aria-label="HA DigitAIs no Instagram" class="flex items-center justify-center h-20 w-40 shrink-0 rounded-xl bg-white border border-gray-100 shadow-sm px-4 transition hover:shadow-md hover:-translate-y-0.5">
                         <img src="assets/parceiros/ha-digitais.jpg" alt="HA DigitAIs" class="max-h-12 w-auto object-contain" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
                         <span class="hidden text-xs font-semibold text-gray-400">HA DigitAIs</span>
                     </a>
-                    <a href="https://instagram.com/marco_labcontent" target="_blank" rel="noopener" title="@marco_labcontent" aria-label="Marco no Instagram" class="flex items-center justify-center h-20 rounded-xl bg-gray-900 border border-gray-800 shadow-sm px-4 transition hover:shadow-md hover:-translate-y-0.5">
+                    <a href="https://instagram.com/marco_labcontent" target="_blank" rel="noopener" title="@marco_labcontent" aria-label="Marco no Instagram" class="flex items-center justify-center h-20 w-40 shrink-0 rounded-xl bg-gray-900 border border-gray-800 shadow-sm px-4 transition hover:shadow-md hover:-translate-y-0.5">
                         <img src="assets/parceiros/marco.png" alt="Marco" class="max-h-9 w-auto object-contain" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
                         <span class="hidden text-xs font-semibold text-gray-300">Marco</span>
                     </a>
-                    <a href="https://instagram.com/zaptron.bot" target="_blank" rel="noopener" title="@zaptron.bot" aria-label="Zaptron no Instagram" class="flex items-center justify-center h-20 rounded-xl bg-white border border-gray-100 shadow-sm px-4 transition hover:shadow-md hover:-translate-y-0.5">
+                    <a href="https://instagram.com/zaptron.bot" target="_blank" rel="noopener" title="@zaptron.bot" aria-label="Zaptron no Instagram" class="flex items-center justify-center h-20 w-40 shrink-0 rounded-xl bg-white border border-gray-100 shadow-sm px-4 transition hover:shadow-md hover:-translate-y-0.5">
                         <img src="assets/parceiros/zaptron.jpeg" alt="Zaptron" class="max-h-14 w-auto object-contain" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
                         <span class="hidden text-xs font-semibold text-gray-400">Zaptron</span>
                     </a>
-                    <a href="https://instagram.com/selvara.oficial" target="_blank" rel="noopener" title="@selvara.oficial" aria-label="Selvara no Instagram" class="flex items-center justify-center h-20 rounded-xl bg-white border border-gray-100 shadow-sm px-4 transition hover:shadow-md hover:-translate-y-0.5">
+                    <a href="https://instagram.com/selvara.oficial" target="_blank" rel="noopener" title="@selvara.oficial" aria-label="Selvara no Instagram" class="flex items-center justify-center h-20 w-40 shrink-0 rounded-xl bg-white border border-gray-100 shadow-sm px-4 transition hover:shadow-md hover:-translate-y-0.5">
                         <img src="assets/parceiros/selvara.jpg" alt="Selvara" class="max-h-14 w-auto object-contain" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
                         <span class="hidden text-xs font-semibold text-gray-400">Selvara</span>
                     </a>
-                    <a href="https://instagram.com/automatizaagora" target="_blank" rel="noopener" title="@automatizaagora" aria-label="Automatiza Agora no Instagram" class="flex items-center justify-center h-20 rounded-xl bg-white border border-gray-100 shadow-sm px-4 transition hover:shadow-md hover:-translate-y-0.5">
+                    <a href="https://instagram.com/automatizaagora" target="_blank" rel="noopener" title="@automatizaagora" aria-label="Automatiza Agora no Instagram" class="flex items-center justify-center h-20 w-40 shrink-0 rounded-xl bg-white border border-gray-100 shadow-sm px-4 transition hover:shadow-md hover:-translate-y-0.5">
                         <img src="assets/parceiros/automatizaagora.png" alt="Automatiza Agora" class="max-h-12 w-auto object-contain" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
                         <span class="hidden text-xs font-semibold text-gray-400">Automatiza Agora</span>
                     </a>
-                    <a href="https://instagram.com/infuse.software" target="_blank" rel="noopener" title="@infuse.software" aria-label="Infuse no Instagram" class="flex items-center justify-center h-20 rounded-xl bg-white border border-gray-100 shadow-sm px-4 transition hover:shadow-md hover:-translate-y-0.5">
+                    <a href="https://instagram.com/infuse.software" target="_blank" rel="noopener" title="@infuse.software" aria-label="Infuse no Instagram" class="flex items-center justify-center h-20 w-40 shrink-0 rounded-xl bg-white border border-gray-100 shadow-sm px-4 transition hover:shadow-md hover:-translate-y-0.5">
                         <img src="assets/parceiros/infuse.png" alt="Infuse" class="max-h-12 w-auto object-contain" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
                         <span class="hidden text-xs font-semibold text-gray-400">Infuse</span>
                     </a>
-                    <a href="https://instagram.com/oguilhermegusmao" target="_blank" rel="noopener" title="@oguilhermegusmao" aria-label="Verit Sales no Instagram" class="flex items-center justify-center h-20 rounded-xl bg-white border border-gray-100 shadow-sm px-4 transition hover:shadow-md hover:-translate-y-0.5">
+                    <a href="https://instagram.com/oguilhermegusmao" target="_blank" rel="noopener" title="@oguilhermegusmao" aria-label="Verit Sales no Instagram" class="flex items-center justify-center h-20 w-40 shrink-0 rounded-xl bg-white border border-gray-100 shadow-sm px-4 transition hover:shadow-md hover:-translate-y-0.5">
                         <img src="assets/parceiros/veritsales.png" alt="Verit Sales" class="max-h-12 w-auto object-contain" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
                         <span class="hidden text-xs font-semibold text-gray-400">Verit Sales</span>
                     </a>
-                    <div class="flex items-center justify-center h-20 rounded-xl bg-white border border-gray-100 shadow-sm px-4">
+                    <div class="flex items-center justify-center h-20 w-40 shrink-0 rounded-xl bg-white border border-gray-100 shadow-sm px-4">
                         <img src="assets/parceiros/dmarketing.png" alt="DMarketing" class="max-h-14 w-auto object-contain" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
                         <span class="hidden text-xs font-semibold text-gray-400">DMarketing</span>
                     </div>
-                    <div class="flex items-center justify-center h-20 rounded-xl bg-white border border-gray-100 shadow-sm px-4">
+                    <div class="flex items-center justify-center h-20 w-40 shrink-0 rounded-xl bg-white border border-gray-100 shadow-sm px-4">
                         <img src="assets/parceiros/facilitosmart.jpg" alt="Facilito Smart" class="max-h-12 w-auto object-contain" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
                         <span class="hidden text-xs font-semibold text-gray-400">Facilito Smart</span>
                     </div>
+                  </div>
                 </div>
+                <script>(function(){var t=document.getElementById('logo-track'); if(t){ t.setAttribute('aria-hidden','false'); t.innerHTML += t.innerHTML; }})();</script>
             </div>
         </div>
     </div>
@@ -3594,7 +3594,7 @@
 
       <!-- 1st item -->
       <div class="relative text-center md:px-5 after:hidden md:after:block after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-px after:h-8 after:border-l after:border-zinc-400 after:border-dashed last:after:hidden">
-          <h4 class="font-inter-tight text-2xl md:text-3xl font-bold tabular-nums mb-2"><span x-data="counter(22)" x-text="counterValue">0</span>M+</h4>
+          <h4 class="font-inter-tight text-2xl md:text-3xl font-bold tabular-nums mb-2"><span x-data="counter(22)" x-text="counterValue">0</span> mi+</h4>
           <p class="text-sm text-zinc-500">Mensagens processadas.</p>
       </div>
 
@@ -3689,7 +3689,7 @@
       company: 'Parceiro técnico'
     },
     {
-      text: 'Comecei pequeno, sem contrato fechado, e já validei com meu primeiro cliente de odonto — que superou a meta. Pricing justo e modular, do jeito que uma agência precisa.',
+      text: 'Comecei pequeno, sem contrato fechado, e já validei com meu primeiro cliente de odonto — que superou a meta. Pricing justo e modular, do jeito que o parceiro precisa.',
       name: 'Victor Gervásio',
       company: 'Sua Marca Pro · Maceió'
     },
@@ -4041,15 +4041,6 @@
 
             <div class="text-center mt-8" data-aos="fade-up">
                 <a href="cases/" class="inline-flex items-center gap-1 text-selva-500 font-semibold hover:text-selva-600">Ver todos os cases de parceiros&nbsp;&#10095;</a>
-            </div>
-
-            <!-- PREENCHER: depoimento em vídeo de parceiro (YouTube/Vimeo). Trocar VIDEO_ID abaixo e remover o aviso. -->
-            <div class="max-w-3xl mx-auto mt-12" data-aos="fade-up">
-                <div class="relative rounded-2xl overflow-hidden aspect-video bg-gradient-to-br from-gray-700 to-gray-900 flex flex-col items-center justify-center text-center p-6 border-2 border-dashed border-white/20">
-                    <i data-lucide="play-circle" class="w-12 h-12 text-white/70 mb-3"></i>
-                    <p class="text-white/90 font-semibold">Depoimento em vídeo de parceiro</p>
-                    <p class="text-white/50 text-sm mt-1">[PREENCHER: embed do vídeo de um parceiro real contando o resultado]</p>
-                </div>
             </div>
         </div>
     </div>
@@ -4577,7 +4568,7 @@
                         <div class="flex items-center justify-center font-bold text-black bg-tucano-400/75 h-11 w-11 rounded-full">3</div>
                     </div>
                     <h4 class="text-gray-800 text-xl font-bold mb-1">Venda com seu preço</h4>
-                    <p class="text-gray-600">Agora basta compartilhar o link de acesso com seus clientes. Ao acessar, eles já estarão com um projeto a partir do seu template e precificação, pronto para usar e com cobrança ativa. <a href="https://bolten.gitbook.io/bolten-docs/manual-de-uso-para-plataforma/produtos-e-precos" class="text-blue-600 hover:text-blue-800" target="_blank">Saiba mais</a>.</p>
+                    <p class="text-gray-600">Agora basta compartilhar o link de acesso com seus clientes. Ao acessar, eles já estarão com um projeto a partir do seu template e precificação, pronto para usar e com cobrança ativa. <a href="https://bolten.gitbook.io/bolten-docs/manual-de-uso-da-plataforma/produtos-e-precos" class="text-blue-600 hover:text-blue-800" target="_blank">Saiba mais</a>.</p>
                 </div>
             
             </div>
@@ -7511,7 +7502,8 @@
                                     </div>
                                     <div class="text-sm text-gray-500 text-right mt-1">/mês</div>
                                     <div class="text-xs text-gray-400 text-right mt-1">* para 1 usuário</div>
-                                    <div id="agent-cost-info" class="text-xs text-gray-400 text-right mt-1">** até 500 contatos atendidos/mês. Entenda <a class="text-blue-400 hover:underline" href="https://bolten.gitbook.io/bolten-docs/manual-de-uso-para-plataforma/produtos-e-precos#o-chatbot-com-inteligencia-artificial">aqui</a></div>
+                                    <div id="agent-cost-info" class="text-xs text-gray-400 text-right mt-1">** até 500 contatos atendidos/mês. Entenda <a class="text-blue-400 hover:underline" href="https://bolten.gitbook.io/bolten-docs/manual-de-uso-da-plataforma/produtos-e-precos#o-chatbot-com-inteligencia-artificial">aqui</a></div>
+                                    <div class="text-xs text-gray-400 text-right mt-2 pt-2 border-t border-gray-100">Valores sem as taxas de transferência e cobradas pelos intermediários de pagamento.</div>
                                 </div>
                             </div>
                         </div>
@@ -7543,7 +7535,7 @@
                                 </div>
                                 <div id="ai-cost-disclaimer" class="hidden mt-3 p-2 bg-gray-50 border border-gray-200 rounded-lg">
                                     <p class="text-xs text-gray-600">
-                                        <strong>Observação:</strong> Os valores podem variar dependendo do uso do agente de atendimento. Clique <a class="text-blue-400 hover:underline" href="https://bolten.gitbook.io/bolten-docs/manual-de-uso-para-plataforma/produtos-e-precos#o-chatbot-com-inteligencia-artificial">aqui</a> para saber mais.
+                                        <strong>Observação:</strong> Os valores podem variar dependendo do uso do agente de atendimento. Clique <a class="text-blue-400 hover:underline" href="https://bolten.gitbook.io/bolten-docs/manual-de-uso-da-plataforma/produtos-e-precos#o-chatbot-com-inteligencia-artificial">aqui</a> para saber mais.
                                     </p>
                                 </div>
                             </div>
@@ -7553,7 +7545,7 @@
             </div>
         </div>
         <div class="max-w-3xl mx-auto text-center pb-12 md:pb-16" data-aos="zoom-y-out" data-aos-delay="100">
-            <p class="text-xl text-gray-500"><a href="https://bolten.gitbook.io/bolten-docs/manual-de-uso-para-plataforma/produtos-e-precos" class="text-blue-600 hover:text-blue-800" target="_blank">Entenda como funciona a nossa cobrança</a></p>
+            <p class="text-xl text-gray-500"><a href="https://bolten.gitbook.io/bolten-docs/manual-de-uso-da-plataforma/produtos-e-precos" class="text-blue-600 hover:text-blue-800" target="_blank">Entenda como funciona a nossa cobrança</a></p>
         </div>
     </div>
 </section>
@@ -7958,10 +7950,10 @@ document.addEventListener('DOMContentLoaded', function() {
             <div data-aos="fade-up">
                 <p class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-selva-500 mb-3">Quem é a Bolten</p>
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">A plataforma por trás da <span class="text-tucano-400">sua marca</span>.</h2>
-                <p class="text-lg text-gray-600 mb-6">A Bolten é a infraestrutura de software que fica invisível por trás do seu negócio. A gente cuida da tecnologia — segurança, evolução do produto e suporte ao cliente final — pra você focar no que faz de melhor: vender e cuidar da relação.</p>
+                <p class="text-lg text-gray-600 mb-6">A Bolten é a infraestrutura de software que fica invisível por trás do seu negócio. A gente cuida da segurança e da evolução do produto, e te dá todo o suporte, pra você focar no que faz de melhor: vender e cuidar da relação com seu cliente.</p>
                 <ul class="space-y-3 text-gray-700">
                     <li class="flex gap-3"><i data-lucide="shield-check" class="w-5 h-5 text-selva-500 shrink-0 mt-0.5"></i><span>Segurança e proteção de dados seguindo padrões internacionais (LGPD).</span></li>
-                    <li class="flex gap-3"><i data-lucide="credit-card" class="w-5 h-5 text-selva-500 shrink-0 mt-0.5"></i><span>Cobrança dos seus clientes via <strong>Pagar.me</strong> — seus 70% caem de forma automática.</span></li>
+                    <li class="flex gap-3"><i data-lucide="credit-card" class="w-5 h-5 text-selva-500 shrink-0 mt-0.5"></i><span>Cobrança dos seus clientes em plataformas confiáveis, seguras e automáticas (<strong>Pagar.me</strong> / <strong>Stripe</strong>) — seus 70% caem sozinhos.</span></li>
                     <li class="flex gap-3"><i data-lucide="rocket" class="w-5 h-5 text-selva-500 shrink-0 mt-0.5"></i><span>Produto que evolui todo mês, sem custo de desenvolvimento pra você.</span></li>
                     <li class="flex gap-3"><i data-lucide="users" class="w-5 h-5 text-selva-500 shrink-0 mt-0.5"></i><span>Time de negócios e suporte ao seu lado, do onboarding ao crescimento.</span></li>
                 </ul>
@@ -7969,7 +7961,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <figure data-aos="fade-up" data-aos-delay="150">
                 <img src="assets/time-negocios.png" alt="Time de negócios da Bolten" class="rounded-2xl shadow-xl w-full object-cover" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-                <div class="hidden aspect-video rounded-2xl border-2 border-dashed border-gray-300 bg-gray-100 items-center justify-center text-center text-gray-400 text-sm px-4">[PREENCHER: foto do time de negócios em assets/time-negocios.jpg]</div>
+                <div class="hidden aspect-video rounded-2xl border-2 border-dashed border-gray-300 bg-gray-100 items-center justify-center text-center text-gray-400 text-sm px-4">Foto do time em assets/time-negocios.png</div>
                 <figcaption class="text-center text-xs text-gray-400 mt-2 italic">Parte do nosso time de negócios</figcaption>
             </figure>
         </div>
@@ -8288,11 +8280,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     </span>
                 </button>
             </h2>
-            <!-- CONFIRMAR: comportamento no modo "você cobra seus clientes" (self-billing) — validar se o parceiro tem algum custo de ferramenta mesmo quando o cliente não paga. No modo "a Bolten cobra", o texto abaixo já está correto. -->
             <div id="faqs-text-11" role="region" aria-labelledby="faqs-title-11" class="grid text-sm text-gray-600 overflow-hidden transition-all duration-300 ease-in-out" :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'">
                 <div class="overflow-hidden">
                     <p class="px-4 pb-3">
-                        A cobrança da recorrência passa pela plataforma (Pagar.me) e você recebe 70% do que cada cliente efetivamente paga. Se um cliente cancela, ele simplesmente para de gerar recorrência — não existe multa nem dívida pra você. É pay-as-you-earn: você não carrega custo fixo por clientes que não pagam.
+                        Depende do modelo de cobrança. No modo <strong>"a Bolten cobra"</strong>, você recebe 70% do que cada cliente efetivamente paga — se ele cancela, simplesmente para de gerar recorrência, sem multa nem dívida pra você. No modo <strong>"você cobra seus clientes"</strong>, você assume a cobrança e paga as ferramentas da plataforma independentemente, então vale acompanhar de perto a inadimplência da sua carteira, como em qualquer negócio de recorrência. Por isso muitos parceiros começam no modo "a Bolten cobra", pra não ter esse risco no início.
                     </p>
                 </div>
             </div>
