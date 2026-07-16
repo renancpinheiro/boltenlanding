@@ -963,51 +963,46 @@
                 </div>
             </div>
 
-            <!-- MURAL DE LOGOS DE PARCEIROS -->
-            <!-- Imagens esperadas em assets/parceiros/<slug>.png. Enquanto o arquivo não existir, -->
-            <!-- o onerror troca por um chip com o nome da marca. -->
-            <!-- DMarketing e Facilito Smart não têm Instagram (não-clicáveis). -->
-            <!-- Verit Sales -> @oguilhermegusmao. -->
-            <!-- FALTAM os arquivos de imagem em assets/parceiros/ (ver README de lá). -->
+            <!-- MURAL DE LOGOS DE PARCEIROS — cards uniformes -->
+            <!-- Card do Marco é escuro (logo clara). DMarketing e Facilito Smart não têm Instagram. -->
             <div class="mt-12">
                 <p class="text-center text-xs font-medium uppercase tracking-widest text-gray-400 mb-6">Marcas de parceiros criadas na Bolten</p>
-                <div class="flex flex-wrap items-center justify-center gap-x-7 gap-y-5 md:gap-x-10">
-                    <a href="https://instagram.com/agencia.hadigitais" target="_blank" rel="noopener" title="@agencia.hadigitais" aria-label="HA DigitAIs no Instagram" class="group inline-flex items-center">
-                        <img src="assets/parceiros/ha-digitais.png" alt="HA DigitAIs" class="h-9 md:h-11 w-auto object-contain opacity-70 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
-                        <span class="hidden items-center text-sm font-bold text-gray-500 group-hover:text-gray-900 border border-gray-200 rounded-full px-3.5 py-1.5 transition">HA DigitAIs</span>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4 max-w-4xl mx-auto">
+                    <a href="https://instagram.com/agencia.hadigitais" target="_blank" rel="noopener" title="@agencia.hadigitais" aria-label="HA DigitAIs no Instagram" class="flex items-center justify-center h-20 rounded-xl bg-white border border-gray-100 shadow-sm px-4 transition hover:shadow-md hover:-translate-y-0.5">
+                        <img src="assets/parceiros/ha-digitais.jpg" alt="HA DigitAIs" class="max-h-12 w-auto object-contain" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+                        <span class="hidden text-xs font-semibold text-gray-400">HA DigitAIs</span>
                     </a>
-                    <a href="https://instagram.com/marco_labcontent" target="_blank" rel="noopener" title="@marco_labcontent" aria-label="Marco no Instagram" class="group inline-flex items-center">
-                        <img src="assets/parceiros/marco.png" alt="Marco" class="h-9 md:h-11 w-auto object-contain opacity-70 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
-                        <span class="hidden items-center text-sm font-bold text-gray-500 group-hover:text-gray-900 border border-gray-200 rounded-full px-3.5 py-1.5 transition">Marco</span>
+                    <a href="https://instagram.com/marco_labcontent" target="_blank" rel="noopener" title="@marco_labcontent" aria-label="Marco no Instagram" class="flex items-center justify-center h-20 rounded-xl bg-gray-900 border border-gray-800 shadow-sm px-4 transition hover:shadow-md hover:-translate-y-0.5">
+                        <img src="assets/parceiros/marco.png" alt="Marco" class="max-h-9 w-auto object-contain" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+                        <span class="hidden text-xs font-semibold text-gray-300">Marco</span>
                     </a>
-                    <a href="https://instagram.com/zaptron.bot" target="_blank" rel="noopener" title="@zaptron.bot" aria-label="Zaptron no Instagram" class="group inline-flex items-center">
-                        <img src="assets/parceiros/zaptron.png" alt="Zaptron" class="h-9 md:h-11 w-auto object-contain opacity-70 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
-                        <span class="hidden items-center text-sm font-bold text-gray-500 group-hover:text-gray-900 border border-gray-200 rounded-full px-3.5 py-1.5 transition">Zaptron</span>
+                    <a href="https://instagram.com/zaptron.bot" target="_blank" rel="noopener" title="@zaptron.bot" aria-label="Zaptron no Instagram" class="flex items-center justify-center h-20 rounded-xl bg-white border border-gray-100 shadow-sm px-4 transition hover:shadow-md hover:-translate-y-0.5">
+                        <img src="assets/parceiros/zaptron.jpeg" alt="Zaptron" class="max-h-14 w-auto object-contain" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+                        <span class="hidden text-xs font-semibold text-gray-400">Zaptron</span>
                     </a>
-                    <a href="https://instagram.com/selvara.oficial" target="_blank" rel="noopener" title="@selvara.oficial" aria-label="Selvara no Instagram" class="group inline-flex items-center">
-                        <img src="assets/parceiros/selvara.png" alt="Selvara" class="h-9 md:h-11 w-auto object-contain opacity-70 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
-                        <span class="hidden items-center text-sm font-bold text-gray-500 group-hover:text-gray-900 border border-gray-200 rounded-full px-3.5 py-1.5 transition">Selvara</span>
+                    <a href="https://instagram.com/selvara.oficial" target="_blank" rel="noopener" title="@selvara.oficial" aria-label="Selvara no Instagram" class="flex items-center justify-center h-20 rounded-xl bg-white border border-gray-100 shadow-sm px-4 transition hover:shadow-md hover:-translate-y-0.5">
+                        <img src="assets/parceiros/selvara.jpg" alt="Selvara" class="max-h-14 w-auto object-contain" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+                        <span class="hidden text-xs font-semibold text-gray-400">Selvara</span>
                     </a>
-                    <a href="https://instagram.com/automatizaagora" target="_blank" rel="noopener" title="@automatizaagora" aria-label="Automatiza Agora no Instagram" class="group inline-flex items-center">
-                        <img src="assets/parceiros/automatiza-agora.png" alt="Automatiza Agora" class="h-9 md:h-11 w-auto object-contain opacity-70 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
-                        <span class="hidden items-center text-sm font-bold text-gray-500 group-hover:text-gray-900 border border-gray-200 rounded-full px-3.5 py-1.5 transition">Automatiza Agora</span>
+                    <a href="https://instagram.com/automatizaagora" target="_blank" rel="noopener" title="@automatizaagora" aria-label="Automatiza Agora no Instagram" class="flex items-center justify-center h-20 rounded-xl bg-white border border-gray-100 shadow-sm px-4 transition hover:shadow-md hover:-translate-y-0.5">
+                        <img src="assets/parceiros/automatizaagora.png" alt="Automatiza Agora" class="max-h-12 w-auto object-contain" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+                        <span class="hidden text-xs font-semibold text-gray-400">Automatiza Agora</span>
                     </a>
-                    <a href="https://instagram.com/infuse.software" target="_blank" rel="noopener" title="@infuse.software" aria-label="Infuse no Instagram" class="group inline-flex items-center">
-                        <img src="assets/parceiros/infuse.png" alt="Infuse" class="h-9 md:h-11 w-auto object-contain opacity-70 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
-                        <span class="hidden items-center text-sm font-bold text-gray-500 group-hover:text-gray-900 border border-gray-200 rounded-full px-3.5 py-1.5 transition">Infuse</span>
+                    <a href="https://instagram.com/infuse.software" target="_blank" rel="noopener" title="@infuse.software" aria-label="Infuse no Instagram" class="flex items-center justify-center h-20 rounded-xl bg-white border border-gray-100 shadow-sm px-4 transition hover:shadow-md hover:-translate-y-0.5">
+                        <img src="assets/parceiros/infuse.png" alt="Infuse" class="max-h-12 w-auto object-contain" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+                        <span class="hidden text-xs font-semibold text-gray-400">Infuse</span>
                     </a>
-                    <a href="https://instagram.com/oguilhermegusmao" target="_blank" rel="noopener" title="@oguilhermegusmao" aria-label="Verit Sales no Instagram" class="group inline-flex items-center">
-                        <img src="assets/parceiros/verit-sales.png" alt="Verit Sales" class="h-9 md:h-11 w-auto object-contain opacity-70 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
-                        <span class="hidden items-center text-sm font-bold text-gray-500 group-hover:text-gray-900 border border-gray-200 rounded-full px-3.5 py-1.5 transition">Verit Sales</span>
+                    <a href="https://instagram.com/oguilhermegusmao" target="_blank" rel="noopener" title="@oguilhermegusmao" aria-label="Verit Sales no Instagram" class="flex items-center justify-center h-20 rounded-xl bg-white border border-gray-100 shadow-sm px-4 transition hover:shadow-md hover:-translate-y-0.5">
+                        <img src="assets/parceiros/veritsales.png" alt="Verit Sales" class="max-h-12 w-auto object-contain" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+                        <span class="hidden text-xs font-semibold text-gray-400">Verit Sales</span>
                     </a>
-                    <!-- sem Instagram (não-clicáveis) -->
-                    <div class="group inline-flex items-center">
-                        <img src="assets/parceiros/dmarketing.png" alt="DMarketing" class="h-9 md:h-11 w-auto object-contain opacity-70 grayscale hover:opacity-100 hover:grayscale-0 transition" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
-                        <span class="hidden items-center text-sm font-bold text-gray-500 border border-gray-200 rounded-full px-3.5 py-1.5">DMarketing</span>
+                    <div class="flex items-center justify-center h-20 rounded-xl bg-white border border-gray-100 shadow-sm px-4">
+                        <img src="assets/parceiros/dmarketing.png" alt="DMarketing" class="max-h-14 w-auto object-contain" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+                        <span class="hidden text-xs font-semibold text-gray-400">DMarketing</span>
                     </div>
-                    <div class="group inline-flex items-center">
-                        <img src="assets/parceiros/facilito-smart.png" alt="Facilito Smart" class="h-9 md:h-11 w-auto object-contain opacity-70 grayscale hover:opacity-100 hover:grayscale-0 transition" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
-                        <span class="hidden items-center text-sm font-bold text-gray-500 border border-gray-200 rounded-full px-3.5 py-1.5">Facilito Smart</span>
+                    <div class="flex items-center justify-center h-20 rounded-xl bg-white border border-gray-100 shadow-sm px-4">
+                        <img src="assets/parceiros/facilitosmart.jpg" alt="Facilito Smart" class="max-h-12 w-auto object-contain" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+                        <span class="hidden text-xs font-semibold text-gray-400">Facilito Smart</span>
                     </div>
                 </div>
             </div>
@@ -7973,7 +7968,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <a href="sobre/" class="inline-flex items-center gap-1 text-selva-500 font-semibold hover:text-selva-600 mt-6">Conhecer a Bolten&nbsp;&#10095;</a>
             </div>
             <figure data-aos="fade-up" data-aos-delay="150">
-                <img src="assets/time-negocios.jpg" alt="Time de negócios da Bolten" class="rounded-2xl shadow-xl w-full object-cover" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <img src="assets/time-negocios.png" alt="Time de negócios da Bolten" class="rounded-2xl shadow-xl w-full object-cover" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
                 <div class="hidden aspect-video rounded-2xl border-2 border-dashed border-gray-300 bg-gray-100 items-center justify-center text-center text-gray-400 text-sm px-4">[PREENCHER: foto do time de negócios em assets/time-negocios.jpg]</div>
                 <figcaption class="text-center text-xs text-gray-400 mt-2 italic">Parte do nosso time de negócios</figcaption>
             </figure>

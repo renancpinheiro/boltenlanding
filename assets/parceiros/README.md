@@ -1,20 +1,20 @@
 # Logos de parceiros
 
-Coloque os arquivos de logo aqui com EXATAMENTE estes nomes (PNG com fundo
-transparente, altura ~200px+). A LP usa fallback: enquanto o arquivo não existir,
-aparece um chip com o nome da marca.
+Arquivos usados pelo mural na home (faixa de prova social). Nomes reais:
 
-| arquivo                | marca            | Instagram                          |
-|------------------------|------------------|------------------------------------|
-| ha-digitais.png        | HA DigitAIs      | @agencia.hadigitais                |
-| marco.png              | Marco            | @marco_labcontent (logo claro — enviar versão escura/transparente) |
-| zaptron.png            | Zaptron          | @zaptron.bot                       |
-| selvara.png            | Selvara          | @selvara.oficial                   |
-| automatiza-agora.png   | Automatiza Agora | @automatizaagora                   |
-| infuse.png             | Infuse           | @infuse.software                   |
-| verit-sales.png        | Verit Sales      | @oguilhermegusmao                  |
-| dmarketing.png         | DMarketing       | — (sem Instagram, não-clicável)    |
-| facilito-smart.png     | Facilito Smart   | — (sem Instagram, não-clicável)    |
+| arquivo                 | marca            | Instagram                       |
+|-------------------------|------------------|---------------------------------|
+| ha-digitais.jpg         | HA DigitAIs      | @agencia.hadigitais             |
+| marco.png               | Marco            | @marco_labcontent (card escuro) |
+| zaptron.jpeg            | Zaptron          | @zaptron.bot                    |
+| selvara.jpg             | Selvara          | @selvara.oficial                |
+| automatizaagora.png     | Automatiza Agora | @automatizaagora                |
+| infuse.png              | Infuse           | @infuse.software                |
+| veritsales.png          | Verit Sales      | @oguilhermegusmao               |
+| dmarketing.png          | DMarketing       | — (sem Instagram)               |
+| facilitosmart.jpg       | Facilito Smart   | — (sem Instagram)               |
 
-Handles já estão todos configurados no HTML. Falta só subir os arquivos de imagem —
-depois é só avisar.
+Foto do time de negócios: `assets/time-negocios.png` (usada na seção "Sobre a Bolten").
+
+Para trocar uma logo, basta substituir o arquivo mantendo o mesmo nome. Se mudar de
+extensão, atualize o `src` correspondente no `index.html`.
