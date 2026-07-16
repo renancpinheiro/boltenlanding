@@ -965,9 +965,10 @@
 
             <!-- MURAL DE LOGOS DE PARCEIROS -->
             <!-- Imagens esperadas em assets/parceiros/<slug>.png. Enquanto o arquivo não existir, -->
-            <!-- o onerror troca por um chip com o nome da marca (segue clicável pro Instagram). -->
-            <!-- CONFIRMAR handles: dmarketing, facilito-smart, verit-sales (desconhecidos); -->
-            <!-- automatiza-agora e infuse (palpite pelos comentários). -->
+            <!-- o onerror troca por um chip com o nome da marca. -->
+            <!-- DMarketing e Facilito Smart não têm Instagram (não-clicáveis). -->
+            <!-- Verit Sales -> @oguilhermegusmao. -->
+            <!-- FALTAM os arquivos de imagem em assets/parceiros/ (ver README de lá). -->
             <div class="mt-12">
                 <p class="text-center text-xs font-medium uppercase tracking-widest text-gray-400 mb-6">Marcas de parceiros criadas na Bolten</p>
                 <div class="flex flex-wrap items-center justify-center gap-x-7 gap-y-5 md:gap-x-10">
@@ -987,27 +988,27 @@
                         <img src="assets/parceiros/selvara.png" alt="Selvara" class="h-9 md:h-11 w-auto object-contain opacity-70 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
                         <span class="hidden items-center text-sm font-bold text-gray-500 group-hover:text-gray-900 border border-gray-200 rounded-full px-3.5 py-1.5 transition">Selvara</span>
                     </a>
-                    <a href="https://instagram.com/automatizaagora" target="_blank" rel="noopener" title="@automatizaagora (confirmar)" aria-label="Automatiza Agora no Instagram" class="group inline-flex items-center">
+                    <a href="https://instagram.com/automatizaagora" target="_blank" rel="noopener" title="@automatizaagora" aria-label="Automatiza Agora no Instagram" class="group inline-flex items-center">
                         <img src="assets/parceiros/automatiza-agora.png" alt="Automatiza Agora" class="h-9 md:h-11 w-auto object-contain opacity-70 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
                         <span class="hidden items-center text-sm font-bold text-gray-500 group-hover:text-gray-900 border border-gray-200 rounded-full px-3.5 py-1.5 transition">Automatiza Agora</span>
                     </a>
-                    <a href="https://instagram.com/infuse.software" target="_blank" rel="noopener" title="@infuse.software (confirmar)" aria-label="Infuse no Instagram" class="group inline-flex items-center">
+                    <a href="https://instagram.com/infuse.software" target="_blank" rel="noopener" title="@infuse.software" aria-label="Infuse no Instagram" class="group inline-flex items-center">
                         <img src="assets/parceiros/infuse.png" alt="Infuse" class="h-9 md:h-11 w-auto object-contain opacity-70 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
                         <span class="hidden items-center text-sm font-bold text-gray-500 group-hover:text-gray-900 border border-gray-200 rounded-full px-3.5 py-1.5 transition">Infuse</span>
                     </a>
-                    <!-- handles a confirmar -->
-                    <a href="#" title="handle a confirmar" aria-label="DMarketing" class="group inline-flex items-center">
-                        <img src="assets/parceiros/dmarketing.png" alt="DMarketing" class="h-9 md:h-11 w-auto object-contain opacity-70 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
-                        <span class="hidden items-center text-sm font-bold text-gray-500 group-hover:text-gray-900 border border-gray-200 rounded-full px-3.5 py-1.5 transition">DMarketing</span>
-                    </a>
-                    <a href="#" title="handle a confirmar" aria-label="Facilito Smart" class="group inline-flex items-center">
-                        <img src="assets/parceiros/facilito-smart.png" alt="Facilito Smart" class="h-9 md:h-11 w-auto object-contain opacity-70 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
-                        <span class="hidden items-center text-sm font-bold text-gray-500 group-hover:text-gray-900 border border-gray-200 rounded-full px-3.5 py-1.5 transition">Facilito Smart</span>
-                    </a>
-                    <a href="#" title="handle a confirmar" aria-label="Verit Sales" class="group inline-flex items-center">
+                    <a href="https://instagram.com/oguilhermegusmao" target="_blank" rel="noopener" title="@oguilhermegusmao" aria-label="Verit Sales no Instagram" class="group inline-flex items-center">
                         <img src="assets/parceiros/verit-sales.png" alt="Verit Sales" class="h-9 md:h-11 w-auto object-contain opacity-70 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
                         <span class="hidden items-center text-sm font-bold text-gray-500 group-hover:text-gray-900 border border-gray-200 rounded-full px-3.5 py-1.5 transition">Verit Sales</span>
                     </a>
+                    <!-- sem Instagram (não-clicáveis) -->
+                    <div class="group inline-flex items-center">
+                        <img src="assets/parceiros/dmarketing.png" alt="DMarketing" class="h-9 md:h-11 w-auto object-contain opacity-70 grayscale hover:opacity-100 hover:grayscale-0 transition" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+                        <span class="hidden items-center text-sm font-bold text-gray-500 border border-gray-200 rounded-full px-3.5 py-1.5">DMarketing</span>
+                    </div>
+                    <div class="group inline-flex items-center">
+                        <img src="assets/parceiros/facilito-smart.png" alt="Facilito Smart" class="h-9 md:h-11 w-auto object-contain opacity-70 grayscale hover:opacity-100 hover:grayscale-0 transition" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+                        <span class="hidden items-center text-sm font-bold text-gray-500 border border-gray-200 rounded-full px-3.5 py-1.5">Facilito Smart</span>
+                    </div>
                 </div>
             </div>
         </div>
