@@ -963,15 +963,51 @@
                 </div>
             </div>
 
-            <!-- PREENCHER: logos de marcas reais criadas por parceiros na plataforma (SVG/PNG em assets/). Placeholder abaixo até termos autorização de uso das marcas. -->
+            <!-- MURAL DE LOGOS DE PARCEIROS -->
+            <!-- Imagens esperadas em assets/parceiros/<slug>.png. Enquanto o arquivo não existir, -->
+            <!-- o onerror troca por um chip com o nome da marca (segue clicável pro Instagram). -->
+            <!-- CONFIRMAR handles: dmarketing, facilito-smart, verit-sales (desconhecidos); -->
+            <!-- automatiza-agora e infuse (palpite pelos comentários). -->
             <div class="mt-12">
-                <p class="text-center text-xs font-medium uppercase tracking-widest text-gray-300 mb-5">Marcas criadas por parceiros na Bolten <span class="text-tucano-400">[PREENCHER logos]</span></p>
-                <div class="flex flex-wrap items-center justify-center gap-3 md:gap-4 opacity-60">
-                    <div class="h-9 w-28 rounded-md border border-dashed border-gray-200 bg-gray-50 flex items-center justify-center text-[10px] text-gray-300">sua marca</div>
-                    <div class="h-9 w-28 rounded-md border border-dashed border-gray-200 bg-gray-50 flex items-center justify-center text-[10px] text-gray-300">sua marca</div>
-                    <div class="h-9 w-28 rounded-md border border-dashed border-gray-200 bg-gray-50 flex items-center justify-center text-[10px] text-gray-300">sua marca</div>
-                    <div class="h-9 w-28 rounded-md border border-dashed border-gray-200 bg-gray-50 flex items-center justify-center text-[10px] text-gray-300">sua marca</div>
-                    <div class="hidden md:flex h-9 w-28 rounded-md border border-dashed border-gray-200 bg-gray-50 items-center justify-center text-[10px] text-gray-300">sua marca</div>
+                <p class="text-center text-xs font-medium uppercase tracking-widest text-gray-400 mb-6">Marcas de parceiros criadas na Bolten</p>
+                <div class="flex flex-wrap items-center justify-center gap-x-7 gap-y-5 md:gap-x-10">
+                    <a href="https://instagram.com/agencia.hadigitais" target="_blank" rel="noopener" title="@agencia.hadigitais" aria-label="HA DigitAIs no Instagram" class="group inline-flex items-center">
+                        <img src="assets/parceiros/ha-digitais.png" alt="HA DigitAIs" class="h-9 md:h-11 w-auto object-contain opacity-70 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+                        <span class="hidden items-center text-sm font-bold text-gray-500 group-hover:text-gray-900 border border-gray-200 rounded-full px-3.5 py-1.5 transition">HA DigitAIs</span>
+                    </a>
+                    <a href="https://instagram.com/marco_labcontent" target="_blank" rel="noopener" title="@marco_labcontent" aria-label="Marco no Instagram" class="group inline-flex items-center">
+                        <img src="assets/parceiros/marco.png" alt="Marco" class="h-9 md:h-11 w-auto object-contain opacity-70 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+                        <span class="hidden items-center text-sm font-bold text-gray-500 group-hover:text-gray-900 border border-gray-200 rounded-full px-3.5 py-1.5 transition">Marco</span>
+                    </a>
+                    <a href="https://instagram.com/zaptron.bot" target="_blank" rel="noopener" title="@zaptron.bot" aria-label="Zaptron no Instagram" class="group inline-flex items-center">
+                        <img src="assets/parceiros/zaptron.png" alt="Zaptron" class="h-9 md:h-11 w-auto object-contain opacity-70 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+                        <span class="hidden items-center text-sm font-bold text-gray-500 group-hover:text-gray-900 border border-gray-200 rounded-full px-3.5 py-1.5 transition">Zaptron</span>
+                    </a>
+                    <a href="https://instagram.com/selvara.oficial" target="_blank" rel="noopener" title="@selvara.oficial" aria-label="Selvara no Instagram" class="group inline-flex items-center">
+                        <img src="assets/parceiros/selvara.png" alt="Selvara" class="h-9 md:h-11 w-auto object-contain opacity-70 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+                        <span class="hidden items-center text-sm font-bold text-gray-500 group-hover:text-gray-900 border border-gray-200 rounded-full px-3.5 py-1.5 transition">Selvara</span>
+                    </a>
+                    <a href="https://instagram.com/automatizaagora" target="_blank" rel="noopener" title="@automatizaagora (confirmar)" aria-label="Automatiza Agora no Instagram" class="group inline-flex items-center">
+                        <img src="assets/parceiros/automatiza-agora.png" alt="Automatiza Agora" class="h-9 md:h-11 w-auto object-contain opacity-70 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+                        <span class="hidden items-center text-sm font-bold text-gray-500 group-hover:text-gray-900 border border-gray-200 rounded-full px-3.5 py-1.5 transition">Automatiza Agora</span>
+                    </a>
+                    <a href="https://instagram.com/infuse.software" target="_blank" rel="noopener" title="@infuse.software (confirmar)" aria-label="Infuse no Instagram" class="group inline-flex items-center">
+                        <img src="assets/parceiros/infuse.png" alt="Infuse" class="h-9 md:h-11 w-auto object-contain opacity-70 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+                        <span class="hidden items-center text-sm font-bold text-gray-500 group-hover:text-gray-900 border border-gray-200 rounded-full px-3.5 py-1.5 transition">Infuse</span>
+                    </a>
+                    <!-- handles a confirmar -->
+                    <a href="#" title="handle a confirmar" aria-label="DMarketing" class="group inline-flex items-center">
+                        <img src="assets/parceiros/dmarketing.png" alt="DMarketing" class="h-9 md:h-11 w-auto object-contain opacity-70 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+                        <span class="hidden items-center text-sm font-bold text-gray-500 group-hover:text-gray-900 border border-gray-200 rounded-full px-3.5 py-1.5 transition">DMarketing</span>
+                    </a>
+                    <a href="#" title="handle a confirmar" aria-label="Facilito Smart" class="group inline-flex items-center">
+                        <img src="assets/parceiros/facilito-smart.png" alt="Facilito Smart" class="h-9 md:h-11 w-auto object-contain opacity-70 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+                        <span class="hidden items-center text-sm font-bold text-gray-500 group-hover:text-gray-900 border border-gray-200 rounded-full px-3.5 py-1.5 transition">Facilito Smart</span>
+                    </a>
+                    <a href="#" title="handle a confirmar" aria-label="Verit Sales" class="group inline-flex items-center">
+                        <img src="assets/parceiros/verit-sales.png" alt="Verit Sales" class="h-9 md:h-11 w-auto object-contain opacity-70 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';">
+                        <span class="hidden items-center text-sm font-bold text-gray-500 group-hover:text-gray-900 border border-gray-200 rounded-full px-3.5 py-1.5 transition">Verit Sales</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -3628,7 +3664,7 @@
     {
       text: 'A entrada fácil e barata foi decisiva pra vender até pros clientes menores. E o resultado é real: num cliente de odonto saímos de 6 mil para 30 mil. A Bolten paga a si mesma.',
       name: 'Fly Rocket',
-      company: 'Agência · 8 clientes ativos'
+      company: 'Agência · 8+ clientes'
     },
     {
       text: 'O suporte é fantástico: resposta em até 5 minutos. Isso me deixa repassar solução rápida pro meu cliente. Testei várias soluções, mas a Bolten ganhou pela modularidade e pelo white-label.',
@@ -3653,7 +3689,7 @@
     {
       text: 'Suporte nota 10: ágil e atencioso. Resolveram uma instabilidade num fim de semana sem problema nenhum. Vendo pra autoescolas e a plataforma acompanha bem.',
       name: 'AI CFC Atende',
-      company: '7 clientes ativos'
+      company: '7+ clientes'
     },
     {
       text: 'Montei minha marca e domínio próprios e validei o modelo na prática: com R$ 500 em anúncios gerei 42 leads e 2 vendas. O plano de R$ 197 é o meu mais vendido e já tenho pipeline pra fechar mais.',
@@ -3668,7 +3704,7 @@
     {
       text: 'Uso a Bolten há quase um ano como CRM da agência. O pricing é competitivo, o modelo faz sentido e a simplicidade me permite atender bem toda a base de clientes de performance.',
       name: 'Nonaka',
-      company: 'Agência de performance · 60 clientes'
+      company: 'Agência de performance · 60+ clientes'
     }
   ],
   startTimer() {
@@ -3940,7 +3976,7 @@
                             <p class="text-[11px] text-gray-500 mt-0.5">faturamento do cliente</p>
                         </div>
                         <div class="rounded-lg bg-white p-3 text-center border border-gray-100">
-                            <p class="text-xl font-bold tabular-nums text-gray-900">8</p>
+                            <p class="text-xl font-bold tabular-nums text-gray-900">8+</p>
                             <p class="text-[11px] text-gray-500 mt-0.5">clientes ativos</p>
                         </div>
                     </div>
@@ -4006,6 +4042,17 @@
         </div>
     </div>
 </section>
+
+        <!-- CTA inline (após cases) -->
+        <section class="relative">
+          <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="rounded-2xl bg-selva-50 border border-selva-100 px-6 py-8 md:py-10 text-center my-2" data-aos="fade-up">
+              <h3 class="text-xl md:text-2xl font-bold mb-2">O próximo case pode ser <span class="text-selva-500">o seu</span>.</h3>
+              <p class="text-gray-600 mb-5">Cadastro grátis, sem cartão. Sua plataforma fica pronta em minutos.</p>
+              <a href="#" id="gtm-conversion" class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium text-white bg-selva-400 hover:bg-selva-500 shadow-lg transition-all">Criar minha conta grátis&nbsp;&#10095;</a>
+            </div>
+          </div>
+        </section>
 
         <!-- How it works -->
         <section id="how-it-works" class="relative" data-scrollspy-target>
@@ -4566,6 +4613,17 @@
         </div>
     </div>
 </section>
+
+        <!-- CTA inline (após apoio) -->
+        <section class="relative">
+          <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="rounded-2xl bg-gray-900 px-6 py-8 md:py-10 text-center my-2 [background-image:radial-gradient(circle_at_15%_20%,rgba(255,104,40,.22),transparent_45%),radial-gradient(circle_at_85%_80%,rgba(31,176,65,.2),transparent_45%)]" data-aos="fade-up">
+              <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Você começa hoje, e não começa sozinho.</h3>
+              <p class="text-gray-300 mb-5">Onboarding ao vivo, comunidade e time de negócios do seu lado desde o primeiro dia.</p>
+              <a href="#" id="gtm-conversion" class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium text-white bg-tucano-400 hover:bg-tucano-500 shadow-lg transition-all">Quero começar agora&nbsp;&#10095;</a>
+            </div>
+          </div>
+        </section>
 
         <!-- ============================================================ -->
         <!-- RENDA RECORRENTE — a oportunidade quantificada (renda composta)-->
