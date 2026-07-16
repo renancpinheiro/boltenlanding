@@ -15,8 +15,10 @@ time de tecnologia.
 Além da home, o site tem sub-páginas auto-contidas (cada uma copia o mesmo shell:
 `<head>`+tema, header e footer), conectadas à home nos dois sentidos:
 
-- `para/agencias/`, `para/gestores-de-trafego/`, `para/contadores/` — LPs por nicho
-  (message-match para campanhas de tráfego).
+- `para/agencias/`, `para/gestores-de-trafego/`, `para/revendedores-de-software/`,
+  `para/empreendedores-digitais/`, `para/vendedores-de-curso/` — LPs por nicho
+  (message-match para campanhas de tráfego), cada uma destacando os produtos que
+  fazem sentido pro público (Conversões, Redes Sociais, Agente de IA, etc.).
 - `cases/` — cases de parceiros.
 - `tour/` — tour do produto por módulo.
 - `quanto-voce-ganha/` — calculadora de receita recorrente.
