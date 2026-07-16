@@ -7293,6 +7293,21 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="p-6 bg-slate-50 rounded-lg shadow-lg border border-gray-200">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2 text-gray-800">Redes Sociais</h3>
+                                    <p class="text-gray-600">Agende posts, aprove com o cliente e acompanhe analytics</p>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="social-toggle" class="feature-toggle" data-feature="social" checked>
+                                    <label for="social-toggle" class="ml-3 text-sm font-medium text-gray-700 cursor-pointer">
+                                        <span class="toggle-label">Ativo</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Right Side - Pricing Display -->
@@ -7329,6 +7344,13 @@
                                     <span class="text-gray-700">Conversões</span>
                                     <div>
                                       <span class="font-semibold text-gray-800">R$ 20,00</span>
+                                      <span class="text-sm text-gray-500 mr-1">/mês</span>
+                                    </div>
+                                </div>
+                                <div id="social-price" class="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-100">
+                                    <span class="text-gray-700">Redes Sociais</span>
+                                    <div>
+                                      <span class="font-semibold text-gray-800">R$ 10,00</span>
                                       <span class="text-sm text-gray-500 mr-1">/mês</span>
                                     </div>
                                 </div>
@@ -7591,7 +7613,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const conversionsChecked = document.querySelector('[data-feature="conversions"]').checked;
         const whatsappChecked = document.querySelector('[data-feature="whatsapp"]').checked;
         const agentChecked = document.querySelector('[data-feature="agent"]').checked;
-        
+        const socialChecked = document.querySelector('[data-feature="social"]').checked;
+
         // New pricing logic:
         // - CRM: R$20 (always included)
         // - CRM + WhatsApp: R$20 + R$0 = R$20 (WhatsApp included with CRM)
@@ -7610,6 +7633,15 @@ document.addEventListener('DOMContentLoaded', function() {
             total += 20;
         } else {
             document.getElementById('conversions-price').classList.add('hidden');
+        }
+
+        // Redes Sociais price (add-on independente, R$10/mês)
+        if (socialChecked) {
+            document.getElementById('social-price').classList.remove('hidden');
+            document.getElementById('social-price').querySelector('.font-semibold').textContent = formatCurrency(10);
+            total += 10;
+        } else {
+            document.getElementById('social-price').classList.add('hidden');
         }
 
         // WhatsApp price (always free with CRM, which is always included)
@@ -7650,7 +7682,12 @@ document.addEventListener('DOMContentLoaded', function() {
         if (agentChecked) {
             boltenMinimumPrice += 60; // Use minimum agent tier (R$60)
         }
-        
+
+        // Add Redes Sociais price if selected
+        if (socialChecked) {
+            boltenMinimumPrice += 10; // Redes Sociais: R$10/month
+        }
+
         // Update minimum price references
         minimumPrice = boltenMinimumPrice;
         minimumPriceSpan.textContent = formatCurrency(boltenMinimumPrice);
