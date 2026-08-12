@@ -7383,131 +7383,157 @@
             </div>
         
             <!-- Content Container -->
-            <div class="max-w-3xl mx-auto flex flex-col gap-6">
+            <div class="max-w-5xl mx-auto">
                 <!-- Mode Selection -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <button id="self-billing" class="px-5 py-3 rounded-xl bg-selva-400 text-white font-semibold transition-all shadow active cursor-pointer">
-                        Quero cobrar meus clientes
-                    </button>
-                    <button id="bolten-billing" class="px-5 py-3 rounded-xl bg-stone-200 text-gray-700 font-semibold transition-all shadow cursor-pointer">
-                        Quero que a Bolten cobre meus clientes
-                    </button>
-                </div>
-
-                <!-- Product selector -->
-                <div>
-                    <p class="text-sm font-semibold text-gray-500 mb-2">Ative o que fizer sentido pra você</p>
-                    <div class="grid sm:grid-cols-2 gap-3">
-                        <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-200 flex items-center justify-between gap-3">
-                            <div>
-                                <h3 class="text-base font-bold text-gray-800">Ferramentas CRM</h3>
-                                <p class="text-sm text-gray-500 leading-snug">Funil, contatos, tarefas e produtos</p>
-                                <p class="text-xs text-selva-600 font-medium mt-0.5">Sempre incluso</p>
-                            </div>
-                            <div class="flex items-center shrink-0">
-                                <input type="checkbox" id="crm-toggle" class="feature-toggle" data-feature="crm" checked disabled>
-                                <label for="crm-toggle" class="ml-3 text-sm font-medium text-gray-700 cursor-pointer"><span class="toggle-label">Ativo</span></label>
-                            </div>
-                        </div>
-                        <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-200 flex items-center justify-between gap-3">
-                            <div>
-                                <h3 class="text-base font-bold text-gray-800">WhatsApp</h3>
-                                <p class="text-sm text-gray-500 leading-snug">Integração com WhatsApp</p>
-                            </div>
-                            <div class="flex items-center shrink-0">
-                                <input type="checkbox" id="whatsapp-toggle" class="feature-toggle" data-feature="whatsapp" checked>
-                                <label for="whatsapp-toggle" class="ml-3 text-sm font-medium text-gray-700 cursor-pointer"><span class="toggle-label">Ativo</span></label>
-                            </div>
-                        </div>
-                        <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-200 flex items-center justify-between gap-3">
-                            <div>
-                                <h3 class="text-base font-bold text-gray-800">Agente de atendimento</h3>
-                                <p class="text-sm text-gray-500 leading-snug">Atendimento automatizado com IA</p>
-                                <p class="text-xs text-selva-600 font-medium mt-0.5">Requer WhatsApp</p>
-                            </div>
-                            <div class="flex items-center shrink-0">
-                                <input type="checkbox" id="agent-toggle" class="feature-toggle" data-feature="agent" checked>
-                                <label for="agent-toggle" class="ml-3 text-sm font-medium text-gray-700 cursor-pointer"><span class="toggle-label">Ativo</span></label>
-                            </div>
-                        </div>
-                        <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-200 flex items-center justify-between gap-3">
-                            <div>
-                                <h3 class="text-base font-bold text-gray-800">Conversões</h3>
-                                <p class="text-sm text-gray-500 leading-snug">Rastreie leads e automatize seu funil</p>
-                                <p class="text-xs text-selva-600 font-medium mt-0.5">Requer WhatsApp</p>
-                            </div>
-                            <div class="flex items-center shrink-0">
-                                <input type="checkbox" id="conversions-toggle" class="feature-toggle" data-feature="conversions" checked>
-                                <label for="conversions-toggle" class="ml-3 text-sm font-medium text-gray-700 cursor-pointer"><span class="toggle-label">Ativo</span></label>
-                            </div>
-                        </div>
-                        <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-200 flex items-center justify-between gap-3">
-                            <div>
-                                <h3 class="text-base font-bold text-gray-800">Redes Sociais</h3>
-                                <p class="text-sm text-gray-500 leading-snug">Agende posts e acompanhe analytics</p>
-                            </div>
-                            <div class="flex items-center shrink-0">
-                                <input type="checkbox" id="social-toggle" class="feature-toggle" data-feature="social" checked>
-                                <label for="social-toggle" class="ml-3 text-sm font-medium text-gray-700 cursor-pointer"><span class="toggle-label">Ativo</span></label>
-                            </div>
-                        </div>
+                <div class="flex justify-center mb-8">
+                    <div class="flex flex-col sm:inline-flex sm:flex-row w-full sm:w-auto gap-1 p-1 bg-stone-100 rounded-2xl sm:rounded-full">
+                        <button id="self-billing" class="w-full sm:w-auto px-5 py-2.5 rounded-xl sm:rounded-full text-sm md:text-base bg-selva-400 text-white font-semibold transition-all shadow active cursor-pointer">
+                            Quero cobrar meus clientes
+                        </button>
+                        <button id="bolten-billing" class="w-full sm:w-auto px-5 py-2.5 rounded-xl sm:rounded-full text-sm md:text-base bg-stone-200 text-gray-700 font-semibold transition-all cursor-pointer">
+                            Quero que a Bolten cobre meus clientes
+                        </button>
                     </div>
                 </div>
 
-                <!-- Price result -->
-                <div>
-                    <!-- Self billing -->
-                    <div id="self-billing-content" class="p-6 bg-white rounded-2xl shadow-lg border border-gray-200">
-                        <div class="flex items-end justify-between gap-3 flex-wrap">
-                            <div>
-                                <p class="text-sm font-semibold text-gray-500">Seu custo na plataforma</p>
-                                <p class="text-xs text-gray-400">assinatura mensal, para 1 usuário</p>
-                            </div>
-                            <div class="text-right">
-                                <span class="text-4xl font-bold text-selva-500 tabular-nums" id="total-price">R$ 139,90</span><span class="text-sm font-bold text-selva-500 align-top">*</span>
-                                <span class="block text-sm text-gray-500">/mês</span>
-                            </div>
+                <div class="grid lg:grid-cols-2 gap-6 lg:gap-8 items-start">
+                    <!-- LEFT: product selector -->
+                    <div class="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden" data-aos="fade-up">
+                        <div class="px-5 py-4 border-b border-gray-100">
+                            <h3 class="font-bold text-gray-900">Monte o seu plano</h3>
+                            <p class="text-sm text-gray-500">Ative o que fizer sentido pra você</p>
                         </div>
-                        <details class="mt-4 group">
-                            <summary class="cursor-pointer text-sm font-semibold text-gray-600 hover:text-gray-900 flex items-center gap-1 select-none marker:content-['']">Ver detalhe por produto <span class="text-gray-400 transition-transform group-open:rotate-180">&#9662;</span></summary>
-                            <div class="space-y-2 mt-3">
-                                <div id="crm-price" class="flex justify-between items-center p-2.5 bg-gray-50 rounded-lg"><span class="text-sm text-gray-700">Ferramentas CRM</span><div><span class="font-semibold text-gray-800 text-sm">R$ 20,00</span><span class="text-xs text-gray-500 mr-1">/usuário</span></div></div>
-                                <div id="whatsapp-price" class="flex justify-between items-center p-2.5 bg-gray-50 rounded-lg"><div><span class="text-sm text-gray-700">WhatsApp</span><span id="whatsapp-label" class="text-xs text-gray-500 ml-2"></span></div><div><span class="font-semibold text-gray-800 text-sm" id="whatsapp-price-value">R$ 0,00</span><span class="text-xs text-gray-500 mr-1">/usuário</span></div></div>
-                                <div id="agent-price" class="flex justify-between items-center p-2.5 bg-gray-50 rounded-lg"><span class="text-sm text-gray-700">Agente de atendimento</span><div><span class="font-semibold text-gray-800 text-sm">R$ 60,00</span><span class="text-xs text-gray-500 mr-1">/mês</span><span class="text-xs text-gray-500">**</span></div></div>
-                                <div id="conversions-price" class="flex justify-between items-center p-2.5 bg-gray-50 rounded-lg"><span class="text-sm text-gray-700">Conversões</span><div><span class="font-semibold text-gray-800 text-sm">R$ 20,00</span><span class="text-xs text-gray-500 mr-1">/mês</span></div></div>
-                                <div id="social-price" class="flex justify-between items-center p-2.5 bg-gray-50 rounded-lg"><span class="text-sm text-gray-700">Redes Sociais</span><div><span class="font-semibold text-gray-800 text-sm">R$ 10,00</span><span class="text-xs text-gray-500 mr-1">/mês</span></div></div>
-                            </div>
-                            <div id="agent-cost-info" class="text-xs text-gray-400 mt-2">** até 500 contatos atendidos/mês. Entenda <a class="text-blue-400 hover:underline" href="https://bolten.gitbook.io/bolten-docs/manual-de-uso-da-plataforma/produtos-e-precos#o-chatbot-com-inteligencia-artificial">aqui</a></div>
-                        </details>
-                        <p class="text-xs text-gray-400 mt-3 pt-3 border-t border-gray-100">* para 1 usuário. Valores sem as taxas de transferência e cobradas pelos intermediários de pagamento.</p>
-                    </div>
-
-                    <!-- Bolten billing -->
-                    <div id="bolten-billing-content" class="p-6 bg-white rounded-2xl shadow-lg border border-gray-200 hidden">
-                        <div class="mb-4">
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Defina o preço do seu projeto</label>
-                            <div class="relative">
-                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none z-10">
-                                    <span class="text-gray-500 sm:text-sm">R$</span>
+                        <div class="divide-y divide-gray-100">
+                            <div class="flex items-center justify-between gap-3 px-5 py-3.5">
+                                <div class="flex items-center gap-3 min-w-0">
+                                    <span class="flex items-center justify-center h-9 w-9 rounded-lg shrink-0 bg-indigo-50 text-indigo-600"><i data-lucide="kanban" class="w-[18px] h-[18px]"></i></span>
+                                    <div class="min-w-0">
+                                        <h3 class="text-[15px] font-bold text-gray-900 leading-tight">Ferramentas CRM</h3>
+                                        <p class="text-xs text-gray-500 leading-snug">Funil, contatos, tarefas e produtos · sempre incluso</p>
+                                    </div>
                                 </div>
-                                <input type="text" id="project-price" class="w-full pl-10 pr-3 py-3 border border-gray-200 rounded-lg bg-white focus:ring-2 focus:ring-selva-300 focus:border-selva-400 transition-all" placeholder="0,00">
+                                <div class="flex items-center shrink-0">
+                                    <input type="checkbox" id="crm-toggle" class="feature-toggle" data-feature="crm" checked disabled>
+                                    <span class="toggle-label sr-only">Ativo</span>
+                                </div>
                             </div>
-                            <div id="price-warning" class="hidden mt-2 p-2 bg-red-50 border border-red-200 rounded-lg">
-                                <p class="text-sm text-red-600">O preço mínimo é de <span id="minimum-price">R$ 160,00</span> baseado nas ferramentas selecionadas.</p>
+                            <div class="flex items-center justify-between gap-3 px-5 py-3.5">
+                                <div class="flex items-center gap-3 min-w-0">
+                                    <span class="flex items-center justify-center h-9 w-9 rounded-lg shrink-0 bg-green-50 text-green-600"><i data-lucide="message-circle" class="w-[18px] h-[18px]"></i></span>
+                                    <div class="min-w-0">
+                                        <h3 class="text-[15px] font-bold text-gray-900 leading-tight">WhatsApp</h3>
+                                        <p class="text-xs text-gray-500 leading-snug">Integração com WhatsApp</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center shrink-0">
+                                    <input type="checkbox" id="whatsapp-toggle" class="feature-toggle" data-feature="whatsapp" checked>
+                                    <span class="toggle-label sr-only">Ativo</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between gap-3 px-5 py-3.5">
+                                <div class="flex items-center gap-3 min-w-0">
+                                    <span class="flex items-center justify-center h-9 w-9 rounded-lg shrink-0 bg-violet-50 text-violet-600"><i data-lucide="bot" class="w-[18px] h-[18px]"></i></span>
+                                    <div class="min-w-0">
+                                        <h3 class="text-[15px] font-bold text-gray-900 leading-tight">Agente de atendimento</h3>
+                                        <p class="text-xs text-gray-500 leading-snug">Atendimento com IA · requer WhatsApp</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center shrink-0">
+                                    <input type="checkbox" id="agent-toggle" class="feature-toggle" data-feature="agent" checked>
+                                    <span class="toggle-label sr-only">Ativo</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between gap-3 px-5 py-3.5">
+                                <div class="flex items-center gap-3 min-w-0">
+                                    <span class="flex items-center justify-center h-9 w-9 rounded-lg shrink-0 bg-tucano-50 text-tucano-600"><i data-lucide="trending-up" class="w-[18px] h-[18px]"></i></span>
+                                    <div class="min-w-0">
+                                        <h3 class="text-[15px] font-bold text-gray-900 leading-tight">Conversões</h3>
+                                        <p class="text-xs text-gray-500 leading-snug">Rastreie leads e automatize o funil · requer WhatsApp</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center shrink-0">
+                                    <input type="checkbox" id="conversions-toggle" class="feature-toggle" data-feature="conversions" checked>
+                                    <span class="toggle-label sr-only">Ativo</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between gap-3 px-5 py-3.5">
+                                <div class="flex items-center gap-3 min-w-0">
+                                    <span class="flex items-center justify-center h-9 w-9 rounded-lg shrink-0 bg-pink-50 text-pink-600"><i data-lucide="share-2" class="w-[18px] h-[18px]"></i></span>
+                                    <div class="min-w-0">
+                                        <h3 class="text-[15px] font-bold text-gray-900 leading-tight">Redes Sociais</h3>
+                                        <p class="text-xs text-gray-500 leading-snug">Agende posts e acompanhe analytics</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center shrink-0">
+                                    <input type="checkbox" id="social-toggle" class="feature-toggle" data-feature="social" checked>
+                                    <span class="toggle-label sr-only">Ativo</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="grid grid-cols-2 gap-3">
-                            <div class="p-3 bg-selva-50 rounded-lg text-center">
-                                <span class="block text-xs font-semibold text-gray-600 mb-1">Sua parte (70%)</span>
-                                <span class="text-2xl font-bold text-selva-500 tabular-nums" id="your-share">R$ 0,00</span>
+                    </div>
+
+                    <!-- RIGHT: live simulation -->
+                    <div class="lg:sticky lg:top-24" data-aos="fade-up" data-aos-delay="100">
+                        <!-- Self billing -->
+                        <div id="self-billing-content" class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
+                            <div class="px-5 py-4 border-b border-gray-100 flex items-center justify-between">
+                                <h3 class="font-bold text-gray-900">Simulação de preços</h3>
+                                <span class="text-xs font-semibold text-selva-600 bg-selva-50 px-2.5 py-1 rounded-full">você cobra</span>
                             </div>
-                            <div class="p-3 bg-gray-50 rounded-lg text-center">
-                                <span class="block text-xs font-semibold text-gray-600 mb-1">Parte da Bolten (30%)</span>
-                                <span class="text-2xl font-bold text-gray-700 tabular-nums" id="bolten-share">R$ 0,00</span>
+                            <div class="px-5 pt-2 pb-1 divide-y divide-gray-100">
+                            <div id="crm-price" class="flex justify-between items-center py-2.5"><span class="text-sm text-gray-700">Ferramentas CRM</span><div class="whitespace-nowrap"><span class="font-semibold text-gray-900 text-sm">R$ 20,00</span><span class="text-xs text-gray-500 ml-1">/usuário</span></div></div>
+                            <div id="whatsapp-price" class="flex justify-between items-center py-2.5"><div><span class="text-sm text-gray-700">WhatsApp</span><span id="whatsapp-label" class="text-xs text-selva-600 ml-1"></span></div><div class="whitespace-nowrap"><span class="font-semibold text-gray-900 text-sm" id="whatsapp-price-value">R$ 0,00</span><span class="text-xs text-gray-500 ml-1">/usuário</span></div></div>
+                            <div id="agent-price" class="flex justify-between items-center py-2.5"><span class="text-sm text-gray-700">Agente de atendimento</span><div class="whitespace-nowrap"><span class="font-semibold text-gray-900 text-sm">R$ 60,00</span><span class="text-xs text-gray-500 ml-1">/mês</span><span class="text-xs text-gray-400">**</span></div></div>
+                            <div id="conversions-price" class="flex justify-between items-center py-2.5"><span class="text-sm text-gray-700">Conversões</span><div class="whitespace-nowrap"><span class="font-semibold text-gray-900 text-sm">R$ 20,00</span><span class="text-xs text-gray-500 ml-1">/mês</span></div></div>
+                            <div id="social-price" class="flex justify-between items-center py-2.5"><span class="text-sm text-gray-700">Redes Sociais</span><div class="whitespace-nowrap"><span class="font-semibold text-gray-900 text-sm">R$ 10,00</span><span class="text-xs text-gray-500 ml-1">/mês</span></div></div>
+                            </div>
+                            <div class="px-5 pb-5 pt-3">
+                                <div class="rounded-xl bg-selva-50 border border-selva-100 p-4 flex items-end justify-between gap-3">
+                                    <div>
+                                        <span class="text-sm font-semibold text-gray-700">Total</span>
+                                        <p class="text-xs text-gray-500">assinatura mensal</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <span class="text-3xl md:text-4xl font-extrabold text-selva-600 tabular-nums" id="total-price">R$ 110,00</span><span class="text-sm font-bold text-selva-600 align-top">*</span>
+                                        <span class="block text-xs text-gray-500">/mês</span>
+                                    </div>
+                                </div>
+                                <div id="agent-cost-info" class="text-[11px] text-gray-400 mt-2">** até 500 contatos atendidos/mês. Entenda <a class="text-blue-500 hover:underline" href="https://bolten.gitbook.io/bolten-docs/manual-de-uso-da-plataforma/produtos-e-precos#o-chatbot-com-inteligencia-artificial">aqui</a></div>
+                                <p class="text-[11px] text-gray-400 mt-1">* para 1 usuário. Valores sem as taxas de transferência e cobradas pelos intermediários de pagamento.</p>
                             </div>
                         </div>
-                        <div id="ai-cost-disclaimer" class="hidden mt-3 p-2 bg-gray-50 border border-gray-200 rounded-lg">
-                            <p class="text-xs text-gray-600"><strong>Observação:</strong> Os valores podem variar dependendo do uso do agente de atendimento. Clique <a class="text-blue-400 hover:underline" href="https://bolten.gitbook.io/bolten-docs/manual-de-uso-da-plataforma/produtos-e-precos#o-chatbot-com-inteligencia-artificial">aqui</a> para saber mais.</p>
+
+                        <!-- Bolten billing -->
+                        <div id="bolten-billing-content" class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden hidden">
+                            <div class="px-5 py-4 border-b border-gray-100 flex items-center justify-between">
+                                <h3 class="font-bold text-gray-900">Simulação de preços</h3>
+                                <span class="text-xs font-semibold text-selva-600 bg-selva-50 px-2.5 py-1 rounded-full">Bolten cobra</span>
+                            </div>
+                            <div class="p-5">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Defina o preço do seu projeto</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none z-10">
+                                        <span class="text-gray-500 sm:text-sm">R$</span>
+                                    </div>
+                                    <input type="text" id="project-price" class="w-full pl-10 pr-3 py-3 border border-gray-200 rounded-lg bg-white focus:ring-2 focus:ring-selva-300 focus:border-selva-400 transition-all" placeholder="0,00">
+                                </div>
+                                <div id="price-warning" class="hidden mt-2 p-2 bg-red-50 border border-red-200 rounded-lg">
+                                    <p class="text-sm text-red-600">O preço mínimo é de <span id="minimum-price">R$ 160,00</span> baseado nas ferramentas selecionadas.</p>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3 mt-4">
+                                    <div class="p-4 bg-selva-50 border border-selva-100 rounded-xl text-center">
+                                        <span class="block text-xs font-semibold text-gray-600 mb-1">Sua parte (70%)</span>
+                                        <span class="text-2xl md:text-3xl font-extrabold text-selva-600 tabular-nums" id="your-share">R$ 0,00</span>
+                                    </div>
+                                    <div class="p-4 bg-gray-50 border border-gray-100 rounded-xl text-center">
+                                        <span class="block text-xs font-semibold text-gray-600 mb-1">Parte da Bolten (30%)</span>
+                                        <span class="text-2xl md:text-3xl font-extrabold text-gray-500 tabular-nums" id="bolten-share">R$ 0,00</span>
+                                    </div>
+                                </div>
+                                <div id="ai-cost-disclaimer" class="hidden mt-3 p-2 bg-gray-50 border border-gray-200 rounded-lg">
+                                    <p class="text-xs text-gray-600"><strong>Observação:</strong> Os valores podem variar dependendo do uso do agente de atendimento. Clique <a class="text-blue-500 hover:underline" href="https://bolten.gitbook.io/bolten-docs/manual-de-uso-da-plataforma/produtos-e-precos#o-chatbot-com-inteligencia-artificial">aqui</a> para saber mais.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -7670,17 +7696,21 @@ document.addEventListener('DOMContentLoaded', function() {
         // Always allow Agent and Conversions to be enabled (they will auto-enable WhatsApp if needed)
         agentToggle.disabled = false;
         
-        // Remove visual feedback from the agent card
+        // Remove visual feedback from the agent card (null-safe: layout may not use .p-6)
         const agentCard = agentToggle.closest('.p-6');
-        agentCard.classList.remove('opacity-60');
-        agentCard.querySelector('h3').classList.remove('text-gray-400');
-        agentCard.querySelector('p').classList.remove('text-gray-400');
-        
-        // Remove visual feedback from the conversions card
+        if (agentCard) {
+            agentCard.classList.remove('opacity-60');
+            agentCard.querySelector('h3')?.classList.remove('text-gray-400');
+            agentCard.querySelector('p')?.classList.remove('text-gray-400');
+        }
+
+        // Remove visual feedback from the conversions card (null-safe)
         const conversionsCard = conversionsToggle.closest('.p-6');
-        conversionsCard.classList.remove('opacity-60');
-        conversionsCard.querySelector('h3').classList.remove('text-gray-400');
-        conversionsCard.querySelector('p').classList.remove('text-gray-400');
+        if (conversionsCard) {
+            conversionsCard.classList.remove('opacity-60');
+            conversionsCard.querySelector('h3')?.classList.remove('text-gray-400');
+            conversionsCard.querySelector('p')?.classList.remove('text-gray-400');
+        }
     }
     
     // Mode switching
