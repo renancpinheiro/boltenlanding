@@ -131,8 +131,25 @@
                     <li class="px-3 py-1">
                         <a class="cursor-pointer text-gray-700 hover:text-gray-900 flex items-center transition" href="../index.html#pricing" data-scrollspy-link>Preço</a>
                     </li>
+                    <li class="px-3 py-1 relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false" @click.outside="open = false">
+                        <button type="button" class="cursor-pointer text-gray-700 hover:text-gray-900 flex items-center gap-1 transition" @click="open = !open" :aria-expanded="open">
+                            Casos de Uso
+                            <svg class="w-2.5 h-2.5 transition-transform duration-200" :class="open ? 'rotate-180' : ''" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m1 1 4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <div x-show="open" x-cloak x-transition.opacity class="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-30 w-64">
+                            <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-2">
+                                <a href="../para/agencias/" class="block rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-50 transition">Agências</a>
+                                <a href="../para/gestores-de-trafego/" class="block rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-50 transition">Gestores de Tráfego</a>
+                                <a href="../para/empreendedores-digitais/" class="block rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-50 transition">Empreendedores Digitais</a>
+                                <a href="../para/revendedores-de-software/" class="block rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-50 transition">Revendedores de Software</a>
+                                <a href="../para/vendedores-de-curso/" class="block rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-50 transition">Vendedores de Curso</a>
+                                <div class="my-1 border-t border-gray-100"></div>
+                                <a href="../cases/" class="block rounded-lg px-3 py-2 text-selva-600 font-semibold hover:bg-selva-50 transition">Cases de parceiros&nbsp;&#10095;</a>
+                            </div>
+                        </div>
+                    </li>
                     <li class="px-3 py-1">
-                        <a class="cursor-pointer text-gray-700 hover:text-gray-900 flex items-center transition" href="../index.html#faq" data-scrollspy-link>FAQ</a>
+                        <a class="cursor-pointer text-gray-700 hover:text-gray-900 flex items-center transition" href="../sobre/">Quem Somos</a>
                     </li>
                 </ul>
 
@@ -191,9 +208,14 @@
                         <li>
                             <a class="flex text-gray-700 hover:bg-gray-100 rounded-lg py-1.5 px-2" href="../index.html#how-it-works">Como funciona</a>
                         </li>
-                        <li>
-                            <a class="flex text-gray-700 hover:bg-gray-100 rounded-lg py-1.5 px-2" href="../index.html#faq">FAQ</a>
-                        </li>
+                        <li class="mt-1 pt-1 border-t border-gray-100"><span class="block px-2 py-1 text-xs font-semibold uppercase tracking-wide text-gray-400">Casos de Uso</span></li>
+                        <li><a class="flex text-gray-700 hover:bg-gray-100 rounded-lg py-1.5 px-2" href="../para/agencias/">Agências</a></li>
+                        <li><a class="flex text-gray-700 hover:bg-gray-100 rounded-lg py-1.5 px-2" href="../para/gestores-de-trafego/">Gestores de Tráfego</a></li>
+                        <li><a class="flex text-gray-700 hover:bg-gray-100 rounded-lg py-1.5 px-2" href="../para/empreendedores-digitais/">Empreendedores Digitais</a></li>
+                        <li><a class="flex text-gray-700 hover:bg-gray-100 rounded-lg py-1.5 px-2" href="../para/revendedores-de-software/">Revendedores de Software</a></li>
+                        <li><a class="flex text-gray-700 hover:bg-gray-100 rounded-lg py-1.5 px-2" href="../para/vendedores-de-curso/">Vendedores de Curso</a></li>
+                        <li><a class="flex text-selva-600 font-semibold hover:bg-gray-100 rounded-lg py-1.5 px-2" href="../cases/">Cases de parceiros</a></li>
+                        <li class="mt-1 pt-1 border-t border-gray-100"><a class="flex text-gray-700 hover:bg-gray-100 rounded-lg py-1.5 px-2" href="../sobre/">Quem Somos</a></li>
                     </ul>
                 </nav>
 
@@ -308,14 +330,14 @@
               <div class="rounded-lg bg-gray-50 p-3 text-center border border-gray-100"><p class="text-base font-bold tabular-nums text-gray-900">Simples</p><p class="text-[11px] text-gray-500">de operar</p></div>
             </div></div><div class="relative h-full bg-white flex flex-col rounded-2xl p-6 shadow-lg shadow-black/[0.03] before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(theme(colors.gray.100),theme(colors.gray.200))_border-box] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] before:[mask-composite:exclude_!important] before:pointer-events-none" data-aos="fade-up" data-aos-delay="100">
             <span class="self-start text-xs font-semibold uppercase tracking-wide text-tucano-600 bg-tucano-50 px-2.5 py-1 rounded-full mb-4">Tráfego + CRM</span>
-            <p class="text-gray-700 leading-relaxed flex-1">&ldquo;A plataforma é intuitiva e o Bolty resolveu todas as minhas dúvidas — nunca precisei acionar suporte humano. Comecei do zero e já rodo a venda casada de tráfego + CRM com os primeiros clientes.&rdquo;</p>
+            <p class="text-gray-700 leading-relaxed flex-1">&ldquo;A plataforma é intuitiva e o Bolty resolveu todas as minhas dúvidas — nunca precisei acionar suporte humano. Comecei do zero e já ofereço tráfego + CRM num pacote combinado para os primeiros clientes.&rdquo;</p>
             <div class="flex items-center gap-3 mt-5 pt-5 border-t border-gray-200">
               <div class="h-10 w-10 rounded-full bg-tucano-50 flex items-center justify-center text-tucano-600 text-sm font-bold shrink-0">DTX</div>
               <div><p class="font-bold text-gray-900 text-sm leading-tight">Agência DTX</p><p class="text-xs text-gray-500">Pernambuco</p></div>
             </div>
             <div class="grid grid-cols-2 gap-2 mt-4">
               <div class="rounded-lg bg-gray-50 p-3 text-center border border-gray-100"><p class="text-base font-bold tabular-nums text-selva-500">Do zero</p><p class="text-[11px] text-gray-500">começou sem base</p></div>
-              <div class="rounded-lg bg-gray-50 p-3 text-center border border-gray-100"><p class="text-base font-bold tabular-nums text-gray-900">Tráfego+CRM</p><p class="text-[11px] text-gray-500">venda casada</p></div>
+              <div class="rounded-lg bg-gray-50 p-3 text-center border border-gray-100"><p class="text-base font-bold tabular-nums text-gray-900">Tráfego+CRM</p><p class="text-[11px] text-gray-500">pacote combinado</p></div>
             </div></div></div>
       </div>
     </section>
@@ -409,7 +431,6 @@
                 <ul class="text-sm space-y-2">
                     <li><a href="../sobre/" class="text-gray-600 hover:text-gray-900 transition">Sobre a Bolten</a></li>
                     <li><a href="../cases/" class="text-gray-600 hover:text-gray-900 transition">Cases de parceiros</a></li>
-                    <li><a href="https://bolten.blog/" id="gtm-conversion" class="text-gray-600 hover:text-gray-900 transition" target="_blank">Blog</a></li>
                 </ul>
             </div>
 
@@ -430,9 +451,9 @@
             <div class="sm:col-span-6 md:col-span-3 lg:col-span-2 space-y-2">
                 <h3 class="text-sm font-medium">Recursos</h3>
                 <ul class="text-sm space-y-2">
-                    <li><a href="#" id="gtm-conversion" class="text-gray-600 hover:text-gray-900 transition">Termos de uso</a></li>
-                    <li><a href="https://bolten.gitbook.io/bolten-docs" id="gtm-conversion" class="text-gray-600 hover:text-gray-900 transition" target="_blank">Termos de parceria</a></li>
-                    <li><a href="#" id="gtm-conversion" class="text-gray-600 hover:text-gray-900 transition">Política de privacidade</a></li>
+                    <li><a href="https://www.bolten.io/pt/terms" id="gtm-conversion" class="text-gray-600 hover:text-gray-900 transition" target="_blank">Termos de uso</a></li>
+                    <li><a href="https://drive.google.com/file/d/1a8Dt2oiC5fvWvbwmQcyFP8AbpL8RO4vX/view?usp=drive_link" id="gtm-conversion" class="text-gray-600 hover:text-gray-900 transition" target="_blank">Termos de parceria</a></li>
+                    <li><a href="https://www.bolten.io/pt/privacy" id="gtm-conversion" class="text-gray-600 hover:text-gray-900 transition" target="_blank">Política de privacidade</a></li>
                 </ul>
             </div>
 
