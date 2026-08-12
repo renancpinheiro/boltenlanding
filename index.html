@@ -145,8 +145,25 @@
                     <li class="px-3 py-1">
                         <a class="cursor-pointer text-gray-700 hover:text-gray-900 flex items-center transition" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})" data-scrollspy-link>Preço</a>
                     </li>
+                    <li class="px-3 py-1 relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false" @click.outside="open = false">
+                        <button type="button" class="cursor-pointer text-gray-700 hover:text-gray-900 flex items-center gap-1 transition" @click="open = !open" :aria-expanded="open">
+                            Casos de Uso
+                            <svg class="w-2.5 h-2.5 transition-transform duration-200" :class="open ? 'rotate-180' : ''" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m1 1 4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <div x-show="open" x-cloak x-transition.opacity class="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-30 w-64">
+                            <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-2">
+                                <a href="para/agencias/" class="block rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-50 transition">Agências</a>
+                                <a href="para/gestores-de-trafego/" class="block rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-50 transition">Gestores de Tráfego</a>
+                                <a href="para/empreendedores-digitais/" class="block rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-50 transition">Empreendedores Digitais</a>
+                                <a href="para/revendedores-de-software/" class="block rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-50 transition">Revendedores de Software</a>
+                                <a href="para/vendedores-de-curso/" class="block rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-50 transition">Vendedores de Curso</a>
+                                <div class="my-1 border-t border-gray-100"></div>
+                                <a href="cases/" class="block rounded-lg px-3 py-2 text-selva-600 font-semibold hover:bg-selva-50 transition">Cases de parceiros&nbsp;&#10095;</a>
+                            </div>
+                        </div>
+                    </li>
                     <li class="px-3 py-1">
-                        <a class="cursor-pointer text-gray-700 hover:text-gray-900 flex items-center transition" onclick="document.getElementById('faq').scrollIntoView({behavior: 'smooth'})" data-scrollspy-link>FAQ</a>
+                        <a class="cursor-pointer text-gray-700 hover:text-gray-900 flex items-center transition" href="sobre/">Quem Somos</a>
                     </li>
                 </ul>
 
@@ -194,20 +211,25 @@
                 >
                     <ul class="text-sm p-2">
                         <li>
-                            <a class="flex text-gray-700 hover:bg-gray-100 rounded-lg py-1.5 px-2" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">Preço</a>
+                            <a class="flex text-gray-700 hover:bg-gray-100 rounded-lg py-1.5 px-2" onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})">Funcionalidades</a>
                         </li>
                         <li>
                             <a class="flex text-gray-700 hover:bg-gray-100 rounded-lg py-1.5 px-2" onclick="document.getElementById('why-bolten').scrollIntoView({behavior: 'smooth'})">Por que nós?</a>
                         </li>
                         <li>
-                            <a class="flex text-gray-700 hover:bg-gray-100 rounded-lg py-1.5 px-2" onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})">Funcionalidades</a>
-                        </li>
-                        <li>
                             <a class="flex text-gray-700 hover:bg-gray-100 rounded-lg py-1.5 px-2" onclick="document.getElementById('how-it-works').scrollIntoView({behavior: 'smooth'})">Como funciona</a>
                         </li>
                         <li>
-                            <a class="flex text-gray-700 hover:bg-gray-100 rounded-lg py-1.5 px-2" onclick="document.getElementById('faq').scrollIntoView({behavior: 'smooth'})">FAQ</a>
+                            <a class="flex text-gray-700 hover:bg-gray-100 rounded-lg py-1.5 px-2" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">Preço</a>
                         </li>
+                        <li class="mt-1 pt-1 border-t border-gray-100"><span class="block px-2 py-1 text-xs font-semibold uppercase tracking-wide text-gray-400">Casos de Uso</span></li>
+                        <li><a class="flex text-gray-700 hover:bg-gray-100 rounded-lg py-1.5 px-2" href="para/agencias/">Agências</a></li>
+                        <li><a class="flex text-gray-700 hover:bg-gray-100 rounded-lg py-1.5 px-2" href="para/gestores-de-trafego/">Gestores de Tráfego</a></li>
+                        <li><a class="flex text-gray-700 hover:bg-gray-100 rounded-lg py-1.5 px-2" href="para/empreendedores-digitais/">Empreendedores Digitais</a></li>
+                        <li><a class="flex text-gray-700 hover:bg-gray-100 rounded-lg py-1.5 px-2" href="para/revendedores-de-software/">Revendedores de Software</a></li>
+                        <li><a class="flex text-gray-700 hover:bg-gray-100 rounded-lg py-1.5 px-2" href="para/vendedores-de-curso/">Vendedores de Curso</a></li>
+                        <li><a class="flex text-selva-600 font-semibold hover:bg-gray-100 rounded-lg py-1.5 px-2" href="cases/">Cases de parceiros</a></li>
+                        <li class="mt-1 pt-1 border-t border-gray-100"><a class="flex text-gray-700 hover:bg-gray-100 rounded-lg py-1.5 px-2" href="sobre/">Quem Somos</a></li>
                     </ul>
                 </nav>
 
@@ -1055,7 +1077,7 @@
                 <div class="relative h-full bg-white rounded-2xl p-5 shadow-lg shadow-black/[0.03] before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(theme(colors.gray.100),theme(colors.gray.200))_border-box] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] before:[mask-composite:exclude_!important] before:pointer-events-none" data-aos="fade-up" data-aos-delay="150">
                     <div class="flex items-center justify-center h-11 w-11 rounded-xl border border-current/40 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),inset_0_-2px_3px_rgba(15,14,12,0.10),0_4px_9px_-3px_rgba(15,14,12,0.30)] transition-transform hover:-translate-y-0.5 active:translate-y-0 bg-selva-50 text-selva-500 mb-3"><i data-lucide="graduation-cap" class="w-5 h-5"></i></div>
                     <h3 class="text-lg font-bold text-gray-900 mb-1">Vendedores de curso</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">Transforme audiência em MRR: <strong>Agente de IA</strong> no WhatsApp e <strong>Redes Sociais</strong> pra sua base usar todo dia — uma ferramenta sua, muito além do curso.</p>
+                    <p class="text-sm text-gray-600 leading-relaxed">Transforme audiência em receita recorrente: <strong>Agente de IA</strong> no WhatsApp e <strong>Redes Sociais</strong> pra sua base usar todo dia — uma ferramenta sua, muito além do curso.</p>
                     <a href="para/vendedores-de-curso/" class="inline-flex items-center gap-1 text-sm font-semibold text-selva-500 hover:text-selva-600 mt-3">Ver como funciona pra infoprodutor&nbsp;&#10095;</a>
                 </div>
                 <!-- perfil -->
@@ -1962,49 +1984,49 @@
                             @click.prevent="tab = 'crm'"
                             id="gtm-features-crm"
                             :class="tab === 'crm' ? 'border-selva-400 text-selva-600 bg-selva-50 shadow-lg' : 'border-transparent text-gray-600 hover:text-gray-800 hover:border-gray-300 hover:bg-gray-50'"
-                            class="group relative min-w-0 flex-1 overflow-hidden border-b-4 py-6 px-8 text-center text-base font-medium focus:z-10 transition-all duration-200 rounded-t-lg cursor-pointer"
+                            class="group relative min-w-0 flex-1 overflow-hidden border-b-4 py-3 px-4 text-center text-sm font-medium focus:z-10 transition-all duration-200 rounded-t-lg cursor-pointer"
                             data-aos="zoom-y-out" data-aos-delay="100"
                         >
                             <div class="flex items-center justify-center space-x-3">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                                 </svg>
-                                <span class="font-bold text-lg">CRM de Vendas</span>
+                                <span class="font-bold text-sm sm:text-base">CRM de Vendas</span>
                             </div>
                         </button>
                         <button
                             @click.prevent="tab = 'atendimento'"
                             id="gtm-features-agent"
                             :class="tab === 'atendimento' ? 'border-selva-400 text-selva-600 bg-selva-50 shadow-lg' : 'border-transparent text-gray-600 hover:text-gray-800 hover:border-gray-300 hover:bg-gray-50'"
-                            class="group relative min-w-0 flex-1 overflow-hidden border-b-4 py-6 px-8 text-center text-base font-medium focus:z-10 transition-all duration-200 rounded-t-lg cursor-pointer"
+                            class="group relative min-w-0 flex-1 overflow-hidden border-b-4 py-3 px-4 text-center text-sm font-medium focus:z-10 transition-all duration-200 rounded-t-lg cursor-pointer"
                             data-aos="zoom-y-out" data-aos-delay="200"
                         >
                             <div class="flex items-center justify-center space-x-3">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
                                 </svg>
-                                <span class="font-bold text-lg">Agente de Atendimento IA</span>
+                                <span class="font-bold text-sm sm:text-base">Agente de Atendimento IA</span>
                             </div>
                         </button>
                         <button
                             @click.prevent="tab = 'conversoes'"
                             id="gtm-features-conversions"
                             :class="tab === 'conversoes' ? 'border-orange-400 text-orange-600 bg-orange-50 shadow-lg' : 'border-transparent text-gray-600 hover:text-gray-800 hover:border-gray-300 hover:bg-gray-50'"
-                            class="group relative min-w-0 flex-1 overflow-hidden border-b-4 py-6 px-8 text-center text-base font-medium focus:z-10 transition-all duration-200 rounded-t-lg cursor-pointer"
+                            class="group relative min-w-0 flex-1 overflow-hidden border-b-4 py-3 px-4 text-center text-sm font-medium focus:z-10 transition-all duration-200 rounded-t-lg cursor-pointer"
                             data-aos="zoom-y-out" data-aos-delay="300"
                         >
                             <div class="flex items-center justify-center space-x-3">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
                                 </svg>
-                                <span class="font-bold text-lg">Conversões</span>
+                                <span class="font-bold text-sm sm:text-base">Conversões</span>
                             </div>
                         </button>
                         <button
                             @click.prevent="tab = 'redes_sociais'"
                             id="gtm-features-social"
                             :class="tab === 'redes_sociais' ? 'border-tucano-400 text-tucano-600 bg-tucano-50 shadow-lg' : 'border-transparent text-gray-600 hover:text-gray-800 hover:border-gray-300 hover:bg-gray-50'"
-                            class="group relative min-w-0 flex-1 overflow-hidden border-b-4 py-6 px-8 text-center text-base font-medium focus:z-10 transition-all duration-200 rounded-t-lg cursor-pointer"
+                            class="group relative min-w-0 flex-1 overflow-hidden border-b-4 py-3 px-4 text-center text-sm font-medium focus:z-10 transition-all duration-200 rounded-t-lg cursor-pointer"
                             data-aos="zoom-y-out" data-aos-delay="350"
                         >
                             <div class="flex items-center justify-center space-x-3">
@@ -2013,21 +2035,21 @@
                                     <circle cx="12" cy="12" r="4" stroke-width="2"></circle>
                                     <path d="M16.5 7.5h.01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                                 </svg>
-                                <span class="font-bold text-lg">Redes Sociais</span>
+                                <span class="font-bold text-sm sm:text-base">Redes Sociais</span>
                             </div>
                         </button>
                         <button
                             @click.prevent="tab = 'central'"
                             id="gtm-features-service-center"
                             :class="tab === 'central' ? 'border-selva-400 text-selva-600 bg-selva-50 shadow-lg' : 'border-transparent text-gray-600 hover:text-gray-800 hover:border-gray-300 hover:bg-gray-50'"
-                            class="group relative min-w-0 flex-1 overflow-hidden border-b-4 py-6 px-8 text-center text-base font-medium focus:z-10 transition-all duration-200 rounded-t-lg cursor-pointer"
+                            class="group relative min-w-0 flex-1 overflow-hidden border-b-4 py-3 px-4 text-center text-sm font-medium focus:z-10 transition-all duration-200 rounded-t-lg cursor-pointer"
                             data-aos="zoom-y-out" data-aos-delay="400"
                         >
                             <div class="flex items-center justify-center space-x-3">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
                                 </svg>
-                                <span class="font-bold text-lg">Central de Atendimento</span>
+                                <span class="font-bold text-sm sm:text-base">Central de Atendimento</span>
                             </div>
                         </button>
                     </nav>
@@ -3588,7 +3610,7 @@
                 <!-- Videos -->
                 <div data-aos-id='revenueShareChart' class="lg:col-span-3 md:min-h-[450px]" data-aos="zoom-y-out" data-aos-delay="200" data-aos-duration="200">
                     <div class="w-full gap-6 text-center relative">
-                        <div x-show="category === '1'" class='bg-stone-200 w-full shadow-lg p-5 rounded-lg md:h-[450px] md:absolute' x-transition>
+                        <div x-show="category === '1'" class='bg-stone-200 w-full shadow-lg p-5 rounded-lg' x-transition>
                             <div class="max-w-6xl mx-auto px-4 sm:px-6">
   <div class="max-w-sm md:max-w-none mx-auto grid gap-3 md:grid-cols-3 text-left">
       <div class="bg-white rounded-xl p-4 shadow-sm">
@@ -3706,7 +3728,7 @@
       company: 'Gestor de tráfego'
     },
     {
-      text: 'A plataforma é intuitiva e o Bolty resolveu todas as minhas dúvidas — nunca precisei acionar suporte humano. Comecei do zero e já rodo a venda casada de tráfego + CRM com os primeiros clientes.',
+      text: 'A plataforma é intuitiva e o Bolty resolveu todas as minhas dúvidas — nunca precisei acionar suporte humano. Comecei do zero e já ofereço tráfego + CRM num pacote combinado para os primeiros clientes.',
       name: 'Agência DTX',
       company: 'Pernambuco'
     },
@@ -3799,7 +3821,7 @@
 </div>
 
                         </div>
-                        <div x-show="category === '2'" class='bg-stone-200 w-full shadow-lg p-6 rounded-lg md:h-[450px] md:absolute' x-transition
+                        <div x-show="category === '2'" class='bg-stone-200 w-full shadow-lg p-6 rounded-lg' x-transition
                              x-init="$watch('category', value => {
                                if (value === '2') {
                                  setTimeout(() => {
@@ -3856,14 +3878,24 @@
                                  }, 100);
                                }
                              })">
-                          <p class='text-2xl font-semibold text-gray-700 mb-2'>Que tal 70/30?</p>
-                          <p class='text-gray-700'>Aqui na Bolten, você fica com <b>70%</b> do valor da recorrência do cliente. <b>Para sempre</b>.</p>
-                          <p class='text-gray-700'>Acreditamos em um modelo de parceria diferenciado do mercado, com valorização total dos Parceiros.</p>
-                          <div class="mt-12 max-w-fit mx-auto">
+                          <p class='text-2xl font-semibold text-gray-700 mb-1'>Você escolhe como ganhar</p>
+                          <p class='text-gray-700 mb-4'>Dois modelos, igualmente vantajosos — a decisão é sua.</p>
+                          <div class="grid sm:grid-cols-2 gap-3 text-left mb-2">
+                            <div class="bg-white rounded-xl p-4 shadow-sm">
+                              <div class="flex items-center gap-2 mb-1"><i data-lucide="handshake" class="w-5 h-5 shrink-0 text-selva-500"></i><h4 class="font-bold text-gray-900">Bolten cobra, você recebe 70%</h4></div>
+                              <p class="text-sm text-gray-600 leading-snug">A Bolten cuida da cobrança e <b>repassa 70% da recorrência</b> pra você, todo mês, <b>para sempre</b>. Zero operação financeira do seu lado.</p>
+                            </div>
+                            <div class="bg-white rounded-xl p-4 shadow-sm">
+                              <div class="flex items-center gap-2 mb-1"><i data-lucide="wallet" class="w-5 h-5 shrink-0 text-tucano-500"></i><h4 class="font-bold text-gray-900">Você cobra direto</h4></div>
+                              <p class="text-sm text-gray-600 leading-snug">Prefere cobrar por fora? Você <b>define o preço</b> e paga só o custo da plataforma — <b>a margem acima disso é 100% sua</b>.</p>
+                            </div>
+                          </div>
+                          <div class="mt-4 max-w-fit mx-auto">
                             <canvas id="revenueShareChart" width="300" height="200"></canvas>
                           </div>
+                          <p class="text-xs text-gray-500 mt-2">No modelo de repasse, você fica com 70% da recorrência — uma das melhores porcentagens do mercado.</p>
                         </div>
-                        <div x-show="category === '3'" class='bg-stone-200 w-full shadow-lg p-6 rounded-lg md:h-[450px] md:absolute' x-transition>
+                        <div x-show="category === '3'" class='bg-stone-200 w-full shadow-lg p-6 rounded-lg' x-transition>
                           <p class='text-2xl font-semibold text-gray-700 mb-2'>Nossa plataforma, sua marca</p>
                           <p class='text-gray-700'>Use sua identidade visual para fortalecer sua marca com seus clientes.</p>
                           <div class="max-w-lg mx-auto mt-6" data-aos="zoom-y-out">
@@ -3875,7 +3907,7 @@
                               </div>
                           </div>
                         </div>
-                        <div x-show="category === '4'" class='bg-stone-200 w-full shadow-lg p-6 rounded-lg md:h-[450px] md:absolute' x-transition>
+                        <div x-show="category === '4'" class='bg-stone-200 w-full shadow-lg p-6 rounded-lg' x-transition>
                           <p class='text-2xl font-semibold text-gray-700 mb-2'>Não pare na porta. Entre e veja como seu cliente opera de verdade.</p>
                           <p class='text-gray-700'>Você poderá monitorar o fluxo de trabalho do cliente em tempo real para sugerir melhorias e acompanhar o desempenho. Faça consultorias bem direcionadas e embasadas.</p>
                           <div class="grid md:grid-cols-2 gap-4 mt-8 justify-center items-center">
@@ -3898,7 +3930,7 @@
                             </div>
                           </div>
                         </div>
-                        <div x-show="category === '5'" class='bg-stone-200 w-full shadow-lg p-6 rounded-lg md:h-[450px] md:absolute' x-transition>
+                        <div x-show="category === '5'" class='bg-stone-200 w-full shadow-lg p-6 rounded-lg' x-transition>
                             <p class='text-2xl font-semibold text-gray-700 mb-2'>Nós cuidamos da plataforma, e você, do seu cliente.</p>
                             <p class='text-gray-700'>Com segurança e suporte ágil, nossa equipe garante que a tecnologia funcione perfeitamente. Assim, você se dedica ao que realmente importa: o crescimento do seu negócio.</p>
                             
@@ -3908,7 +3940,7 @@
                             </div>
 
                             <div class='bg-white rounded-xl p-4 max-w-2xl mx-auto mt-4'>
-                              <p class='text-gray-700 font-semibold mb-2'>Você e seu cliente podem contar com nosso time através dos seguintes canais:</p>
+                              <p class='text-gray-700 font-semibold mb-2'>Você, parceiro, pode contar com o nosso time através dos seguintes canais:</p>
                               <div class="flex flex-col md:flex-row gap-4 items-center justify-center">
                                 <div class="flex items-center justify-center">
                                   <img src="assets/whatsapp.png" class="w-14" alt="WhatsApp logo" loading="lazy">
@@ -4046,7 +4078,7 @@
         <!-- CTA inline (após cases) -->
         <section class="relative">
           <div class="max-w-6xl mx-auto px-4 sm:px-6">
-            <div class="rounded-2xl bg-selva-50 border border-selva-100 px-6 py-8 md:py-10 text-center my-2" data-aos="fade-up">
+            <div class="rounded-2xl bg-selva-50 border border-selva-100 px-6 py-8 md:py-10 text-center mt-12 md:mt-20 mb-2" data-aos="fade-up">
               <h3 class="text-xl md:text-2xl font-bold mb-2">O próximo case pode ser <span class="text-selva-500">o seu</span>.</h3>
               <p class="text-gray-600 mb-5">Cadastro grátis, sem cartão. Sua plataforma fica pronta em minutos.</p>
               <a href="#" id="gtm-conversion" class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium text-white bg-selva-400 hover:bg-selva-500 shadow-lg transition-all">Criar minha conta grátis&nbsp;&#10095;</a>
@@ -4555,7 +4587,7 @@
                     <div class="mb-3">
                         <div class="flex items-center justify-center font-bold text-black bg-tucano-400/75 h-11 w-11 rounded-full">2</div>
                     </div>
-                    <h4 class="text-gray-800 text-xl font-bold mb-1">Obtenha seu link de template</h4>
+                    <h4 class="text-gray-800 text-xl font-bold mb-1">Obtenha seu link de modelo</h4>
                     <p class="text-gray-600">Na Plataforma de Parceiro, crie e personalize seus modelos (ou utilize algum já pronto), e você terá um link para compartilhar.</p>
                 </div>
             
@@ -4565,7 +4597,7 @@
                         <div class="flex items-center justify-center font-bold text-black bg-tucano-400/75 h-11 w-11 rounded-full">3</div>
                     </div>
                     <h4 class="text-gray-800 text-xl font-bold mb-1">Venda com seu preço</h4>
-                    <p class="text-gray-600">Agora basta compartilhar o link de acesso com seus clientes. Ao acessar, eles já estarão com um projeto a partir do seu template e precificação, pronto para usar e com cobrança ativa. <a href="https://bolten.gitbook.io/bolten-docs/manual-de-uso-da-plataforma/produtos-e-precos" class="text-blue-600 hover:text-blue-800" target="_blank">Saiba mais</a>.</p>
+                    <p class="text-gray-600">Agora basta compartilhar o link de acesso com seus clientes. Ao acessar, eles já estarão com um projeto a partir do seu modelo e precificação, pronto para usar e com cobrança ativa. <a href="https://bolten.gitbook.io/bolten-docs/manual-de-uso-da-plataforma/produtos-e-precos" class="text-blue-600 hover:text-blue-800" target="_blank">Saiba mais</a>.</p>
                 </div>
             
             </div>
@@ -4688,10 +4720,10 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
         <div class="py-12 md:py-20">
             <!-- Section header -->
-            <div class="max-w-3xl mx-auto text-center pb-12 md:pb-16" data-aos="zoom-y-out" data-aos-delay="100">
+            <div class="max-w-3xl mx-auto text-center pb-8 md:pb-10" data-aos="zoom-y-out" data-aos-delay="100">
                 <div class="flex justify-center">
                     <svg version="1.1" id="balao" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 519.96 863.56" style="enable-background:new 0 0 519.96 863.56;" xml:space="preserve" width="100px">
+	 viewBox="0 0 519.96 863.56" style="enable-background:new 0 0 519.96 863.56;" xml:space="preserve" width="72px">
 <style type="text/css">
 	.st0{fill:#FFFFFF;}
 </style>
@@ -7351,191 +7383,131 @@
             </div>
         
             <!-- Content Container -->
-            <div class="flex flex-col gap-8">
+            <div class="max-w-3xl mx-auto flex flex-col gap-6">
                 <!-- Mode Selection -->
-                <div class="flex justify-center gap-4 mb-8">
-                    <button id="self-billing" class="px-6 py-3 rounded-lg bg-selva-400 text-white font-semibold transition-all shadow active cursor-pointer">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <button id="self-billing" class="px-5 py-3 rounded-xl bg-selva-400 text-white font-semibold transition-all shadow active cursor-pointer">
                         Quero cobrar meus clientes
                     </button>
-                    <button id="bolten-billing" class="px-6 py-3 rounded-lg bg-stone-200 text-gray-700 font-semibold transition-all shadow cursor-pointer">
+                    <button id="bolten-billing" class="px-5 py-3 rounded-xl bg-stone-200 text-gray-700 font-semibold transition-all shadow cursor-pointer">
                         Quero que a Bolten cobre meus clientes
                     </button>
                 </div>
 
-                <!-- Main Content Area -->
-                <div class="flex flex-col lg:flex-row gap-8">
-                    <!-- Left Side - Feature Selection -->
-                    <div class="lg:w-1/2 space-y-4">
-                        <div class="p-6 bg-slate-50 rounded-lg shadow-lg border border-gray-200">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <h3 class="text-xl font-bold mb-2 text-gray-800">Ferramentas CRM</h3>
-                                    <p class="text-gray-600">Funil de vendas, contatos, tarefas e produtos</p>
-                                    <p class="text-xs text-gray-500 mt-1">Sempre incluso</p>
-                                </div>
-                                <div class="flex items-center">
-                                    <input type="checkbox" id="crm-toggle" class="feature-toggle" data-feature="crm" checked disabled>
-                                    <label for="crm-toggle" class="ml-3 text-sm font-medium text-gray-700 cursor-pointer">
-                                        <span class="toggle-label">Ativo</span>
-                                    </label>
-                                </div>
+                <!-- Product selector -->
+                <div>
+                    <p class="text-sm font-semibold text-gray-500 mb-2">Ative o que fizer sentido pra você</p>
+                    <div class="grid sm:grid-cols-2 gap-3">
+                        <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-200 flex items-center justify-between gap-3">
+                            <div>
+                                <h3 class="text-base font-bold text-gray-800">Ferramentas CRM</h3>
+                                <p class="text-sm text-gray-500 leading-snug">Funil, contatos, tarefas e produtos</p>
+                                <p class="text-xs text-selva-600 font-medium mt-0.5">Sempre incluso</p>
+                            </div>
+                            <div class="flex items-center shrink-0">
+                                <input type="checkbox" id="crm-toggle" class="feature-toggle" data-feature="crm" checked disabled>
+                                <label for="crm-toggle" class="ml-3 text-sm font-medium text-gray-700 cursor-pointer"><span class="toggle-label">Ativo</span></label>
                             </div>
                         </div>
-
-                        <div class="p-6 bg-slate-50 rounded-lg shadow-lg border border-gray-200">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <h3 class="text-xl font-bold mb-2 text-gray-800">Whatsapp</h3>
-                                    <p class="text-gray-600">Integração com WhatsApp</p>
-                                </div>
-                                <div class="flex items-center">
-                                    <input type="checkbox" id="whatsapp-toggle" class="feature-toggle" data-feature="whatsapp" checked>
-                                    <label for="whatsapp-toggle" class="ml-3 text-sm font-medium text-gray-700 cursor-pointer">
-                                        <span class="toggle-label">Ativo</span>
-                                    </label>
-                                </div>
+                        <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-200 flex items-center justify-between gap-3">
+                            <div>
+                                <h3 class="text-base font-bold text-gray-800">WhatsApp</h3>
+                                <p class="text-sm text-gray-500 leading-snug">Integração com WhatsApp</p>
+                            </div>
+                            <div class="flex items-center shrink-0">
+                                <input type="checkbox" id="whatsapp-toggle" class="feature-toggle" data-feature="whatsapp" checked>
+                                <label for="whatsapp-toggle" class="ml-3 text-sm font-medium text-gray-700 cursor-pointer"><span class="toggle-label">Ativo</span></label>
                             </div>
                         </div>
-
-                        <div class="p-6 bg-slate-50 rounded-lg shadow-lg border border-gray-200">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <h3 class="text-xl font-bold mb-2 text-gray-800">Agente de atendimento</h3>
-                                    <p class="text-gray-600">Atendimento automatizado com IA</p>
-                                    <p class="text-xs text-gray-500 mt-1">Requer WhatsApp</p>
-                                </div>
-                                <div class="flex items-center">
-                                    <input type="checkbox" id="agent-toggle" class="feature-toggle" data-feature="agent" checked>
-                                    <label for="agent-toggle" class="ml-3 text-sm font-medium text-gray-700 cursor-pointer">
-                                        <span class="toggle-label">Ativo</span>
-                                    </label>
-                                </div>
+                        <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-200 flex items-center justify-between gap-3">
+                            <div>
+                                <h3 class="text-base font-bold text-gray-800">Agente de atendimento</h3>
+                                <p class="text-sm text-gray-500 leading-snug">Atendimento automatizado com IA</p>
+                                <p class="text-xs text-selva-600 font-medium mt-0.5">Requer WhatsApp</p>
+                            </div>
+                            <div class="flex items-center shrink-0">
+                                <input type="checkbox" id="agent-toggle" class="feature-toggle" data-feature="agent" checked>
+                                <label for="agent-toggle" class="ml-3 text-sm font-medium text-gray-700 cursor-pointer"><span class="toggle-label">Ativo</span></label>
                             </div>
                         </div>
-
-                        <div class="p-6 bg-slate-50 rounded-lg shadow-lg border border-gray-200">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <h3 class="text-xl font-bold mb-2 text-gray-800">Conversões</h3>
-                                    <p class="text-gray-600">Rastreie seus leads e automatize seu funil de vendas</p>
-                                    <p class="text-xs text-gray-500 mt-1">Requer WhatsApp</p>
-                                </div>
-                                <div class="flex items-center">
-                                    <input type="checkbox" id="conversions-toggle" class="feature-toggle" data-feature="conversions" checked>
-                                    <label for="conversions-toggle" class="ml-3 text-sm font-medium text-gray-700 cursor-pointer">
-                                        <span class="toggle-label">Ativo</span>
-                                    </label>
-                                </div>
+                        <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-200 flex items-center justify-between gap-3">
+                            <div>
+                                <h3 class="text-base font-bold text-gray-800">Conversões</h3>
+                                <p class="text-sm text-gray-500 leading-snug">Rastreie leads e automatize seu funil</p>
+                                <p class="text-xs text-selva-600 font-medium mt-0.5">Requer WhatsApp</p>
+                            </div>
+                            <div class="flex items-center shrink-0">
+                                <input type="checkbox" id="conversions-toggle" class="feature-toggle" data-feature="conversions" checked>
+                                <label for="conversions-toggle" class="ml-3 text-sm font-medium text-gray-700 cursor-pointer"><span class="toggle-label">Ativo</span></label>
                             </div>
                         </div>
-
-                        <div class="p-6 bg-slate-50 rounded-lg shadow-lg border border-gray-200">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <h3 class="text-xl font-bold mb-2 text-gray-800">Redes Sociais</h3>
-                                    <p class="text-gray-600">Agende posts, aprove com o cliente e acompanhe analytics</p>
-                                </div>
-                                <div class="flex items-center">
-                                    <input type="checkbox" id="social-toggle" class="feature-toggle" data-feature="social" checked>
-                                    <label for="social-toggle" class="ml-3 text-sm font-medium text-gray-700 cursor-pointer">
-                                        <span class="toggle-label">Ativo</span>
-                                    </label>
-                                </div>
+                        <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-200 flex items-center justify-between gap-3">
+                            <div>
+                                <h3 class="text-base font-bold text-gray-800">Redes Sociais</h3>
+                                <p class="text-sm text-gray-500 leading-snug">Agende posts e acompanhe analytics</p>
+                            </div>
+                            <div class="flex items-center shrink-0">
+                                <input type="checkbox" id="social-toggle" class="feature-toggle" data-feature="social" checked>
+                                <label for="social-toggle" class="ml-3 text-sm font-medium text-gray-700 cursor-pointer"><span class="toggle-label">Ativo</span></label>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Right Side - Pricing Display -->
-                    <div class="lg:w-1/2">
-                        <div id="self-billing-content" class="p-6 bg-slate-50 rounded-lg shadow-lg border border-gray-100">
-                            <h3 class="text-xl font-bold mb-6 text-gray-800">Simulação de preços</h3>
-                            <div class="space-y-4">
-                                <div id="crm-price" class="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-100">
-                                    <span class="text-gray-700">Ferramentas CRM</span>
-                                    <div>
-                                      <span class="font-semibold text-gray-800">R$ 20,00</span>
-                                      <span class="text-sm text-gray-500 mr-1">/usuário</span>
-                                    </div>
-                                </div>
-                                <div id="whatsapp-price" class="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-100">
-                                    <div>
-                                      <span class="text-gray-700">WhatsApp</span>
-                                      <span id="whatsapp-label" class="text-xs text-gray-500 ml-2"></span>
-                                    </div>
-                                    <div>
-                                      <span class="font-semibold text-gray-800" id="whatsapp-price-value">R$ 0,00</span>
-                                      <span class="text-sm text-gray-500 mr-1">/usuário</span>
-                                    </div>
-                                </div>
-                                <div id="agent-price" class="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-100">
-                                    <span class="text-gray-700">Agente de atendimento</span>
-                                    <div>
-                                      <span class="font-semibold text-gray-800">R$ 60,00</span>
-                                      <span class="text-sm text-gray-500">/mês</span>
-                                      <span class="text-xs text-gray-500">**</span>
-                                    </div>
-                                </div>
-                                <div id="conversions-price" class="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-100">
-                                    <span class="text-gray-700">Conversões</span>
-                                    <div>
-                                      <span class="font-semibold text-gray-800">R$ 20,00</span>
-                                      <span class="text-sm text-gray-500 mr-1">/mês</span>
-                                    </div>
-                                </div>
-                                <div id="social-price" class="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-100">
-                                    <span class="text-gray-700">Redes Sociais</span>
-                                    <div>
-                                      <span class="font-semibold text-gray-800">R$ 10,00</span>
-                                      <span class="text-sm text-gray-500 mr-1">/mês</span>
-                                    </div>
-                                </div>
-                                <div class="border-t border-gray-200 pt-4 mt-4">
-                                    <div class="flex justify-between items-center">
-                                        <span class="text-lg font-semibold text-gray-800">Total</span>
-                                        <div class="flex flex-row gap-1">
-                                          <span class="text-xl font-bold text-selva-400" id="total-price">R$ 139,90</span>
-                                          <span class="text-xs font-bold text-selva-400 mt-1">*</span>
-                                        </div>
-                                    </div>
-                                    <div class="text-sm text-gray-500 text-right mt-1">/mês</div>
-                                    <div class="text-xs text-gray-400 text-right mt-1">* para 1 usuário</div>
-                                    <div id="agent-cost-info" class="text-xs text-gray-400 text-right mt-1">** até 500 contatos atendidos/mês. Entenda <a class="text-blue-400 hover:underline" href="https://bolten.gitbook.io/bolten-docs/manual-de-uso-da-plataforma/produtos-e-precos#o-chatbot-com-inteligencia-artificial">aqui</a></div>
-                                    <div class="text-xs text-gray-400 text-right mt-2 pt-2 border-t border-gray-100">Valores sem as taxas de transferência e cobradas pelos intermediários de pagamento.</div>
-                                </div>
+                <!-- Price result -->
+                <div>
+                    <!-- Self billing -->
+                    <div id="self-billing-content" class="p-6 bg-white rounded-2xl shadow-lg border border-gray-200">
+                        <div class="flex items-end justify-between gap-3 flex-wrap">
+                            <div>
+                                <p class="text-sm font-semibold text-gray-500">Seu custo na plataforma</p>
+                                <p class="text-xs text-gray-400">assinatura mensal, para 1 usuário</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-4xl font-bold text-selva-500 tabular-nums" id="total-price">R$ 139,90</span><span class="text-sm font-bold text-selva-500 align-top">*</span>
+                                <span class="block text-sm text-gray-500">/mês</span>
                             </div>
                         </div>
-
-                        <div id="bolten-billing-content" class="p-6 bg-slate-50 rounded-lg shadow-lg border border-gray-100 hidden">
-                            <h3 class="text-xl font-bold mb-6 text-gray-800">Simulação de preços</h3>
-                            <div class="space-y-4">
-                                <div class="mb-4">
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Defina o preço do seu projeto</label>
-                                    <div class="relative">
-                                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none z-10">
-                                            <span class="text-gray-500 sm:text-sm">R$</span>
-                                        </div>
-                                        <input type="text" id="project-price" class="w-full pl-10 pr-3 py-3 border border-gray-200 rounded-lg bg-white focus:ring-2 focus:ring-selva-300 focus:border-selva-400 transition-all" placeholder="0,00">
-                                    </div>
-                                    <div id="price-warning" class="hidden mt-2 p-2 bg-red-50 border border-red-200 rounded-lg">
-                                        <p class="text-sm text-red-600">O preço mínimo é de <span id="minimum-price">R$ 160,00</span> baseado nas ferramentas selecionadas.</p>
-                                    </div>
-                                </div>
-                                <div class="border-t border-gray-200 pt-4">
-                                    <div class="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-100 mb-3">
-                                        <span class="font-semibold text-gray-800">Sua parte (70%)</span>
-                                        <span class="text-xl font-bold text-selva-400" id="your-share">R$ 0,00</span>
-                                    </div>
-                                    <div class="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-100">
-                                        <span class="font-semibold text-gray-800">Parte da Bolten (30%)</span>
-                                        <span class="text-xl font-bold text-selva-400" id="bolten-share">R$ 0,00</span>
-                                    </div>
-                                </div>
-                                <div id="ai-cost-disclaimer" class="hidden mt-3 p-2 bg-gray-50 border border-gray-200 rounded-lg">
-                                    <p class="text-xs text-gray-600">
-                                        <strong>Observação:</strong> Os valores podem variar dependendo do uso do agente de atendimento. Clique <a class="text-blue-400 hover:underline" href="https://bolten.gitbook.io/bolten-docs/manual-de-uso-da-plataforma/produtos-e-precos#o-chatbot-com-inteligencia-artificial">aqui</a> para saber mais.
-                                    </p>
-                                </div>
+                        <details class="mt-4 group">
+                            <summary class="cursor-pointer text-sm font-semibold text-gray-600 hover:text-gray-900 flex items-center gap-1 select-none marker:content-['']">Ver detalhe por produto <span class="text-gray-400 transition-transform group-open:rotate-180">&#9662;</span></summary>
+                            <div class="space-y-2 mt-3">
+                                <div id="crm-price" class="flex justify-between items-center p-2.5 bg-gray-50 rounded-lg"><span class="text-sm text-gray-700">Ferramentas CRM</span><div><span class="font-semibold text-gray-800 text-sm">R$ 20,00</span><span class="text-xs text-gray-500 mr-1">/usuário</span></div></div>
+                                <div id="whatsapp-price" class="flex justify-between items-center p-2.5 bg-gray-50 rounded-lg"><div><span class="text-sm text-gray-700">WhatsApp</span><span id="whatsapp-label" class="text-xs text-gray-500 ml-2"></span></div><div><span class="font-semibold text-gray-800 text-sm" id="whatsapp-price-value">R$ 0,00</span><span class="text-xs text-gray-500 mr-1">/usuário</span></div></div>
+                                <div id="agent-price" class="flex justify-between items-center p-2.5 bg-gray-50 rounded-lg"><span class="text-sm text-gray-700">Agente de atendimento</span><div><span class="font-semibold text-gray-800 text-sm">R$ 60,00</span><span class="text-xs text-gray-500 mr-1">/mês</span><span class="text-xs text-gray-500">**</span></div></div>
+                                <div id="conversions-price" class="flex justify-between items-center p-2.5 bg-gray-50 rounded-lg"><span class="text-sm text-gray-700">Conversões</span><div><span class="font-semibold text-gray-800 text-sm">R$ 20,00</span><span class="text-xs text-gray-500 mr-1">/mês</span></div></div>
+                                <div id="social-price" class="flex justify-between items-center p-2.5 bg-gray-50 rounded-lg"><span class="text-sm text-gray-700">Redes Sociais</span><div><span class="font-semibold text-gray-800 text-sm">R$ 10,00</span><span class="text-xs text-gray-500 mr-1">/mês</span></div></div>
                             </div>
+                            <div id="agent-cost-info" class="text-xs text-gray-400 mt-2">** até 500 contatos atendidos/mês. Entenda <a class="text-blue-400 hover:underline" href="https://bolten.gitbook.io/bolten-docs/manual-de-uso-da-plataforma/produtos-e-precos#o-chatbot-com-inteligencia-artificial">aqui</a></div>
+                        </details>
+                        <p class="text-xs text-gray-400 mt-3 pt-3 border-t border-gray-100">* para 1 usuário. Valores sem as taxas de transferência e cobradas pelos intermediários de pagamento.</p>
+                    </div>
+
+                    <!-- Bolten billing -->
+                    <div id="bolten-billing-content" class="p-6 bg-white rounded-2xl shadow-lg border border-gray-200 hidden">
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Defina o preço do seu projeto</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none z-10">
+                                    <span class="text-gray-500 sm:text-sm">R$</span>
+                                </div>
+                                <input type="text" id="project-price" class="w-full pl-10 pr-3 py-3 border border-gray-200 rounded-lg bg-white focus:ring-2 focus:ring-selva-300 focus:border-selva-400 transition-all" placeholder="0,00">
+                            </div>
+                            <div id="price-warning" class="hidden mt-2 p-2 bg-red-50 border border-red-200 rounded-lg">
+                                <p class="text-sm text-red-600">O preço mínimo é de <span id="minimum-price">R$ 160,00</span> baseado nas ferramentas selecionadas.</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="p-3 bg-selva-50 rounded-lg text-center">
+                                <span class="block text-xs font-semibold text-gray-600 mb-1">Sua parte (70%)</span>
+                                <span class="text-2xl font-bold text-selva-500 tabular-nums" id="your-share">R$ 0,00</span>
+                            </div>
+                            <div class="p-3 bg-gray-50 rounded-lg text-center">
+                                <span class="block text-xs font-semibold text-gray-600 mb-1">Parte da Bolten (30%)</span>
+                                <span class="text-2xl font-bold text-gray-700 tabular-nums" id="bolten-share">R$ 0,00</span>
+                            </div>
+                        </div>
+                        <div id="ai-cost-disclaimer" class="hidden mt-3 p-2 bg-gray-50 border border-gray-200 rounded-lg">
+                            <p class="text-xs text-gray-600"><strong>Observação:</strong> Os valores podem variar dependendo do uso do agente de atendimento. Clique <a class="text-blue-400 hover:underline" href="https://bolten.gitbook.io/bolten-docs/manual-de-uso-da-plataforma/produtos-e-precos#o-chatbot-com-inteligencia-artificial">aqui</a> para saber mais.</p>
                         </div>
                     </div>
                 </div>
@@ -8079,7 +8051,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 >
                 <div class="overflow-hidden">
                     <p class="px-4 pb-3">
-                        Você terá modelos personalizados com sua marca. Basta enviar o link de cadastro para seus clientes. Por exemplo, se você atende advogados, pode criar um template específico para escritórios de advocacia.
+                        Você terá modelos personalizados com sua marca. Basta enviar o link de cadastro para seus clientes. Por exemplo, se você atende advogados, pode criar um modelo específico para escritórios de advocacia.
                     </p>
                 </div>
             </div>
@@ -8094,7 +8066,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     :aria-expanded="expanded"
                     aria-controls="faqs-text-05"
                 >
-                    <span>Quem dá suporte aos meus clientes?</span>
+                    <span>Como funciona o suporte da Bolten?</span>
                     <span class="flex items-center justify-center h-5 w-5 rounded-full bg-white shadow-sm shrink-0 ml-8">
                         <svg class="fill-gray-400 transform origin-center transition duration-200 ease-out" :class="{'!rotate-180': expanded}" xmlns="http://www.w3.org/2000/svg" width="10" height="6" fill="none">
                             <path d="m2 .586 3 3 3-3L9.414 2 5.707 5.707a1 1 0 0 1-1.414 0L.586 2 2 .586Z" clip-rule="evenodd" />
@@ -8111,7 +8083,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 >
                 <div class="overflow-hidden">
                     <p class="px-4 pb-3">
-                        A equipe da Bolten presta suporte aos seus clientes via chat no site. E se precisar de ajuda, você pode acionar nosso time a qualquer momento pelo WhatsApp.
+                        A Bolten dá suporte a você, parceiro: tiramos suas dúvidas de uso e resolvemos as questões técnicas da plataforma pelo chat e pelo WhatsApp. O atendimento ao seu cliente final é sempre seu, feito com a sua marca.
                     </p>
                 </div>
             </div>
@@ -8254,7 +8226,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div id="faqs-text-10" role="region" aria-labelledby="faqs-title-10" class="grid text-sm text-gray-600 overflow-hidden transition-all duration-300 ease-in-out" :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'">
                 <div class="overflow-hidden">
                     <p class="px-4 pb-3">
-                        A parte técnica é com a gente: a equipe Bolten dá suporte aos seus clientes pelo chat na plataforma, nos bastidores, sob a sua marca. Você cuida da relação comercial e da confiança — nós cuidamos de manter a tecnologia funcionando.
+                        A parte técnica é com a gente: a Bolten mantém a plataforma no ar e dá suporte a você nos bastidores. Você cuida do atendimento e da relação com o seu cliente, sob a sua marca — nós cuidamos de manter a tecnologia funcionando.
                     </p>
                 </div>
             </div>
@@ -8418,7 +8390,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 <ul class="text-sm space-y-2">
                     <li><a href="sobre/" class="text-gray-600 hover:text-gray-900 transition">Sobre a Bolten</a></li>
                     <li><a href="cases/" class="text-gray-600 hover:text-gray-900 transition">Cases de parceiros</a></li>
-                    <li><a href="https://bolten.blog/" id="gtm-conversion" class="text-gray-600 hover:text-gray-900 transition" target="_blank">Blog</a></li>
                 </ul>
             </div>
 
@@ -8439,9 +8410,9 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="sm:col-span-6 md:col-span-3 lg:col-span-2 space-y-2">
                 <h3 class="text-sm font-medium">Recursos</h3>
                 <ul class="text-sm space-y-2">
-                    <li><a href="#" id="gtm-conversion" class="text-gray-600 hover:text-gray-900 transition">Termos de uso</a></li>
-                    <li><a href="https://bolten.gitbook.io/bolten-docs" id="gtm-conversion" class="text-gray-600 hover:text-gray-900 transition" target="_blank">Termos de parceria</a></li>
-                    <li><a href="#" id="gtm-conversion" class="text-gray-600 hover:text-gray-900 transition">Política de privacidade</a></li>
+                    <li><a href="https://www.bolten.io/pt/terms" id="gtm-conversion" class="text-gray-600 hover:text-gray-900 transition" target="_blank">Termos de uso</a></li>
+                    <li><a href="https://drive.google.com/file/d/1a8Dt2oiC5fvWvbwmQcyFP8AbpL8RO4vX/view?usp=drive_link" id="gtm-conversion" class="text-gray-600 hover:text-gray-900 transition" target="_blank">Termos de parceria</a></li>
+                    <li><a href="https://www.bolten.io/pt/privacy" id="gtm-conversion" class="text-gray-600 hover:text-gray-900 transition" target="_blank">Política de privacidade</a></li>
                 </ul>
             </div>
 
