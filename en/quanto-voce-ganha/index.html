@@ -255,29 +255,78 @@
       <span class="text-gray-700 font-medium">How much you earn</span>
     </nav>
     <section class="relative">
-      <div class="max-w-3xl mx-auto px-4 sm:px-6">
-        <div class="py-8 md:py-12 text-center" data-aos="fade-up">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="py-8 md:py-12 text-center max-w-2xl mx-auto" data-aos="fade-up">
           <h1 class="text-4xl md:text-5xl font-bold mb-4">How much you <span class="text-selva-400">stack up every month</span>.</h1>
-          <p class="text-lg text-gray-600">You set the price for each client and keep <strong>70%</strong> of the monthly payment — every month, for as long as they stay. Run the numbers:</p>
+          <p class="text-lg text-gray-600">You set the price for each client and keep <strong>70%</strong> of the monthly fee — every month, for as long as they use it. Enter your numbers:</p>
         </div>
-        <div class="rounded-3xl bg-white p-6 md:p-8 shadow-xl border-2 border-gray-900" data-aos="fade-up" data-aos-delay="100">
-          <div class="rounded-2xl bg-gray-900 text-white text-center p-6 mb-6 [background-image:radial-gradient(circle_at_85%_15%,rgba(255,104,40,.3),transparent_55%)]">
-            <p class="text-xs uppercase tracking-widest text-white/60 mb-1">Your recurring revenue</p>
-            <p class="text-4xl md:text-5xl font-bold tabular-nums"><span class="text-white/50 text-2xl align-top">US$ </span><span id="calc-out">2,100</span></p>
-            <p class="text-sm text-white/60 mt-1">per month — every month</p>
-            <p class="text-sm text-selva-300 mt-2"><span id="calc-year">US$ 25,200</span> per year</p>
-          </div>
-          <div class="space-y-6">
-            <div>
-              <div class="flex justify-between items-baseline mb-2"><span class="text-sm font-semibold text-gray-700">Price per client</span><span class="font-bold text-tucano-500 tabular-nums">US$ <span id="calc-price-val">100</span></span></div>
-              <input type="range" id="calc-price" min="30" max="500" step="10" value="100" class="w-full accent-tucano-400 cursor-pointer">
+        <div class="grid lg:grid-cols-2 gap-6 items-stretch" data-aos="fade-up" data-aos-delay="100">
+          <!-- Inputs -->
+          <div class="bg-white rounded-3xl p-6 md:p-7 shadow-xl border border-gray-200">
+            <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-5">Your numbers</p>
+            <div class="mb-6">
+              <div class="flex items-baseline justify-between mb-2">
+                <label for="calc-price" class="text-sm font-semibold text-gray-700">How much you charge per client</label>
+                <span class="text-xs text-gray-400">per month</span>
+              </div>
+              <div class="flex items-center gap-2 rounded-xl border border-gray-200 focus-within:border-selva-400 focus-within:ring-2 focus-within:ring-selva-300 px-4 py-3 mb-3">
+                <span class="text-gray-500 font-semibold">US$</span>
+                <input type="number" id="calc-price" inputmode="numeric" min="20" max="600" value="90" class="w-full text-2xl font-bold text-gray-900 tabular-nums outline-none bg-transparent">
+              </div>
+              <input type="range" id="calc-price-range" min="20" max="600" step="1" value="90" class="w-full accent-selva-400 cursor-pointer">
+              <div class="flex flex-wrap gap-2 mt-3">
+                  <button type="button" class="calc-chip text-sm font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-lg px-3 py-1.5 transition" data-v="97">US$ 97</button>
+                  <button type="button" class="calc-chip text-sm font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-lg px-3 py-1.5 transition" data-v="149">US$ 149</button>
+                  <button type="button" class="calc-chip text-sm font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-lg px-3 py-1.5 transition" data-v="249">US$ 249</button>
+                  <button type="button" class="calc-chip text-sm font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-lg px-3 py-1.5 transition" data-v="397">US$ 397</button>
+              </div>
+              <p class="text-xs text-gray-400 mt-2">Type a value or use the shortcuts. Accepted range: US$ 20 to US$ 600.</p>
             </div>
-            <div>
-              <div class="flex justify-between items-baseline mb-2"><span class="text-sm font-semibold text-gray-700">How many clients</span><span class="font-bold text-tucano-500 tabular-nums"><span id="calc-qty-val">30</span></span></div>
-              <input type="range" id="calc-qty" min="1" max="300" step="1" value="30" class="w-full accent-tucano-400 cursor-pointer">
+            <div class="mb-6">
+              <div class="flex items-baseline justify-between mb-2">
+                <label class="text-sm font-semibold text-gray-700">How many clients you serve</label>
+                <span class="text-xs text-gray-400">today</span>
+              </div>
+              <div class="flex items-center gap-3 mb-3">
+                <button type="button" id="calc-qty-minus" aria-label="-" class="h-10 w-10 shrink-0 rounded-lg border border-gray-200 text-xl font-bold text-gray-600 hover:bg-gray-50 transition">&minus;</button>
+                <div class="flex-1 text-center text-3xl font-bold text-gray-900 tabular-nums" id="calc-qty-val">12</div>
+                <button type="button" id="calc-qty-plus" aria-label="+" class="h-10 w-10 shrink-0 rounded-lg border border-gray-200 text-xl font-bold text-gray-600 hover:bg-gray-50 transition">+</button>
+              </div>
+              <input type="range" id="calc-qty" min="1" max="200" step="1" value="12" class="w-full accent-selva-400 cursor-pointer">
+            </div>
+            <label class="flex items-start gap-3 cursor-pointer select-none pt-4 border-t border-gray-100">
+              <input type="checkbox" id="calc-growth" class="mt-0.5 h-5 w-5 accent-selva-400 cursor-pointer">
+              <span>
+                <span class="block text-sm font-semibold text-gray-800">Simulate growth</span>
+                <span class="block text-xs text-gray-500 leading-snug">Add new clients each month and see the effect on your 12-month total.</span>
+              </span>
+            </label>
+          </div>
+          <!-- Result -->
+          <div class="rounded-3xl bg-gray-900 text-white p-6 md:p-7 shadow-xl relative overflow-hidden [background-image:radial-gradient(circle_at_85%_10%,rgba(255,104,40,.28),transparent_55%)]">
+            <p class="text-xs font-semibold uppercase tracking-widest text-white/60 mb-1">Your recurring revenue</p>
+            <p class="text-5xl font-extrabold tabular-nums leading-none"><span class="text-white/50 text-2xl align-top">US$ </span><span id="calc-monthly">0</span><span class="text-lg font-bold text-white/50"> /mo</span></p>
+            <p class="text-sm text-white/60 mt-2">It comes back every month, without selling again.</p>
+            <div class="grid grid-cols-2 gap-3 mt-5 pt-5 border-t border-white/10">
+              <div>
+                <p class="text-xs text-white/50">Billed to clients</p>
+                <p class="text-lg font-bold tabular-nums"><span id="calc-gross">0</span></p>
+              </div>
+              <div>
+                <p class="text-xs text-white/50">Bolten keeps (30%)</p>
+                <p class="text-lg font-bold tabular-nums text-white/80"><span id="calc-bolten">0</span> <span class="text-xs font-normal text-white/40">infra</span></p>
+              </div>
+            </div>
+            <div class="mt-5 pt-5 border-t border-white/10">
+              <div class="flex items-baseline justify-between mb-3">
+                <p class="text-xs text-white/50">Accrued over 12 months</p>
+                <p class="text-2xl font-extrabold text-selva-300 tabular-nums" id="calc-accum">0</p>
+              </div>
+              <div id="calc-bars" class="flex items-end gap-1 h-24"></div>
+              <div class="flex justify-between text-[10px] text-white/40 mt-1"><span>Mo. 1</span><span>Mo. 6</span><span>Mo. 12</span></div>
+              <p id="calc-growth-note" class="text-[11px] text-selva-300 mt-2" style="display:none"></p>
             </div>
           </div>
-          <p class="text-center text-sm text-gray-500 mt-6">Formula: price × clients × <strong>70%</strong>. The remaining 30% covers Bolten's infrastructure.</p>
         </div>
         <div class="text-center my-10" data-aos="fade-up">
           <a href="#" id="gtm-conversion" class="inline-flex px-6 py-3 rounded-lg font-medium text-white bg-selva-400 hover:bg-selva-500 shadow-lg transition-all">I want to start earning&nbsp;&#10095;</a>
@@ -287,12 +336,38 @@
     </section>
     <script>
       (function(){
-        var price=document.getElementById('calc-price'), qty=document.getElementById('calc-qty');
-        var pv=document.getElementById('calc-price-val'), qv=document.getElementById('calc-qty-val');
-        var out=document.getElementById('calc-out'), yr=document.getElementById('calc-year');
-        var fmt=function(n){return n.toLocaleString('en-US',{maximumFractionDigits:0});};
-        function upd(){var m=Math.round(price.value*qty.value*0.7); pv.textContent=fmt(+price.value); qv.textContent=qty.value; out.textContent=fmt(m); yr.textContent='US$ '+fmt(m*12);}
-        price.addEventListener('input',upd); qty.addEventListener('input',upd); upd();
+        var SYM='US$', NLOC='en-US', GNOTE='adding ~{g} clients/mo';
+        var MIN=20, MAX=600, QMIN=1, QMAX=200;
+        var priceIn=document.getElementById('calc-price'), priceR=document.getElementById('calc-price-range');
+        var qtyR=document.getElementById('calc-qty'), qtyV=document.getElementById('calc-qty-val');
+        var mEl=document.getElementById('calc-monthly'), gEl=document.getElementById('calc-gross'),
+            bEl=document.getElementById('calc-bolten'), aEl=document.getElementById('calc-accum'),
+            bars=document.getElementById('calc-bars'), gnote=document.getElementById('calc-growth-note'),
+            growth=document.getElementById('calc-growth');
+        function clamp(v,lo,hi){v=parseInt(v,10); if(isNaN(v))v=lo; return Math.max(lo,Math.min(hi,v));}
+        function fmt(n){return SYM+' '+Math.round(n).toLocaleString(NLOC,{maximumFractionDigits:0});}
+        function num(n){return Math.round(n).toLocaleString(NLOC,{maximumFractionDigits:0});}
+        function render(){
+          var price=clamp(priceIn.value,MIN,MAX), qty=clamp(qtyR.value,QMIN,QMAX);
+          priceR.value=price; qtyV.textContent=qty;
+          var g=growth.checked?Math.max(1,Math.round(qty*0.1)):0;
+          var monthly=price*qty*0.7, gross=price*qty, bolten=gross*0.3;
+          var cum=[], run=0;
+          for(var m=0;m<12;m++){ run+=price*(qty+g*m)*0.7; cum.push(run); }
+          mEl.textContent=num(monthly); gEl.textContent=fmt(gross); bEl.textContent=fmt(bolten); aEl.textContent=fmt(cum[11]);
+          var mx=cum[11]||1, h='';
+          for(var i=0;i<12;i++){ var ht=Math.max(6,Math.round(cum[i]/mx*100)); h+='<div class="flex-1 rounded-t '+(i===11?'bg-selva-300':'bg-selva-500/60')+'" style="height:'+ht+'%"></div>'; }
+          bars.innerHTML=h;
+          if(growth.checked){ gnote.style.display=''; gnote.textContent=GNOTE.replace('{g}',g); } else { gnote.style.display='none'; }
+        }
+        priceIn.addEventListener('input',render);
+        priceR.addEventListener('input',function(){priceIn.value=priceR.value; render();});
+        qtyR.addEventListener('input',render);
+        document.getElementById('calc-qty-minus').addEventListener('click',function(){qtyR.value=clamp(+qtyR.value-1,QMIN,QMAX); render();});
+        document.getElementById('calc-qty-plus').addEventListener('click',function(){qtyR.value=clamp(+qtyR.value+1,QMIN,QMAX); render();});
+        growth.addEventListener('change',render);
+        Array.prototype.forEach.call(document.querySelectorAll('.calc-chip'),function(ch){ch.addEventListener('click',function(){priceIn.value=ch.getAttribute('data-v'); render();});});
+        render();
       })();
     </script>
     </main>
