@@ -937,7 +937,7 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    const brandColors = ['rgba(31, 176, 65', 'rgba(255, 104, 40', 'rgba(253, 139, 170']
+    const brandColors = ['rgb(31, 176, 65)', 'rgb(255, 104, 40)', 'rgb(253, 139, 170)']
 
     let slide6Timeline = gsap.timeline({ repeat: -1, repeatRefresh: true });
 
@@ -951,7 +951,7 @@
       duration: 2,
       ease: 'steps(1)'
     }).to(lampada, {
-      fill: () => gsap.getRandomFrom(brandColors),
+      fill: () => gsap.utils.random(brandColors),
       duration: 0.5,
       ease: 'bounce.in',
       delay: 0.5
@@ -973,7 +973,7 @@
     });
 
     slide4Timeline
-      .to(coracao, { fill: () => gsap.getRandomFrom(brandColors), duration: 0 } )
+      .to(coracao, { fill: () => gsap.utils.random(brandColors), duration: 0 } )
       .fromTo(coracaoMask, { strokeDashoffset: 2*coracaoMaskLength }, {
         strokeDashoffset: 3* coracaoMaskLength,
         duration: 1,
