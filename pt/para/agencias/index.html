@@ -21,43 +21,21 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style type="text/tailwindcss">
-      @theme {
-        --color-tucano-400: rgba(255, 104, 40, 1);
-        --color-tucano-500: rgba(204, 83, 32, 1);
-        --color-tucano-600: rgba(163, 67, 26, 1);
-        --color-tucano-700: rgba(131, 53, 20, 1);
-        --color-selva-50:  rgba(236, 252, 240, 1);
-        --color-selva-300: rgba(90, 200, 118, 1);
-        --color-selva-400: rgba(31, 176, 65, 1);
-        --color-selva-500: rgba(25, 141, 52, 1);
-        --color-selva-600: rgba(20, 113, 42, 1);
-        --color-selva-700: rgba(16, 90, 33, 1);
-        --color-ipe-50: rgba(253, 240, 244, 1);
-        --color-ipe-400: rgba(253, 139, 170, 1);
-        --color-ipe-500: rgba(202, 111, 136, 1);
-        --color-ipe-600: rgba(162, 89, 109, 1);
-        --color-ipe-700: rgba(130, 71, 87, 1);
-        --color-tarde-50: rgba(255, 244, 238, 1);
-        --color-tarde-400: rgba(254, 180, 148, 1);
-        --color-tarde-500: rgba(203, 144, 118, 1);
-        --color-tarde-600: rgba(163, 115, 95, 1);
-        --color-tarde-700: rgba(130, 92, 76, 1);
-        --color-tucano-50: rgba(255, 240, 232, 1);
-        --color-orange-50: rgba(255, 247, 237, 1);
-      }
-    </style>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"></noscript>
+  <link rel="stylesheet" href="../../../assets/tailwind.css">
   <style>
     [x-cloak]{ display:none !important; }
     body{ font-family:'Arimo', ui-sans-serif, system-ui, sans-serif; }
   </style>
-  <link rel="alternate" hreflang="pt-BR" href="../../../pt/para/agencias/">
-  <link rel="alternate" hreflang="es" href="../../../es/para/agencias/">
-  <link rel="alternate" hreflang="en" href="../../../en/para/agencias/">
-  <link rel="alternate" hreflang="x-default" href="../../../pt/para/agencias/">
+  <link rel="canonical" href="https://renancpinheiro.github.io/boltenlanding/pt/para/agencias/">
+  <link rel="alternate" hreflang="pt-BR" href="https://renancpinheiro.github.io/boltenlanding/pt/para/agencias/">
+  <link rel="alternate" hreflang="es" href="https://renancpinheiro.github.io/boltenlanding/es/para/agencias/">
+  <link rel="alternate" hreflang="en" href="https://renancpinheiro.github.io/boltenlanding/en/para/agencias/">
+  <link rel="alternate" hreflang="x-default" href="https://renancpinheiro.github.io/boltenlanding/pt/para/agencias/">
 </head>
 <body class="antialiased bg-gray-50 text-gray-900 tracking-tight">
   <div id="js-locale" data-locale="pt"></div>
@@ -82,7 +60,7 @@
             <!-- Site branding -->
             <div class="flex-1 flex items-center ps-1">
                 <!-- Logo -->
-                <a href="../../index.html" class="inline-flex">
+                <a href="../../index.html" class="inline-flex" aria-label="Bolten">
                     <svg id="bolten" xmlns="http://www.w3.org/2000/svg"
   viewBox="0 0 1500 480" width='70px'>
 <path id="b" fill="none" stroke="black" stroke-width="60" 
@@ -143,7 +121,7 @@
                 <!-- Desktop menu links -->
                 <ul class="text-sm flex grow justify-center flex-wrap items-center gap-3 lg:gap-5">
                     <li class="hidden">
-                        <a data-scrollspy-link></a>
+                        <a data-scrollspy-link aria-hidden="true" tabindex="-1"></a>
                     </li>
                     <li class="px-2 py-1">
                         <a class="cursor-pointer text-gray-700 hover:text-gray-900 flex items-center transition" href="../../index.html#features" data-scrollspy-link>Funcionalidades</a>
@@ -510,7 +488,6 @@
 </div>
 
   <!-- Libs (CDN) -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/resize@3.x.x/dist/cdn.min.js"></script>
