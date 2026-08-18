@@ -41,6 +41,19 @@
 }
 
 /* Estilos customizados da marca */
+
+/*
+ * Correção da borda-gradiente (::before) usada no header, cards e botões.
+ * A utility arbitrária before:[mask-composite:exclude_!important] não é
+ * emitida pelo build estático do Tailwind v4, então o mask-composite ficava
+ * no default "add" e o gradiente preenchia o elemento inteiro (mancha cinza),
+ * escondendo o conteúdo. Reaplicamos o "exclude" para recortar só a borda.
+ */
+[class*="mask-composite:exclude"]::before {
+  -webkit-mask-composite: xor !important;
+  mask-composite: exclude !important;
+}
+
 [x-cloak]{ display:none !important; }
 body{ font-family:'Arimo', ui-sans-serif, system-ui, sans-serif; }
 @keyframes logoscroll{ from{ transform:translateX(0) } to{ transform:translateX(-50%) } }
