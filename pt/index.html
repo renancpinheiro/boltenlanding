@@ -23,13 +23,13 @@
   <meta property="og:image" content="../assets/kanban.png">
   <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"></noscript>
+  <link rel="stylesheet" href="../assets/vendor/aos.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="../assets/vendor/aos.css"></noscript>
 
+  <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/arimo-latin-400-normal.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/arimo-latin-700-normal.woff2" crossorigin>
   <link rel="stylesheet" href="../assets/tailwind.css">
+  <link rel="preload" as="image" href="../assets/kanban.webp" fetchpriority="high">
   <style>
     [x-cloak]{ display:none !important; }
     body{ font-family:'Arimo', ui-sans-serif, system-ui, sans-serif; }
@@ -901,7 +901,7 @@
                   <div class="relative flex items-center justify-between before:block before:ml-2 before:w-[41px] before:h-[9px] before:[background-image:radial-gradient(circle_at_4.5px_4.5px,_theme(colors.gray.600)_4.5px,_transparent_0)] before:bg-[length:16px_9px] after:w-[41px] mb-2">
                       <span class="text-gray-600 font-bold text-[13px]">sua-marca.bolten.io</span>
                   </div>
-                  <img src="../assets/kanban.png" class="mx-auto rounded-lg" alt="Kanban board interface" loading="lazy">
+                  <img src="../assets/kanban.webp" class="mx-auto rounded-lg" alt="Kanban board interface" width="1280" height="606" fetchpriority="high">
               </div>
           </div>
       </div>
@@ -3985,14 +3985,17 @@
                         <div class="relative flex justify-center items-center" data-aos="zoom-y-out" data-aos-delay="100">
                             <div class="relative rounded-2xl overflow-hidden w-full aspect-video max-w-3xl mx-auto shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2">
                                 <div class="relative rounded-xl overflow-hidden w-full h-full bg-gray-900">
-                                    <iframe 
-                                        class="absolute top-0 left-0 w-full h-full"
-                                        src="https://www.youtube.com/embed/1t9ZQAMOjvU?vq=hd1080&cc_load_policy=0" 
-                                        title="Product Demo Video"
-                                        frameborder="0" 
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowfullscreen>
-                                    </iframe>
+                                    <div class="absolute inset-0" x-data="{play:false}">
+                                        <button type="button" x-show="!play" @click="play=true" aria-label="Assistir demonstração" class="group absolute inset-0 w-full h-full flex flex-col items-center justify-center gap-3 bg-gradient-to-br from-gray-900 via-gray-900 to-selva-700/50 cursor-pointer">
+                                            <span class="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/95 shadow-xl transition-transform group-hover:scale-110">
+                                                <svg class="w-7 h-7 md:w-8 md:h-8 text-selva-500 translate-x-0.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                                            </span>
+                                            <span class="text-white/90 text-sm font-semibold">Assistir demonstração</span>
+                                        </button>
+                                        <template x-if="play">
+                                            <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube-nocookie.com/embed/1t9ZQAMOjvU?autoplay=1&vq=hd1080&cc_load_policy=0" title="Product Demo Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        </template>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -8509,11 +8512,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   <!-- Libs (CDN) -->
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script defer src="../assets/vendor/gsap.min.js"></script>
+  <script defer src="../assets/vendor/chart.umd.min.js"></script>
+  <script defer src="../assets/vendor/lucide.min.js"></script>
+  <script defer src="../assets/vendor/aos.min.js"></script>
+  <script defer src="../assets/vendor/alpine.min.js"></script>
 
   <script>
     // Ícones Lucide

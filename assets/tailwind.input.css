@@ -40,6 +40,12 @@
   --color-orange-50: rgba(255, 247, 237, 1);
 }
 
+/* Fontes auto-hospedadas (Arimo) — evita a cadeia render-blocking do Google Fonts */
+@font-face{font-family:'Arimo';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/arimo-latin-400-normal.woff2') format('woff2');}
+@font-face{font-family:'Arimo';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/arimo-latin-500-normal.woff2') format('woff2');}
+@font-face{font-family:'Arimo';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/arimo-latin-600-normal.woff2') format('woff2');}
+@font-face{font-family:'Arimo';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/arimo-latin-700-normal.woff2') format('woff2');}
+
 /* Estilos customizados da marca */
 
 /*

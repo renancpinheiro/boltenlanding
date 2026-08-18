@@ -19,11 +19,10 @@
   <meta property="og:description" content="Stories from partners who built recurring revenue selling software under their own brand with Bolten.">
   <meta property="og:image" content="../../assets/kanban.png">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"></noscript>
+  <link rel="stylesheet" href="../../assets/vendor/aos.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="../../assets/vendor/aos.css"></noscript>
+  <link rel="preload" as="font" type="font/woff2" href="../../assets/fonts/arimo-latin-400-normal.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="../../assets/fonts/arimo-latin-700-normal.woff2" crossorigin>
   <link rel="stylesheet" href="../../assets/tailwind.css">
   <style>
     [x-cloak]{ display:none !important; }
@@ -495,9 +494,9 @@
 </div>
 
   <!-- Libs (CDN) -->
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script defer src="../../assets/vendor/lucide.min.js"></script>
+  <script defer src="../../assets/vendor/aos.min.js"></script>
+  <script defer src="../../assets/vendor/alpine.min.js"></script>
   <script>
     document.addEventListener('alpine:init', () => {
       Alpine.data('counter', (target = 0, duration = 3000) => ({
