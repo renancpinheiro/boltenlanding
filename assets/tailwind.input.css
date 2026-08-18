@@ -1,0 +1,49 @@
+/*
+ * Fonte do Tailwind (pré-compilado).
+ * O arquivo servido é assets/tailwind.css (minificado).
+ *
+ * Para recompilar depois de adicionar/alterar classes Tailwind no HTML:
+ *   npx @tailwindcss/cli@4 -i assets/tailwind.input.css -o assets/tailwind.css --minify
+ * (requer os pacotes tailwindcss@4 e @tailwindcss/cli@4)
+ *
+ * IMPORTANTE: como o CSS é pré-compilado, classes novas só passam a valer
+ * depois de rodar o comando acima. Sem isso, a classe é ignorada.
+ */
+@import "tailwindcss";
+
+@source "../pt/**/*.html";
+@source "../es/**/*.html";
+@source "../en/**/*.html";
+
+@theme {
+  --color-tucano-400: rgba(255, 104, 40, 1);
+  --color-tucano-500: rgba(204, 83, 32, 1);
+  --color-tucano-600: rgba(163, 67, 26, 1);
+  --color-tucano-700: rgba(131, 53, 20, 1);
+  --color-selva-50:  rgba(236, 252, 240, 1);
+  --color-selva-300: rgba(90, 200, 118, 1);
+  --color-selva-400: rgba(31, 176, 65, 1);
+  --color-selva-500: rgba(25, 141, 52, 1);
+  --color-selva-600: rgba(20, 113, 42, 1);
+  --color-selva-700: rgba(16, 90, 33, 1);
+  --color-ipe-50: rgba(253, 240, 244, 1);
+  --color-ipe-400: rgba(253, 139, 170, 1);
+  --color-ipe-500: rgba(202, 111, 136, 1);
+  --color-ipe-600: rgba(162, 89, 109, 1);
+  --color-ipe-700: rgba(130, 71, 87, 1);
+  --color-tarde-50: rgba(255, 244, 238, 1);
+  --color-tarde-400: rgba(254, 180, 148, 1);
+  --color-tarde-500: rgba(203, 144, 118, 1);
+  --color-tarde-600: rgba(163, 115, 95, 1);
+  --color-tarde-700: rgba(130, 92, 76, 1);
+  --color-tucano-50: rgba(255, 240, 232, 1);
+  --color-orange-50: rgba(255, 247, 237, 1);
+}
+
+/* Estilos customizados da marca */
+[x-cloak]{ display:none !important; }
+body{ font-family:'Arimo', ui-sans-serif, system-ui, sans-serif; }
+@keyframes logoscroll{ from{ transform:translateX(0) } to{ transform:translateX(-50%) } }
+.logo-track{ animation:logoscroll 45s linear infinite; }
+.logo-marquee:hover .logo-track{ animation-play-state:paused; }
+@media (prefers-reduced-motion: reduce){ .logo-track{ animation:none } }
