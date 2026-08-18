@@ -19,11 +19,10 @@
   <meta property="og:description" content="Empieza un negocio de software sin programar: CRM, WhatsApp y Agente de IA listos, con tu marca. Sin costo para empezar, el 70% de los ingresos recurrentes es tuyo.">
   <meta property="og:image" content="../../../assets/kanban.png">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"></noscript>
+  <link rel="stylesheet" href="../../../assets/vendor/aos.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="../../../assets/vendor/aos.css"></noscript>
+  <link rel="preload" as="font" type="font/woff2" href="../../../assets/fonts/arimo-latin-400-normal.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="../../../assets/fonts/arimo-latin-700-normal.woff2" crossorigin>
   <link rel="stylesheet" href="../../../assets/tailwind.css">
   <style>
     [x-cloak]{ display:none !important; }
@@ -255,7 +254,7 @@
               <div class="relative flex items-center before:block before:ml-2 before:w-[41px] before:h-[9px] before:[background-image:radial-gradient(circle_at_4.5px_4.5px,_theme(colors.gray.600)_4.5px,_transparent_0)] before:bg-[length:16px_9px] mb-2">
                 <span class="text-gray-600 font-bold text-[13px] ml-3">tu-marca.bolten.io</span>
               </div>
-              <img src="../../../assets/kanban.png" class="mx-auto rounded-lg" alt="Plataforma con tu marca" loading="lazy">
+              <img src="../../../assets/kanban.webp" class="mx-auto rounded-lg" alt="Plataforma con tu marca" width="1280" height="606" loading="lazy">
             </div>
           </div>
         </div>
@@ -486,9 +485,9 @@
 </div>
 
   <!-- Libs (CDN) -->
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script defer src="../../../assets/vendor/lucide.min.js"></script>
+  <script defer src="../../../assets/vendor/aos.min.js"></script>
+  <script defer src="../../../assets/vendor/alpine.min.js"></script>
   <script>
     document.addEventListener('alpine:init', () => {
       Alpine.data('counter', (target = 0, duration = 3000) => ({
