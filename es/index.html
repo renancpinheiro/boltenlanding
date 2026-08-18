@@ -3830,11 +3830,10 @@
     <!-- Navigation dots -->
     <div class="flex justify-center space-x-2 mt-6">
       <template x-for="(testimonial, index) in testimonials" :key="index">
-        <button 
+        <button
           @click="goToTestimonial(index)" :aria-label="'Ir al testimonio ' + (index + 1)"
-          :class="currentTestimonial === index ? 'bg-selva-400' : 'bg-gray-300 hover:bg-gray-400'"
-          class="w-3 h-3 rounded-full transition-colors duration-200 cursor-pointer"
-        ></button>
+          class="w-6 h-6 flex items-center justify-center rounded-full cursor-pointer"
+        ><span :class="currentTestimonial === index ? 'bg-selva-400' : 'bg-gray-300'" class="w-3 h-3 rounded-full transition-colors duration-200 block"></span></button>
       </template>
     </div>
   </div>
@@ -3964,7 +3963,7 @@
                               <div class="flex flex-col md:flex-row gap-4 items-center justify-center">
                                 <div class="flex items-center justify-center">
                                   <img src="../assets/whatsapp.png" class="w-14" alt="Logo de WhatsApp" loading="lazy">
-                                  <p class='text-gray-700'><a class="text-blue-400" href="https://wa.me/5511998292021?text=Ol%C3%A1%2C%0D%0A%0D%0AGostaria+de+saber+como+a+Bolten+pode+me+ajudar+a+construir+o+meu+CRM%21" target="_blank">(11) 99829-2021</a></p>
+                                  <p class='text-gray-700'><a class="text-blue-700 underline" href="https://wa.me/5511998292021?text=Ol%C3%A1%2C%0D%0A%0D%0AGostaria+de+saber+como+a+Bolten+pode+me+ajudar+a+construir+o+meu+CRM%21" target="_blank">(11) 99829-2021</a></p>
                                 </div>
                                 <div class="flex items-center justify-center">
                                   <img src="../assets/in_chat_widget.webp" class="w-24 -mr-4" alt="Widget de soporte por chat" loading="lazy">
@@ -4620,7 +4619,7 @@
                         <div class="flex items-center justify-center font-bold text-black bg-tucano-400/75 h-11 w-11 rounded-full">3</div>
                     </div>
                     <h4 class="text-gray-800 text-xl font-bold mb-1">Vende con tu precio</h4>
-                    <p class="text-gray-600">Ahora solo tienes que compartir el link de acceso con tus clientes. Al acceder, ya tendrán un proyecto a partir de tu modelo y precios, listo para usar y con cobro activo. <a href="https://bolten.gitbook.io/bolten-docs/manual-de-uso-da-plataforma/produtos-e-precos" class="text-blue-600 hover:text-blue-800" target="_blank">Más información</a>.</p>
+                    <p class="text-gray-600">Ahora solo tienes que compartir el link de acceso con tus clientes. Al acceder, ya tendrán un proyecto a partir de tu modelo y precios, listo para usar y con cobro activo. <a href="https://bolten.gitbook.io/bolten-docs/manual-de-uso-da-plataforma/produtos-e-precos" class="text-blue-700 underline hover:text-blue-800" target="_blank">Más información</a>.</p>
                 </div>
             
             </div>
@@ -7523,7 +7522,7 @@
                                         <span class="block text-xs text-gray-500">/mes</span>
                                     </div>
                                 </div>
-                                <div id="agent-cost-info" class="text-[11px] text-gray-400 mt-2">** hasta 500 contactos atendidos/mes. Entiende <a class="text-blue-500 hover:underline" href="https://bolten.gitbook.io/bolten-docs/manual-de-uso-da-plataforma/produtos-e-precos#o-chatbot-com-inteligencia-artificial">aquí</a></div>
+                                <div id="agent-cost-info" class="text-[11px] text-gray-400 mt-2">** hasta 500 contactos atendidos/mes. Entiende <a class="text-blue-700 underline" href="https://bolten.gitbook.io/bolten-docs/manual-de-uso-da-plataforma/produtos-e-precos#o-chatbot-com-inteligencia-artificial">aquí</a></div>
                                 <p class="text-[11px] text-gray-400 mt-1">* para 1 usuario. Valores sin las tarifas de transferencia cobradas por los intermediarios de pago.</p>
                             </div>
                         </div>
@@ -7556,7 +7555,7 @@
                                     </div>
                                 </div>
                                 <div id="ai-cost-disclaimer" class="hidden mt-3 p-2 bg-gray-50 border border-gray-200 rounded-lg">
-                                    <p class="text-xs text-gray-600"><strong>Nota:</strong> Los valores pueden variar según el uso del agente de atención. Haz clic <a class="text-blue-500 hover:underline" href="https://bolten.gitbook.io/bolten-docs/manual-de-uso-da-plataforma/produtos-e-precos#o-chatbot-com-inteligencia-artificial">aquí</a> para saber más.</p>
+                                    <p class="text-xs text-gray-600"><strong>Nota:</strong> Los valores pueden variar según el uso del agente de atención. Haz clic <a class="text-blue-700 underline" href="https://bolten.gitbook.io/bolten-docs/manual-de-uso-da-plataforma/produtos-e-precos#o-chatbot-com-inteligencia-artificial">aquí</a> para saber más.</p>
                                 </div>
                             </div>
                         </div>
@@ -7565,7 +7564,7 @@
             </div>
         </div>
         <div class="max-w-3xl mx-auto text-center pb-12 md:pb-16" data-aos="zoom-y-out" data-aos-delay="100">
-            <p class="text-xl text-gray-500"><a href="https://bolten.gitbook.io/bolten-docs/manual-de-uso-da-plataforma/produtos-e-precos" class="text-blue-600 hover:text-blue-800" target="_blank">Entiende cómo funciona nuestro cobro</a></p>
+            <p class="text-xl text-gray-500"><a href="https://bolten.gitbook.io/bolten-docs/manual-de-uso-da-plataforma/produtos-e-precos" class="text-blue-700 underline hover:text-blue-800" target="_blank">Entiende cómo funciona nuestro cobro</a></p>
         </div>
     </div>
 </section>
@@ -8178,7 +8177,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 >
                 <div class="overflow-hidden">
                     <p class="px-4 pb-3">
-                        Puedes acceder a nuestro canal de YouTube en <a href="https://youtube.com/@UseBolten" class="text-blue-600 hover:text-blue-800" target="_blank">youtube.com/@UseBolten</a> para ver tutoriales y consejos. Además, tenemos una documentación completa en <a href="https://bolten.gitbook.io/bolten-docs" class="text-blue-600 hover:text-blue-800" target="_blank">https://bolten.gitbook.io/bolten-docs</a>, con todo el material de soporte necesario.
+                        Puedes acceder a nuestro canal de YouTube en <a href="https://youtube.com/@UseBolten" class="text-blue-700 underline hover:text-blue-800" target="_blank">youtube.com/@UseBolten</a> para ver tutoriales y consejos. Además, tenemos una documentación completa en <a href="https://bolten.gitbook.io/bolten-docs" class="text-blue-700 underline hover:text-blue-800" target="_blank">https://bolten.gitbook.io/bolten-docs</a>, con todo el material de soporte necesario.
                     </p>
                 </div>
             </div>
