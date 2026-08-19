@@ -3651,7 +3651,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <!-- Videos -->
-                <div data-aos-id='revenueShareChart' class="lg:col-span-3 md:min-h-[450px]" data-aos="zoom-y-out" data-aos-delay="200" data-aos-duration="200">
+                <div data-aos-id='revenueShareChart' class="lg:col-span-3" data-aos="zoom-y-out" data-aos-delay="200" data-aos-duration="200">
                     <div class="w-full gap-6 text-center relative">
                         <div x-show="category === '6'" class='bg-white border border-gray-200 w-full shadow-lg p-6 rounded-lg' x-transition>
                           <p class='text-2xl font-semibold text-gray-700 mb-2'>Empieza sin pagar para empezar.</p>
@@ -8524,5 +8524,15 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }, false);
   </script>
+<!-- Back to top -->
+<button id="back-to-top" type="button" aria-label="Voltar ao topo" class="hidden md:flex fixed bottom-6 right-6 z-[60] h-11 w-11 items-center justify-center rounded-full bg-selva-400 text-white shadow-lg opacity-0 pointer-events-none transition-opacity duration-300 hover:bg-selva-500">
+<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
+</button>
+<script>
+(function(){var b=document.getElementById("back-to-top");if(!b)return;
+function t(){if(window.scrollY>500){b.classList.remove("opacity-0","pointer-events-none");}else{b.classList.add("opacity-0","pointer-events-none");}}
+window.addEventListener("scroll",t,{passive:true});t();
+b.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"});});})();
+</script>
 </body>
 </html>
