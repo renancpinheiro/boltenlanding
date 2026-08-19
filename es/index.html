@@ -4679,40 +4679,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <p class="text-lg text-selva-50/90">Vendes <strong class="text-white">una vez</strong> y recibes <strong class="text-white">todos los meses</strong>, mientras el cliente usa. Suma clientes y tus ingresos recurrentes se acumulan — sin rehacer la venta.</p>
             </div>
 
+            <div class="flex justify-center mb-8" data-aos="fade-up">
+                <div class="inline-flex items-center gap-1 p-1 rounded-full bg-white/10 border border-white/15 backdrop-blur">
+                    <button type="button" data-cur-btn="cop" data-cur-theme="dark" aria-pressed="true" class="px-4 py-1.5 rounded-full text-sm font-semibold transition cursor-pointer">COP</button>
+                    <button type="button" data-cur-btn="mxn" data-cur-theme="dark" aria-pressed="false" class="px-4 py-1.5 rounded-full text-sm font-semibold transition cursor-pointer">MXN</button>
+                </div>
+            </div>
+
             <div class="max-w-sm mx-auto grid gap-4 sm:grid-cols-2 lg:grid-cols-4 md:max-w-none">
                 <!-- cenário -->
                 <div class="rounded-2xl bg-white/10 backdrop-blur-sm border border-white/15 p-5 text-center" data-aos="fade-up" data-aos-delay="80">
                     <p class="text-sm font-semibold text-selva-50/80 mb-2">10 clientes</p>
-                    <p class="text-3xl md:text-4xl font-bold tabular-nums text-white">US$&nbsp;1,050</p>
+                    <p class="text-3xl md:text-4xl font-bold tabular-nums text-white" data-rev-month data-clients="10">$ 4.200.000</p>
                     <p class="text-sm text-selva-50/70 mt-1">por mes, recurrente</p>
-                    <p class="text-xs text-selva-50/60 mt-3 pt-3 border-t border-white/10">US$ 12,600 por año</p>
+                    <p class="text-xs text-selva-50/60 mt-3 pt-3 border-t border-white/10"><span data-rev-year data-clients="10">$ 50.400.000 por año</span></p>
                 </div>
                 <!-- cenário -->
                 <div class="rounded-2xl bg-white/10 backdrop-blur-sm border border-white/15 p-5 text-center" data-aos="fade-up" data-aos-delay="160">
                     <p class="text-sm font-semibold text-selva-50/80 mb-2">25 clientes</p>
-                    <p class="text-3xl md:text-4xl font-bold tabular-nums text-white">US$&nbsp;2,625</p>
+                    <p class="text-3xl md:text-4xl font-bold tabular-nums text-white" data-rev-month data-clients="25">$ 10.500.000</p>
                     <p class="text-sm text-selva-50/70 mt-1">por mes, recurrente</p>
-                    <p class="text-xs text-selva-50/60 mt-3 pt-3 border-t border-white/10">US$ 31,500 por año</p>
+                    <p class="text-xs text-selva-50/60 mt-3 pt-3 border-t border-white/10"><span data-rev-year data-clients="25">$ 126.000.000 por año</span></p>
                 </div>
                 <!-- cenário destaque -->
                 <div class="relative rounded-2xl bg-tucano-400 p-5 text-center shadow-2xl shadow-black/30 sm:scale-105" data-aos="fade-up" data-aos-delay="240">
                     <span class="absolute -top-2.5 left-1/2 -translate-x-1/2 text-[10px] font-bold uppercase tracking-wider bg-white text-tucano-500 px-2 py-0.5 rounded-full shadow">meta común</span>
                     <p class="text-sm font-semibold text-white/90 mb-2">50 clientes</p>
-                    <p class="text-3xl md:text-4xl font-bold tabular-nums text-white">US$&nbsp;5,250</p>
+                    <p class="text-3xl md:text-4xl font-bold tabular-nums text-white" data-rev-month data-clients="50">$ 21.000.000</p>
                     <p class="text-sm text-white/80 mt-1">por mes, recurrente</p>
-                    <p class="text-xs text-white/75 mt-3 pt-3 border-t border-white/20">US$ 63,000 por año</p>
+                    <p class="text-xs text-white/75 mt-3 pt-3 border-t border-white/20"><span data-rev-year data-clients="50">$ 252.000.000 por año</span></p>
                 </div>
                 <!-- cenário -->
                 <div class="rounded-2xl bg-white/10 backdrop-blur-sm border border-white/15 p-5 text-center" data-aos="fade-up" data-aos-delay="320">
                     <p class="text-sm font-semibold text-selva-50/80 mb-2">100 clientes</p>
-                    <p class="text-3xl md:text-4xl font-bold tabular-nums text-white">US$&nbsp;10,500</p>
+                    <p class="text-3xl md:text-4xl font-bold tabular-nums text-white" data-rev-month data-clients="100">$ 42.000.000</p>
                     <p class="text-sm text-selva-50/70 mt-1">por mes, recurrente</p>
-                    <p class="text-xs text-selva-50/60 mt-3 pt-3 border-t border-white/10">US$ 126,000 por año</p>
+                    <p class="text-xs text-selva-50/60 mt-3 pt-3 border-t border-white/10"><span data-rev-year data-clients="100">$ 504.000.000 por año</span></p>
                 </div>
             </div>
 
             <div class="max-w-2xl mx-auto text-center mt-10" data-aos="fade-up">
-                <p class="text-sm text-selva-50/70">Ejemplo con ticket de <strong class="text-white">US$ 150/mes por cliente</strong> — tú te quedas con el 70% (US$ 105). <strong class="text-white">Tú defines el precio</strong>: simula tu número en la calculadora de abajo.</p>
+                <p class="text-sm text-selva-50/70">Ejemplo con ticket de <strong class="text-white"><span id="rev-ticket">$ 600.000</span>/mes por cliente</strong> — tú te quedas con el 70% (<span id="rev-kept">$ 420.000</span>). <strong class="text-white">Tú defines el precio</strong>: simula tu número en la calculadora de abajo.</p>
                 <a href="#pricing" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})" class="inline-flex items-center justify-center mt-6 px-5 py-3 rounded-lg font-medium text-selva-600 bg-white hover:bg-selva-50 shadow-lg transition-all cursor-pointer">
                     Calcular mis ingresos&nbsp;&#10095;
                 </a>
@@ -7404,6 +7411,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <p class="text-xs text-gray-400 text-center max-w-md">El modelo en que Bolten cobra y te repasa el 70% está disponible solo en Brasil por ahora.</p>
                 </div>
 
+                <div class="flex items-center justify-center gap-2 mb-6">
+                    <span class="text-sm text-gray-500">Moneda:</span>
+                    <div class="inline-flex items-center gap-1 p-1 rounded-full bg-gray-100 border border-gray-200">
+                        <button type="button" data-cur-btn="cop" data-cur-theme="light" aria-pressed="true" class="px-4 py-1.5 rounded-full text-sm font-semibold transition cursor-pointer">COP</button>
+                        <button type="button" data-cur-btn="mxn" data-cur-theme="light" aria-pressed="false" class="px-4 py-1.5 rounded-full text-sm font-semibold transition cursor-pointer">MXN</button>
+                    </div>
+                </div>
+
                 <div class="grid lg:grid-cols-2 gap-6 lg:gap-8 items-start">
                     <!-- LEFT: product selector -->
                     <div class="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden" data-aos="fade-up">
@@ -7489,11 +7504,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <span class="text-xs font-semibold text-selva-600 bg-selva-50 px-2.5 py-1 rounded-full">tú cobras</span>
                             </div>
                             <div class="px-5 pt-2 pb-1 divide-y divide-gray-100">
-                            <div id="crm-price" class="flex justify-between items-center py-2.5"><span class="text-sm text-gray-700">Herramientas CRM</span><div class="whitespace-nowrap"><span class="font-semibold text-gray-900 text-sm">US$ 5.00</span><span class="text-xs text-gray-500 ml-1">/usuario</span></div></div>
-                            <div id="whatsapp-price" class="flex justify-between items-center py-2.5"><div><span class="text-sm text-gray-700">WhatsApp</span><span id="whatsapp-label" class="text-xs text-selva-600 ml-1"></span></div><div class="whitespace-nowrap"><span class="font-semibold text-gray-900 text-sm" id="whatsapp-price-value">US$ 0.00</span><span class="text-xs text-gray-500 ml-1">/usuario</span></div></div>
-                            <div id="agent-price" class="flex justify-between items-center py-2.5"><span class="text-sm text-gray-700">Agente de Atención con IA</span><div class="whitespace-nowrap"><span class="font-semibold text-gray-900 text-sm">US$ 12.00</span><span class="text-xs text-gray-500 ml-1">/mes</span><span class="text-xs text-gray-400">**</span></div></div>
-                            <div id="conversions-price" class="flex justify-between items-center py-2.5"><span class="text-sm text-gray-700">Conversiones</span><div class="whitespace-nowrap"><span class="font-semibold text-gray-900 text-sm">US$ 5.00</span><span class="text-xs text-gray-500 ml-1">/mes</span></div></div>
-                            <div id="social-price" class="flex justify-between items-center py-2.5"><span class="text-sm text-gray-700">Redes Sociales</span><div class="whitespace-nowrap"><span class="font-semibold text-gray-900 text-sm">US$ 2.00</span><span class="text-xs text-gray-500 ml-1">/mes</span></div></div>
+                            <div id="crm-price" class="flex justify-between items-center py-2.5"><span class="text-sm text-gray-700">Herramientas CRM</span><div class="whitespace-nowrap"><span class="font-semibold text-gray-900 text-sm">$ 15.000</span><span class="text-xs text-gray-500 ml-1">/usuario</span></div></div>
+                            <div id="whatsapp-price" class="flex justify-between items-center py-2.5"><div><span class="text-sm text-gray-700">WhatsApp</span><span id="whatsapp-label" class="text-xs text-selva-600 ml-1"></span></div><div class="whitespace-nowrap"><span class="font-semibold text-gray-900 text-sm" id="whatsapp-price-value">$ 0</span><span class="text-xs text-gray-500 ml-1">/usuario</span></div></div>
+                            <div id="agent-price" class="flex justify-between items-center py-2.5"><span class="text-sm text-gray-700">Agente de Atención con IA</span><div class="whitespace-nowrap"><span class="font-semibold text-gray-900 text-sm">$ 45.000</span><span class="text-xs text-gray-500 ml-1">/mes</span><span class="text-xs text-gray-400">**</span></div></div>
+                            <div id="conversions-price" class="flex justify-between items-center py-2.5"><span class="text-sm text-gray-700">Conversiones</span><div class="whitespace-nowrap"><span class="font-semibold text-gray-900 text-sm">$ 15.000</span><span class="text-xs text-gray-500 ml-1">/mes</span></div></div>
+                            <div id="social-price" class="flex justify-between items-center py-2.5"><span class="text-sm text-gray-700">Redes Sociales</span><div class="whitespace-nowrap"><span class="font-semibold text-gray-900 text-sm">$ 7.500</span><span class="text-xs text-gray-500 ml-1">/mes</span></div></div>
                             </div>
                             <div class="px-5 pb-5 pt-3">
                                 <div class="rounded-xl bg-selva-50 border border-selva-100 p-4 flex items-end justify-between gap-3">
@@ -7502,7 +7517,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         <p class="text-xs text-gray-500">suscripción mensual</p>
                                     </div>
                                     <div class="text-right">
-                                        <span class="text-3xl md:text-4xl font-extrabold text-selva-600 tabular-nums" id="total-price">US$ 24.00</span><span class="text-sm font-bold text-selva-600 align-top">*</span>
+                                        <span class="text-3xl md:text-4xl font-extrabold text-selva-600 tabular-nums" id="total-price">$ 82.500</span><span class="text-sm font-bold text-selva-600 align-top">*</span>
                                         <span class="block text-xs text-gray-500">/mes</span>
                                     </div>
                                 </div>
@@ -7567,24 +7582,62 @@ document.addEventListener('DOMContentLoaded', function() {
     // Get current locale from the DOM
     const currentLocale = document.getElementById('js-locale')?.dataset.locale || 'en';
 
-    // Locale-driven pricing: Brazil in BRL, everywhere else in USD
+    // Locale-driven pricing. ES exposes an on-page currency switch (COP default / MXN).
     const LOCALE_PRICES = {
-        pt: { sym: 'R$',  crm: 20, agent: 60, conv: 20, social: 10 },
-        es: { sym: 'US$', crm: 5,  agent: 12, conv: 5,  social: 2  },
-        en: { sym: 'US$', crm: 5,  agent: 12, conv: 5,  social: 2  },
+        pt: { sym: 'R$',  crm: 20,    agent: 60,    conv: 20,    social: 10,   dec: 2, group: '.', decsep: ',', ticket: 150 },
+        es: { sym: '$',   crm: 15000, agent: 45000, conv: 15000, social: 7500, dec: 0, group: '.', decsep: ',', ticket: 600000 },
+        en: { sym: 'US$', crm: 5,     agent: 12,    conv: 5,     social: 2,    dec: 2, group: ',', decsep: '.', ticket: 150 },
     };
-    const P = LOCALE_PRICES[currentLocale] || LOCALE_PRICES.pt;
+    const ES_CURRENCIES = {
+        cop: LOCALE_PRICES.es,
+        mxn: { sym: '$', crm: 70, agent: 200, conv: 70, social: 35, dec: 2, group: ',', decsep: '.', ticket: 2500 },
+    };
+    let currency = 'cop';
+    let P = (currentLocale === 'es') ? ES_CURRENCIES[currency] : (LOCALE_PRICES[currentLocale] || LOCALE_PRICES.pt);
 
-    // Currency formatting function based on locale
+    // Currency formatting driven by the active price profile (thousands grouping + decimals).
     function formatCurrency(amount) {
         const value = parseFloat(amount) || 0;
-        if (currentLocale === 'pt') {
-            // Brazilian format: R$ 123,00 (comma as decimal separator)
-            return `${P.sym} ${value.toFixed(2).replace('.', ',')}`;
-        } else {
-            // International format: US$ 123.00 (dot as decimal separator)
-            return `${P.sym} ${value.toFixed(2)}`;
-        }
+        const neg = value < 0 ? '-' : '';
+        const fixed = Math.abs(value).toFixed(P.dec);
+        let [int, frac] = fixed.split('.');
+        int = int.replace(/\B(?=(\d{3})+(?!\d))/g, P.group);
+        return `${neg}${P.sym} ${int}${P.dec > 0 ? P.decsep + frac : ''}`;
+    }
+
+    // Recompute the illustrative revenue tiers + ticket example for the active currency.
+    function renderRevenue() {
+        document.querySelectorAll('[data-rev-month]').forEach(el => {
+            const n = parseInt(el.dataset.clients, 10) || 0;
+            el.textContent = formatCurrency(n * P.ticket * 0.7);
+        });
+        document.querySelectorAll('[data-rev-year]').forEach(el => {
+            const n = parseInt(el.dataset.clients, 10) || 0;
+            el.textContent = formatCurrency(n * P.ticket * 0.7 * 12) + ' por año';
+        });
+        const t = document.getElementById('rev-ticket'); if (t) t.textContent = formatCurrency(P.ticket);
+        const k = document.getElementById('rev-kept');   if (k) k.textContent = formatCurrency(P.ticket * 0.7);
+    }
+
+    function setCurrency(cur) {
+        if (!ES_CURRENCIES[cur]) return;
+        currency = cur; P = ES_CURRENCIES[cur];
+        document.querySelectorAll('[data-cur-btn]').forEach(b => {
+            const on = b.getAttribute('data-cur-btn') === cur;
+            const dark = b.getAttribute('data-cur-theme') === 'dark';
+            b.classList.remove('bg-white','text-selva-700','shadow','text-white/70','bg-selva-400','text-white','text-gray-500');
+            if (on) { b.classList.add('shadow', dark ? 'bg-white' : 'bg-selva-400', dark ? 'text-selva-700' : 'text-white'); }
+            else { b.classList.add(dark ? 'text-white/70' : 'text-gray-500'); }
+            b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        renderRevenue();
+        try { updateSelfBillingPrice(); } catch (e) {}
+    }
+
+    if (currentLocale === 'es') {
+        document.querySelectorAll('[data-cur-btn]').forEach(b =>
+            b.addEventListener('click', () => setCurrency(b.getAttribute('data-cur-btn'))));
+        setCurrency('cop');
     }
     
     // Parse currency input considering locale format
