@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Bolten">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FF6828"/>
+      <stop offset="1" stop-color="#FF8866"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFCF7"/>
+      <stop offset="1" stop-color="#FDF0E0"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="32" height="32" rx="8.5" fill="url(#bg)"/>
+  <g transform="rotate(-18 16 16)">
+    <path d="M16 5.4 C22 10, 22 21, 16 26 C10 21, 10 10, 16 5.4 Z" fill="url(#leaf)"/>
+    <path d="M16 8 L16 27" fill="none" stroke="#138A30" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M16 13 L19 11 M16 17 L19.3 15.3 M16 13 L13 11 M16 17 L12.7 15.3" fill="none" stroke="#1FB041" stroke-width="1.1" stroke-linecap="round"/>
+  </g>
+</svg>

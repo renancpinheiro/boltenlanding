@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="theme-color" content="#FFF9F2">
 <title>Bolten Parceiros — Crie um SaaS com a sua marca</title>
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta name="description" content="Crie sua plataforma de software com a sua marca. Fique com 70% da receita recorrente. CRM, WhatsApp, IA e Conversões prontos. Sem custo pra começar." />
 <meta property="og:title" content="Bolten Parceiros — Crie um SaaS com a sua marca">
 <meta property="og:description" content="Fique com 70% da receita recorrente. Sem custo pra começar. 10mil+ parceiros já vendem.">
@@ -63,11 +68,21 @@ input{font-family:inherit;-webkit-tap-highlight-color:transparent}
 .hero-aurora::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(15,14,12,0.06) 1px, transparent 1.6px);background-size:18px 18px;-webkit-mask-image:linear-gradient(180deg, rgba(0,0,0,.55) 0%, transparent 70%);mask-image:linear-gradient(180deg, rgba(0,0,0,.55) 0%, transparent 70%);opacity:.55}
 .hero-aurora::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:80px;background:linear-gradient(180deg, transparent, var(--cream));pointer-events:none}
 
-/* Bolten brand clouds — mantidas como detalhe de marca */
-.cloud{position:absolute;pointer-events:none;z-index:1;background:#fff;filter:drop-shadow(0 6px 14px rgba(15,14,12,0.06));-webkit-mask-repeat:no-repeat;-webkit-mask-size:contain;-webkit-mask-position:center;mask-repeat:no-repeat;mask-size:contain;mask-position:center}
-.cloud-1{top:6%;right:-44px;width:140px;height:140px;opacity:.9;transform:rotate(6deg);-webkit-mask-image:url('assets/cloud-1.svg');mask-image:url('assets/cloud-1.svg')}
-.cloud-2{top:32%;left:-62px;width:170px;height:170px;opacity:.55;transform:rotate(-14deg);-webkit-mask-image:url('assets/cloud-3.svg');mask-image:url('assets/cloud-3.svg')}
-.cloud-3{top:22%;right:-30px;width:120px;height:120px;opacity:.7;transform:rotate(18deg);-webkit-mask-image:url('assets/cloud-5.svg');mask-image:url('assets/cloud-5.svg')}
+/* Bolten brand clouds — mantidas como detalhe de marca, com deriva suave */
+.cloud{position:absolute;pointer-events:none;z-index:1;background:#fff;filter:drop-shadow(0 6px 14px rgba(15,14,12,0.06));-webkit-mask-repeat:no-repeat;-webkit-mask-size:contain;-webkit-mask-position:center;mask-repeat:no-repeat;mask-size:contain;mask-position:center;--rot:0deg;transform:rotate(var(--rot));will-change:transform;animation:cloud-drift 16s ease-in-out infinite}
+.cloud-1{top:6%;right:-44px;width:140px;height:140px;opacity:.9;--rot:6deg;-webkit-mask-image:url('assets/cloud-1.svg');mask-image:url('assets/cloud-1.svg');animation-duration:17s}
+.cloud-2{top:32%;left:-62px;width:170px;height:170px;opacity:.55;--rot:-14deg;-webkit-mask-image:url('assets/cloud-3.svg');mask-image:url('assets/cloud-3.svg');animation-duration:22s;animation-delay:-6s}
+.cloud-3{top:22%;right:-30px;width:120px;height:120px;opacity:.7;--rot:18deg;-webkit-mask-image:url('assets/cloud-5.svg');mask-image:url('assets/cloud-5.svg');animation-duration:19s;animation-delay:-3s}
+@keyframes cloud-drift{0%,100%{transform:rotate(var(--rot)) translate(0,0)}50%{transform:rotate(var(--rot)) translate(-6px,5px)}}
+
+/* Folhinhas flutuantes — eco da identidade selva (mesma folha do favicon) */
+.leaves{position:absolute;top:0;left:0;right:0;height:560px;pointer-events:none;z-index:1;overflow:hidden}
+.leaf{position:absolute;width:22px;height:22px;opacity:.5;color:var(--selva);will-change:transform;transform-origin:50% 15%;animation:leaf-sway 7s ease-in-out infinite}
+.leaf svg{width:100%;height:100%;display:block}
+.leaf.l1{top:16%;left:8%;width:20px;height:20px;opacity:.42;animation-duration:6.5s}
+.leaf.l2{top:40%;right:12%;width:26px;height:26px;opacity:.38;color:var(--selva-deep);animation-duration:8s;animation-delay:-2s}
+.leaf.l3{top:60%;left:16%;width:16px;height:16px;opacity:.34;color:var(--tarde);animation-duration:7.4s;animation-delay:-4s}
+@keyframes leaf-sway{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-7px) rotate(9deg)}}
 
 /* Bolty mascot */
 .bolty{background-size:contain;background-repeat:no-repeat;background-position:center;flex-shrink:0}
@@ -477,11 +492,18 @@ h2.success-title em{font-style:normal;color:var(--tucano);font-weight:700}
 .fade-up.d5{animation-delay:.38s}
 @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
 
-/* Reveal — sempre visível (animação só no transform inicial) */
-.reveal{opacity:1;transform:translateY(0)}
+/* Reveal — entrada suave ao rolar (transform + opacity, GPU-friendly) */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.2,.8,.2,1),transform .6s cubic-bezier(.2,.8,.2,1);will-change:opacity,transform}
 .reveal.is-in{opacity:1;transform:translateY(0)}
 
 ::selection{background:var(--tucano);color:#fff}
+
+/* Respeita quem prefere menos movimento — desliga o decorativo */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .cloud,.leaf{animation:none!important}
+  .reveal{opacity:1!important;transform:none!important}
+}
 
 /* Desktop phone-frame simulation */
 @media (min-width:520px){
@@ -513,6 +535,12 @@ h2.success-title em{font-style:normal;color:var(--tucano);font-weight:700}
     <div class="cloud cloud-1" aria-hidden="true"></div>
     <div class="cloud cloud-2" aria-hidden="true"></div>
     <div class="cloud cloud-3" aria-hidden="true"></div>
+
+    <div class="leaves" aria-hidden="true">
+      <span class="leaf l1"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5c4.6 3.4 4.6 12 0 18-4.6-6-4.6-14.6 0-18Z" opacity=".85"/><path d="M12 4.5V21" fill="none" stroke="#FFF9F2" stroke-width="1.1" stroke-linecap="round"/></svg></span>
+      <span class="leaf l2"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5c4.6 3.4 4.6 12 0 18-4.6-6-4.6-14.6 0-18Z" opacity=".85"/><path d="M12 4.5V21" fill="none" stroke="#FFF9F2" stroke-width="1.1" stroke-linecap="round"/></svg></span>
+      <span class="leaf l3"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5c4.6 3.4 4.6 12 0 18-4.6-6-4.6-14.6 0-18Z" opacity=".85"/><path d="M12 4.5V21" fill="none" stroke="#FFF9F2" stroke-width="1.1" stroke-linecap="round"/></svg></span>
+    </div>
 
     <div class="topbar">
       <a href="#" class="brand" aria-label="Bolten">
