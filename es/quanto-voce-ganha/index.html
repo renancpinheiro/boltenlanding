@@ -27,7 +27,7 @@
   /></noscript>
   <!-- End Meta Pixel Code -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Bolten</title>
+  <title>Cuánto gana tu agencia — Bolten</title>
   <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
   <script>
     !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}p||((p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",p.onerror=function(){p=null},(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r));var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="Sn Cn init Hn Un Gn Yi zn Kn qn capture Vn kn calculateEventProperties es register register_once register_for_session unregister unregister_for_session os Bn ss getFeatureFlag getFeatureFlagPayload getFeatureFlagResult getAllFeatureFlags isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync ls identify setPersonProperties unsetPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset us shutdown setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException addExceptionStep captureLog startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty rs Xn createPersonProfile setInternalOrTestUser ns $n vs opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Jn debug tr At getPageViewId captureTraceFeedback captureTraceMetric Ln".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
@@ -39,10 +39,10 @@
         capture_pageview: true,
     })
 </script>
-  <meta name="description" content="Simula tus ingresos recurrentes como partner Bolten: tú defines el precio por cliente y te quedas con el 70% de la mensualidad, todos los meses.">
+  <meta name="description" content="Simula los ingresos recurrentes de tu agencia con Bolten: cóbrale al cliente junto con tu fee y quédate con el margen, o deja que Bolten cobre y quédate con el 70%.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Cuánto ganas como partner Bolten — calculadora de ingresos recurrentes">
-  <meta property="og:description" content="Simula tus ingresos recurrentes como partner Bolten: tú defines el precio por cliente y te quedas con el 70% de la mensualidad, todos los meses.">
+  <meta property="og:description" content="Simula los ingresos recurrentes de tu agencia con Bolten: cóbrale al cliente junto con tu fee y quédate con el margen, o deja que Bolten cobre y quédate con el 70%.">
   <meta property="og:image" content="../../assets/kanban.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="../../assets/vendor/aos.css" media="print" onload="this.media='all'">
@@ -266,12 +266,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="max-w-5xl mx-auto px-4 sm:px-6">
         <div class="py-8 md:py-12 text-center max-w-2xl mx-auto" data-aos="fade-up">
           <h1 class="text-4xl md:text-5xl font-bold mb-4">Cuánto <span class="text-selva-400">acumulas cada mes</span>.</h1>
-          <p class="text-lg text-gray-600">Tú defines el precio de cada cliente y te quedas con el <strong>70%</strong> de la mensualidad — todos los meses, mientras la use. Pon tus números:</p>
+          <p class="text-lg text-gray-600">Tú defines el precio de cada cliente. Si cobras junto con tu fee, <strong>el margen por encima del costo de la plataforma es tuyo</strong>; si Bolten cobra, te quedas con el <strong>70%</strong>. Pon tus números:</p>
         </div>
         <div class="grid lg:grid-cols-2 gap-6 items-stretch" data-aos="fade-up" data-aos-delay="100">
           <!-- Inputs -->
           <div class="bg-white rounded-3xl p-6 md:p-7 shadow-xl border border-gray-200">
-            <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-5">Tus números</p>
+            <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">Tus números</p>
+            <div class="flex flex-col sm:flex-row gap-2 p-1 bg-stone-100 rounded-xl mb-6">
+              <button type="button" class="calc-mode flex-1 px-3 py-2 rounded-lg text-sm font-semibold transition bg-selva-400 text-white" data-mode="self">Tú le cobras al cliente</button>
+              <button type="button" class="calc-mode flex-1 px-3 py-2 rounded-lg text-sm font-semibold transition text-gray-700" data-mode="bolten">Bolten cobra (70%)</button>
+            </div>
             <div class="mb-6">
               <div class="flex items-baseline justify-between mb-2">
                 <label for="calc-price" class="text-sm font-semibold text-gray-700">Cuánto cobras por cliente</label>
@@ -289,6 +293,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <button type="button" class="calc-chip text-sm font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-lg px-3 py-1.5 transition" data-v="397">US$ 397</button>
               </div>
               <p class="text-xs text-gray-400 mt-2">Escribe el valor o usa los atajos. Rango aceptado: US$ 20 a US$ 600.</p>
+            </div>
+            <div class="mb-6" id="calc-cost-wrap">
+              <div class="flex items-baseline justify-between mb-2">
+                <label for="calc-cost" class="text-sm font-semibold text-gray-700">Costo de la plataforma por cliente</label>
+                <span class="text-xs text-gray-400">por mes</span>
+              </div>
+              <div class="flex items-center gap-2 rounded-xl border border-gray-200 focus-within:border-selva-400 focus-within:ring-2 focus-within:ring-selva-300 px-4 py-3">
+                <span class="text-gray-500 font-semibold">US$</span>
+                <input type="number" id="calc-cost" inputmode="numeric" min="0" max="600" value="17" class="w-full text-xl font-bold text-gray-900 tabular-nums outline-none bg-transparent">
+              </div>
+              <p class="text-xs text-gray-400 mt-2">Ej.: CRM con 2 usuarios + Conversiones + Redes Sociales = US$ 17. <a href="../index.html#pricing" class="text-selva-500 font-semibold hover:text-selva-600">Arma tu paquete</a>.</p>
             </div>
             <div class="mb-6">
               <div class="flex items-baseline justify-between mb-2">
@@ -321,7 +336,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <p class="text-lg font-bold tabular-nums"><span id="calc-gross">0</span></p>
               </div>
               <div>
-                <p class="text-xs text-white/50">Se queda Bolten (30%)</p>
+                <p class="text-xs text-white/50" id="calc-bolten-label">Costo de la plataforma</p>
                 <p class="text-lg font-bold tabular-nums text-white/80"><span id="calc-bolten">0</span> <span class="text-xs font-normal text-white/40">infra</span></p>
               </div>
             </div>
@@ -337,14 +352,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
         <div class="text-center my-10" data-aos="fade-up">
-          <a href="https://www.bolten.io/es/onboarding/account/new" id="gtm-conversion" class="inline-flex px-6 py-3 rounded-lg font-medium text-white bg-selva-400 hover:bg-selva-500 shadow-lg transition-all">Quiero empezar a facturar&nbsp;&#10095;</a>
+          <a href="https://www.bolten.io/es/onboarding/account/new" id="gtm-conversion" class="inline-flex px-6 py-3 rounded-lg font-medium text-white bg-selva-400 hover:bg-selva-500 shadow-lg transition-all">Arma la plataforma de tu agencia&nbsp;&#10095;</a>
           <p class="text-sm text-gray-500 mt-3"><a href="../index.html#pricing" class="text-selva-500 font-semibold hover:text-selva-600">Ver la tabla completa de precios</a></p>
         </div>
       </div>
     </section>
     <script>
       (function(){
-        var SYM='US$', NLOC='en-US', GNOTE='sumando ~{g} clientes/mes';
+        var SYM='US$', NLOC='en-US', GNOTE='sumando ~{g} clientes/mes', LBL={self:'Costo de la plataforma', bolten:'Se queda Bolten (30%)'};
         var MIN=20, MAX=600, QMIN=1, QMAX=200;
         var priceIn=document.getElementById('calc-price'), priceR=document.getElementById('calc-price-range');
         var qtyR=document.getElementById('calc-qty'), qtyV=document.getElementById('calc-qty-val');
@@ -352,6 +367,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             bEl=document.getElementById('calc-bolten'), aEl=document.getElementById('calc-accum'),
             bars=document.getElementById('calc-bars'), gnote=document.getElementById('calc-growth-note'),
             growth=document.getElementById('calc-growth');
+        var mode='self', costIn=document.getElementById('calc-cost'), costWrap=document.getElementById('calc-cost-wrap'), bLbl=document.getElementById('calc-bolten-label');
         function clamp(v,lo,hi){v=parseInt(v,10); if(isNaN(v))v=lo; return Math.max(lo,Math.min(hi,v));}
         function fmt(n){return SYM+' '+Math.round(n).toLocaleString(NLOC,{maximumFractionDigits:0});}
         function num(n){return Math.round(n).toLocaleString(NLOC,{maximumFractionDigits:0});}
@@ -359,9 +375,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           var price=clamp(priceIn.value,MIN,MAX), qty=clamp(qtyR.value,QMIN,QMAX);
           priceR.value=price; qtyV.textContent=qty;
           var g=growth.checked?Math.max(1,Math.round(qty*0.1)):0;
-          var monthly=price*qty*0.7, gross=price*qty, bolten=gross*0.3;
+          var cost=clamp(costIn.value,0,MAX), unit=mode==='self'?Math.max(price-cost,0):price*0.7;
+          var monthly=unit*qty, gross=price*qty, bolten=mode==='self'?cost*qty:gross*0.3;
+          costWrap.style.display=mode==='self'?'':'none'; bLbl.textContent=LBL[mode];
           var cum=[], run=0;
-          for(var m=0;m<12;m++){ run+=price*(qty+g*m)*0.7; cum.push(run); }
+          for(var m=0;m<12;m++){ run+=unit*(qty+g*m); cum.push(run); }
           mEl.textContent=num(monthly); gEl.textContent=fmt(gross); bEl.textContent=fmt(bolten); aEl.textContent=fmt(cum[11]);
           var mx=cum[11]||1, h='';
           for(var i=0;i<12;i++){ var ht=Math.max(6,Math.round(cum[i]/mx*100)); h+='<div class="flex-1 rounded-t '+(i===11?'bg-selva-300':'bg-selva-500/60')+'" style="height:'+ht+'%"></div>'; }
@@ -374,6 +392,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         document.getElementById('calc-qty-minus').addEventListener('click',function(){qtyR.value=clamp(+qtyR.value-1,QMIN,QMAX); render();});
         document.getElementById('calc-qty-plus').addEventListener('click',function(){qtyR.value=clamp(+qtyR.value+1,QMIN,QMAX); render();});
         growth.addEventListener('change',render);
+        costIn.addEventListener('input',render);
+        Array.prototype.forEach.call(document.querySelectorAll('.calc-mode'),function(b){b.addEventListener('click',function(){
+          mode=b.getAttribute('data-mode');
+          Array.prototype.forEach.call(document.querySelectorAll('.calc-mode'),function(o){var on=o===b; o.classList.toggle('bg-selva-400',on); o.classList.toggle('text-white',on); o.classList.toggle('text-gray-700',!on);});
+          render();
+        });});
         Array.prototype.forEach.call(document.querySelectorAll('.calc-chip'),function(ch){ch.addEventListener('click',function(){priceIn.value=ch.getAttribute('data-v'); render();});});
         render();
       })();
