@@ -55,7 +55,7 @@
   <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/arimo-latin-400-normal.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/arimo-latin-700-normal.woff2" crossorigin>
   <link rel="stylesheet" href="../assets/tailwind.css">
-  <link rel="preload" as="image" href="../assets/kanban.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="../assets/hero/hero-poster.webp" fetchpriority="high">
   <style>
     [x-cloak]{ display:none !important; }
     body{ font-family:'Arimo', ui-sans-serif, system-ui, sans-serif; }
@@ -933,7 +933,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <div class="relative flex items-center justify-between before:block before:ml-2 before:w-[41px] before:h-[9px] before:[background-image:radial-gradient(circle_at_4.5px_4.5px,_theme(colors.gray.600)_4.5px,_transparent_0)] before:bg-[length:16px_9px] after:w-[41px] mb-2">
                       <span class="text-gray-600 font-bold text-[13px]">your-brand.bolten.io</span>
                   </div>
-                  <img src="../assets/kanban.webp" class="mx-auto rounded-lg" alt="Kanban board interface" width="1280" height="606" fetchpriority="high">
+                  <video id="hero-video" class="mx-auto block w-full h-auto rounded-lg bg-white" width="1920" height="1080" poster="../assets/hero/hero-poster.webp" autoplay muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback role="img" aria-label="Platform animation: the lead arrives on WhatsApp, the AI replies, the source is tracked and the lead moves through the sales funnel">
+                      <source src="../assets/hero/hero-1080.mp4" type="video/mp4">
+                  </video>
+                  <script>
+(function(){
+  var v=document.getElementById('hero-video'); if(!v) return;
+  v.muted=true;
+  // Telas pequenas/dados economizados recebem a versão 720p (mesma animação, menos bytes)
+  var c=navigator.connection||{}, px=(v.clientWidth||innerWidth)*(window.devicePixelRatio||1);
+  if(px<=1300||c.saveData){ var s=v.querySelector('source'); s.src='../assets/hero/hero-720.mp4'; v.load(); }
+  // Quem pediu menos movimento vê só o primeiro quadro, com controles pra iniciar
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){ v.removeAttribute('autoplay'); v.controls=true; return; }
+  function play(){ var p=v.play(); if(p&&p.catch) p.catch(function(){}); }
+  // Só roda enquanto está na tela (poupa CPU/bateria e não disputa com o resto da página)
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(e){ e[0].isIntersecting?play():v.pause(); },{rootMargin:'200px 0px',threshold:0.01}).observe(v);
+  } else { play(); }
+  // Se o navegador bloquear o autoplay (modo de economia de energia), começa no primeiro toque/rolagem
+  ['touchstart','pointerdown','scroll','keydown'].forEach(function(ev){
+    addEventListener(ev,function(){ if(v.paused&&!v.ended) play(); },{once:true,passive:true});
+  });
+})();
+</script>
               </div>
           </div>
       </div>
