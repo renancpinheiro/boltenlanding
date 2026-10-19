@@ -271,28 +271,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="grid lg:grid-cols-2 gap-6 items-stretch" data-aos="fade-up" data-aos-delay="100">
           <!-- Inputs -->
           <div class="bg-white rounded-3xl p-6 md:p-7 shadow-xl border border-gray-200">
-            <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">Tus números</p>
+            <div class="flex items-center justify-between gap-3 mb-3">
+              <p class="text-xs font-semibold uppercase tracking-widest text-gray-400">Tus números</p>
+              <div class="flex gap-1 p-1 bg-stone-100 rounded-xl w-40" role="group" aria-label="Moneda">
+                <button type="button" class="cur-btn flex-1 px-3 py-1.5 rounded-lg text-sm font-semibold transition bg-selva-400 text-white" data-cur="cop" aria-pressed="true">COP</button>
+                <button type="button" class="cur-btn flex-1 px-3 py-1.5 rounded-lg text-sm font-semibold transition text-gray-700" data-cur="mxn" aria-pressed="false">MXN</button>
+              </div>
+            </div>
             <div class="flex flex-col sm:flex-row gap-2 p-1 bg-stone-100 rounded-xl mb-6">
               <button type="button" class="calc-mode flex-1 px-3 py-2 rounded-lg text-sm font-semibold transition bg-selva-400 text-white" data-mode="self">Tú le cobras al cliente</button>
               <button type="button" class="calc-mode flex-1 px-3 py-2 rounded-lg text-sm font-semibold transition text-gray-700" data-mode="bolten">Bolten cobra (70%)</button>
             </div>
+            <p id="calc-mode-note" class="text-xs text-gray-500 -mt-4 mb-6" style="display:none">El modelo en que Bolten cobra está disponible solo en Brasil por ahora.</p>
             <div class="mb-6">
               <div class="flex items-baseline justify-between mb-2">
                 <label for="calc-price" class="text-sm font-semibold text-gray-700">Cuánto cobras por cliente</label>
                 <span class="text-xs text-gray-400">por mes</span>
               </div>
               <div class="flex items-center gap-2 rounded-xl border border-gray-200 focus-within:border-selva-400 focus-within:ring-2 focus-within:ring-selva-300 px-4 py-3 mb-3">
-                <span class="text-gray-500 font-semibold">US$</span>
-                <input type="number" id="calc-price" inputmode="numeric" min="20" max="600" value="90" class="w-full text-2xl font-bold text-gray-900 tabular-nums outline-none bg-transparent">
+                <span class="text-gray-500 font-semibold">$</span>
+                <input type="number" id="calc-price" inputmode="numeric" min="15000" max="450000" value="150000" class="w-full text-2xl font-bold text-gray-900 tabular-nums outline-none bg-transparent">
               </div>
-              <input type="range" id="calc-price-range" aria-label="Precio de la mensualidad" min="20" max="600" step="1" value="90" class="w-full accent-selva-400 cursor-pointer">
+              <input type="range" id="calc-price-range" aria-label="Precio de la mensualidad" min="15000" max="450000" step="1000" value="150000" class="w-full accent-selva-400 cursor-pointer">
               <div class="flex flex-wrap gap-2 mt-3">
-                  <button type="button" class="calc-chip text-sm font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-lg px-3 py-1.5 transition" data-v="97">US$ 97</button>
-                  <button type="button" class="calc-chip text-sm font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-lg px-3 py-1.5 transition" data-v="149">US$ 149</button>
-                  <button type="button" class="calc-chip text-sm font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-lg px-3 py-1.5 transition" data-v="249">US$ 249</button>
-                  <button type="button" class="calc-chip text-sm font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-lg px-3 py-1.5 transition" data-v="397">US$ 397</button>
+                  <button type="button" class="calc-chip text-sm font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-lg px-3 py-1.5 transition" data-v="75000" data-i="0">$ 75.000</button>
+                  <button type="button" class="calc-chip text-sm font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-lg px-3 py-1.5 transition" data-v="150000" data-i="1">$ 150.000</button>
+                  <button type="button" class="calc-chip text-sm font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-lg px-3 py-1.5 transition" data-v="225000" data-i="2">$ 225.000</button>
+                  <button type="button" class="calc-chip text-sm font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-lg px-3 py-1.5 transition" data-v="300000" data-i="3">$ 300.000</button>
               </div>
-              <p class="text-xs text-gray-400 mt-2">Escribe el valor o usa los atajos. Rango aceptado: US$ 20 a US$ 600.</p>
+              <p class="text-xs text-gray-400 mt-2">Escribe el valor o usa los atajos. Rango aceptado: <span id="calc-range">$ 15.000 a $ 450.000</span>.</p>
             </div>
             <div class="mb-6" id="calc-cost-wrap">
               <div class="flex items-baseline justify-between mb-2">
@@ -300,10 +307,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span class="text-xs text-gray-400">por mes</span>
               </div>
               <div class="flex items-center gap-2 rounded-xl border border-gray-200 focus-within:border-selva-400 focus-within:ring-2 focus-within:ring-selva-300 px-4 py-3">
-                <span class="text-gray-500 font-semibold">US$</span>
-                <input type="number" id="calc-cost" inputmode="numeric" min="0" max="600" value="17" class="w-full text-xl font-bold text-gray-900 tabular-nums outline-none bg-transparent">
+                <span class="text-gray-500 font-semibold">$</span>
+                <input type="number" id="calc-cost" inputmode="numeric" min="0" max="450000" value="52500" class="w-full text-xl font-bold text-gray-900 tabular-nums outline-none bg-transparent">
               </div>
-              <p class="text-xs text-gray-400 mt-2">Ej.: CRM con 2 usuarios + Conversiones + Redes Sociales = US$ 17. <a href="../index.html#pricing" class="text-selva-500 font-semibold hover:text-selva-600">Arma tu paquete</a>.</p>
+              <p class="text-xs text-gray-400 mt-2">Ej.: CRM con 2 usuarios + Conversiones + Redes Sociales = <span id="calc-cost-ex">$ 52.500</span>. <a href="../index.html#pricing" class="text-selva-500 font-semibold hover:text-selva-600">Arma tu paquete</a>.</p>
             </div>
             <div class="mb-6">
               <div class="flex items-baseline justify-between mb-2">
@@ -328,7 +335,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <!-- Result -->
           <div class="rounded-3xl bg-gray-900 text-white p-6 md:p-7 shadow-xl relative overflow-hidden [background-image:radial-gradient(circle_at_85%_10%,rgba(255,104,40,.28),transparent_55%)]">
             <p class="text-xs font-semibold uppercase tracking-widest text-white/60 mb-1">Tus ingresos recurrentes</p>
-            <p class="text-5xl font-extrabold tabular-nums leading-none"><span class="text-white/50 text-2xl align-top">US$ </span><span id="calc-monthly">0</span><span class="text-lg font-bold text-white/50"> /mes</span></p>
+            <p class="text-5xl font-extrabold tabular-nums leading-none"><span class="text-white/50 text-2xl align-top">$ </span><span id="calc-monthly">0</span><span class="text-lg font-bold text-white/50"> /mes</span></p>
             <p class="text-sm text-white/60 mt-2">Entran de nuevo cada mes, sin tener que vender otra vez.</p>
             <div class="grid grid-cols-2 gap-3 mt-5 pt-5 border-t border-white/10">
               <div>
@@ -359,14 +366,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
     <script>
       (function(){
-        var SYM='US$', NLOC='en-US', GNOTE='sumando ~{g} clientes/mes', LBL={self:'Costo de la plataforma', bolten:'Se queda Bolten (30%)'};
-        var MIN=20, MAX=600, QMIN=1, QMAX=200;
+        var CUR={
+          cop:{loc:'es-CO', min:15000, max:450000, step:1000, price:150000, cost:52500, chips:[75000,150000,225000,300000]},
+          mxn:{loc:'es-MX', min:70, max:2100, step:10, price:700, cost:245, chips:[350,700,1050,1400]}
+        };
+        var SYM='$', NLOC='es-CO', GNOTE='sumando ~{g} clientes/mes', LBL={self:'Costo de la plataforma', bolten:'Se queda Bolten (30%)'};
+        var MIN=15000, MAX=450000, QMIN=1, QMAX=200;
         var priceIn=document.getElementById('calc-price'), priceR=document.getElementById('calc-price-range');
         var qtyR=document.getElementById('calc-qty'), qtyV=document.getElementById('calc-qty-val');
         var mEl=document.getElementById('calc-monthly'), gEl=document.getElementById('calc-gross'),
             bEl=document.getElementById('calc-bolten'), aEl=document.getElementById('calc-accum'),
             bars=document.getElementById('calc-bars'), gnote=document.getElementById('calc-growth-note'),
             growth=document.getElementById('calc-growth');
+        var modeNote=document.getElementById('calc-mode-note');
         var mode='self', costIn=document.getElementById('calc-cost'), costWrap=document.getElementById('calc-cost-wrap'), bLbl=document.getElementById('calc-bolten-label');
         function clamp(v,lo,hi){v=parseInt(v,10); if(isNaN(v))v=lo; return Math.max(lo,Math.min(hi,v));}
         function fmt(n){return SYM+' '+Math.round(n).toLocaleString(NLOC,{maximumFractionDigits:0});}
@@ -377,7 +389,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           var g=growth.checked?Math.max(1,Math.round(qty*0.1)):0;
           var cost=clamp(costIn.value,0,MAX), unit=mode==='self'?Math.max(price-cost,0):price*0.7;
           var monthly=unit*qty, gross=price*qty, bolten=mode==='self'?cost*qty:gross*0.3;
-          costWrap.style.display=mode==='self'?'':'none'; bLbl.textContent=LBL[mode];
+          costWrap.style.display=mode==='self'?'':'none'; bLbl.textContent=LBL[mode]; modeNote.style.display=mode==='self'?'none':'';
           var cum=[], run=0;
           for(var m=0;m<12;m++){ run+=unit*(qty+g*m); cum.push(run); }
           mEl.textContent=num(monthly); gEl.textContent=fmt(gross); bEl.textContent=fmt(bolten); aEl.textContent=fmt(cum[11]);
@@ -399,7 +411,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           render();
         });});
         Array.prototype.forEach.call(document.querySelectorAll('.calc-chip'),function(ch){ch.addEventListener('click',function(){priceIn.value=ch.getAttribute('data-v'); render();});});
-        render();
+        // Moneda: COP (padrão) ou MXN, compartilhada com a home via localStorage.
+        function setCur(k){
+          var c=CUR[k]; if(!c) return;
+          NLOC=c.loc; MIN=c.min; MAX=c.max;
+          [priceIn,priceR].forEach(function(el){el.min=c.min; el.max=c.max;}); priceR.step=c.step; costIn.max=c.max;
+          priceIn.value=c.price; costIn.value=c.cost;
+          Array.prototype.forEach.call(document.querySelectorAll('.calc-chip'),function(ch){var v=c.chips[+ch.getAttribute('data-i')]; ch.setAttribute('data-v',v); ch.textContent=fmt(v);});
+          document.getElementById('calc-range').textContent=fmt(c.min)+' a '+fmt(c.max);
+          document.getElementById('calc-cost-ex').textContent=fmt(c.cost);
+          Array.prototype.forEach.call(document.querySelectorAll('.cur-btn'),function(b){var on=b.getAttribute('data-cur')===k; b.classList.toggle('bg-selva-400',on); b.classList.toggle('text-white',on); b.classList.toggle('text-gray-700',!on); b.setAttribute('aria-pressed',on?'true':'false');});
+          try{localStorage.setItem('bolten_cur',k);}catch(e){}
+          render();
+        }
+        Array.prototype.forEach.call(document.querySelectorAll('.cur-btn'),function(b){b.addEventListener('click',function(){setCur(b.getAttribute('data-cur'));});});
+        var saved; try{saved=localStorage.getItem('bolten_cur');}catch(e){}
+        setCur(CUR[saved]?saved:'cop');
       })();
     </script>
     </main>
