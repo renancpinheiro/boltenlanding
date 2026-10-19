@@ -15,10 +15,12 @@ time de tecnologia.
 Além da home, o site tem sub-páginas auto-contidas (cada uma copia o mesmo shell:
 `<head>`+tema, header e footer), conectadas à home nos dois sentidos:
 
-- `para/agencias/`, `para/gestores-de-trafego/`, `para/revendedores-de-software/`,
-  `para/empreendedores-digitais/`, `para/vendedores-de-curso/` — LPs por nicho
-  (message-match para campanhas de tráfego), cada uma destacando os produtos que
-  fazem sentido pro público (Conversões, Redes Sociais, Agente de IA, etc.).
+- `para/agencia-de-trafego-pago/`, `para/agencia-full-service/`, `para/agencia-de-social-media/`,
+  `para/agencia-de-automacao-e-ia/` — LPs por tipo de agência (message-match para campanhas),
+  cada uma com o pacote sugerido, a conta de margem, o passo a passo da entrega, cases e FAQ.
+  As antigas LPs por perfil (`agencias`, `gestores-de-trafego`, `revendedores-de-software`,
+  `empreendedores-digitais`, `vendedores-de-curso`, `consultores-e-freelancers`) foram removidas
+  e redirecionam (307) pela `vercel.json` para a home ou para a LP de tráfego pago.
 - `cases/` — cases de parceiros.
 - `tour/` — tour do produto por módulo.
 - `quanto-voce-ganha/` — calculadora de receita recorrente.

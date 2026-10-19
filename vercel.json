@@ -2,6 +2,11 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "trailingSlash": true,
   "cleanUrls": false,
+  "redirects": [
+    { "source": "/:lang(pt|es|en)/para/gestores-de-trafego/", "destination": "/:lang/para/agencia-de-trafego-pago/", "permanent": false },
+    { "source": "/:lang(pt|es|en)/para/agencias/", "destination": "/:lang/", "permanent": false },
+    { "source": "/:lang(pt|es|en)/para/:old(revendedores-de-software|empreendedores-digitais|vendedores-de-curso|consultores-e-freelancers)/", "destination": "/:lang/", "permanent": false }
+  ],
   "headers": [
     {
       "source": "/(.*)",
