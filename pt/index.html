@@ -2600,6 +2600,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 
+        <!-- Vídeo stopmotion: a ideia da Bolten e as ferramentas -->
+        <section class="relative bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="py-12 md:py-20">
+            <div class="max-w-3xl mx-auto text-center pb-12 md:pb-16" data-aos="fade-up">
+                <p class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-tucano-500 mb-3">Assista</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">A Bolten explicada <span class="text-selva-400">em 2 minutos</span>.</h2>
+                <p class="text-lg text-gray-600">A ideia por trás da Bolten e como cada ferramenta ajuda a sua agência a entregar resultado, contada em stopmotion.</p>
+            </div>
+            <div class="relative flex justify-center items-center" data-aos="zoom-y-out" data-aos-delay="100">
+                <div class="relative rounded-2xl overflow-hidden w-full aspect-video max-w-3xl mx-auto shadow-2xl bg-gradient-to-br from-gray-400 to-gray-700 p-2">
+                    <div class="relative rounded-xl overflow-hidden w-full h-full bg-gray-900">
+                        <div class="absolute inset-0" x-data="{play:false}">
+                            <button type="button" x-show="!play" @click="play=true" aria-label="Assistir vídeo sobre a Bolten" class="group absolute inset-0 w-full h-full cursor-pointer">
+                                <img src="https://i.ytimg.com/vi/v5rCf4xEJl4/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/v5rCf4xEJl4/hqdefault.jpg'" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+                                <span class="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-black/40 group-hover:bg-black/30 transition-colors">
+                                    <span class="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/95 shadow-xl transition-transform group-hover:scale-110">
+                                        <svg class="w-7 h-7 md:w-8 md:h-8 text-selva-500 translate-x-0.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                                    </span>
+                                    <span class="text-white text-sm font-semibold drop-shadow">Assistir vídeo</span>
+                                </span>
+                            </button>
+                            <template x-if="play">
+                                <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube-nocookie.com/embed/v5rCf4xEJl4?autoplay=1&vq=hd1080&cc_load_policy=0" title="Bolten em stopmotion: a ideia e as ferramentas" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
         <!-- Why Bolten? -->
         <section id="why-bolten" class='relative bg-stone-100' data-scrollspy-target>
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
