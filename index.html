@@ -722,9 +722,9 @@ h2.success-title em{font-style:normal;color:var(--tucano);font-weight:700}
     <section class="video-section reveal">
       <span class="video-eyebrow">Veja em 90 segundos</span>
       <h2 class="video-headline">A plataforma que você vai <em>vender</em>.</h2>
-      <div class="video-frame" id="video-frame" data-video-id="1t9ZQAMOjvU">
+      <div class="video-frame" data-video-id="1t9ZQAMOjvU" data-video-title="Demo da plataforma Bolten">
         <img src="https://i.ytimg.com/vi/1t9ZQAMOjvU/maxresdefault.jpg" alt="Demo da plataforma Bolten" loading="lazy" width="1280" height="720">
-        <button type="button" class="video-play" aria-label="Ver demo da plataforma Bolten" onclick="playDemoVideo()">
+        <button type="button" class="video-play" aria-label="Ver demo da plataforma Bolten" onclick="playVideo(this)">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
         </button>
       </div>
@@ -895,6 +895,18 @@ h2.success-title em{font-style:normal;color:var(--tucano);font-weight:700}
         <button class="btn btn-primary" onclick="goToForm('products')">
           Quero ver como funciona
           <span class="arrow">→</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- VIDEO STOPMOTION — ideia da Bolten + ferramentas, click-to-play -->
+    <section class="section video-section reveal">
+      <span class="video-eyebrow">Entenda a Bolten em 2 minutos</span>
+      <h2 class="video-headline">Cinco ferramentas, <em>uma ideia só</em>.</h2>
+      <div class="video-frame" data-video-id="v5rCf4xEJl4" data-video-title="Bolten em stopmotion: a ideia e as ferramentas">
+        <img src="https://i.ytimg.com/vi/v5rCf4xEJl4/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/v5rCf4xEJl4/hqdefault.jpg'" alt="Vídeo em stopmotion apresentando a Bolten" loading="lazy" width="1280" height="720">
+        <button type="button" class="video-play" aria-label="Ver vídeo em stopmotion sobre a Bolten" onclick="playVideo(this)">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
         </button>
       </div>
     </section>
@@ -1473,14 +1485,14 @@ function selectPriceModel(btn,model){
   });
 }
 
-// ===== VIDEO DEMO (click-to-play, lazy iframe) =====
-function playDemoVideo(){
-  const frame=document.getElementById('video-frame');
+// ===== VIDEOS (click-to-play, lazy iframe) =====
+function playVideo(btn){
+  const frame=btn.closest('.video-frame');
   if(!frame||frame.dataset.loaded==='1')return;
   const id=frame.dataset.videoId;
   const iframe=document.createElement('iframe');
   iframe.src=`https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
-  iframe.title='Demo da plataforma Bolten';
+  iframe.title=frame.dataset.videoTitle;
   iframe.allow='accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
   iframe.allowFullscreen=true;
   iframe.loading='lazy';
@@ -1488,7 +1500,7 @@ function playDemoVideo(){
   frame.appendChild(iframe);
   frame.style.cursor='default';
   frame.dataset.loaded='1';
-  console.log('[Video] demo played');
+  console.log('[Video] played',id);
 }
 
 // ===== CAROUSEL DOTS =====
