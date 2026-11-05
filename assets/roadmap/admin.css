@@ -1,0 +1,30 @@
+/* Painel do time (/admin/roadmap/). Complementa app.css. */
+.login{max-width:520px;margin:24px auto 0;background:var(--white);border:1px solid var(--border-default);border-radius:var(--radius-xl);padding:24px}
+.admin-head{margin-bottom:16px}
+.admin-head .hint{margin-top:2px}
+.prow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center;padding:18px 20px;background:var(--white);border:1px solid var(--border-default);border-radius:var(--radius-xl)}
+.prow + .prow{margin-top:8px}
+.prow h4{margin:0 0 2px;font-size:15px;line-height:22px;font-weight:600;color:var(--text-heading)}
+.prow .sub{display:flex;gap:12px;align-items:center;margin-top:8px;flex-wrap:wrap}
+.prow .acts{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.empty-box{padding:40px 20px;text-align:center;background:var(--white);border:1px dashed var(--gray-300);border-radius:var(--radius-xl);color:var(--text-muted)}
+.orig{margin:10px 0 0;padding:8px 12px;border-left:2px solid var(--gray-200);font-size:13px;color:var(--text-muted);max-width:64ch;white-space:pre-line}
+.orig b{display:block;font-weight:500;color:var(--gray-600);margin-bottom:2px}
+.req.item{grid-template-columns:minmax(0,1fr) auto;align-items:start}
+.req.item .vt{font-size:12px;color:var(--text-muted);white-space:nowrap}
+.req.item .acts{display:flex;gap:8px;align-items:center}
+.req.lanc{grid-template-columns:120px minmax(0,1fr) auto;align-items:start}
+.req.lanc .mini{width:120px;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius-lg);border:1px solid var(--border-default);background:var(--surface-page)}
+.req.lanc .semmidia{width:120px;aspect-ratio:16/9;border-radius:var(--radius-lg);border:1px dashed var(--gray-300);display:grid;place-items:center;font-size:11px;color:var(--text-muted)}
+.modal-wide{width:min(720px,calc(100% - 32px))}
+.auto{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--text-muted);margin-left:6px}
+.midia-prev{margin-top:8px;max-width:320px;border-radius:var(--radius-lg);border:1px solid var(--border-default)}
+.check{display:flex;align-items:center;gap:8px;font-size:14px}
+.check input{width:16px;height:16px;margin:0}
+.form-file{font-size:13px}
+@media (max-width:600px){
+  .prow{grid-template-columns:1fr}
+  .prow .acts{justify-content:flex-start}
+  .req.item,.req.lanc{grid-template-columns:1fr}
+  .req.lanc .mini,.req.lanc .semmidia{width:100%}
+}

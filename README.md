@@ -27,6 +27,9 @@ Além da home, o site tem sub-páginas auto-contidas (cada uma copia o mesmo she
 - `comparativo/` — Bolten vs. criar do zero / revender / outras white-label.
 - `sobre/` — institucional / autoridade.
 - `obrigado/` — página de pós-cadastro.
+- `roadmap/` (pt e es) — novidades, roadmap e pedidos com votos dos parceiros, lendo do Supabase
+  (ver `docs/roadmap/BRIEFING-CLAUDE-CODE.md` e `supabase/README.md`). `en/roadmap/` redireciona para `pt`.
+  O painel do time fica em `admin/roadmap/` (login por link mágico, `noindex`).
 
 Os links internos são **relativos** e reescritos por profundidade, então funcionam
 tanto na raiz quanto no subpath do GitHub Pages (`/boltenlanding/`). As sub-páginas

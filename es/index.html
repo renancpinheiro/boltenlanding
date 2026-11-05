@@ -8231,6 +8231,51 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </section>
 
+        <!-- ============================================================ -->
+        <!-- ROADMAP — 3 últimos lançamentos lidos do Supabase (chave pública,  -->
+        <!-- RLS). Se a consulta falhar ou passar de 3 s, fica só o texto e o   -->
+        <!-- botão. Config em assets/roadmap/config.js.                        -->
+        <!-- ============================================================ -->
+        <section id="roadmap" class="relative bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="py-12 md:py-20">
+            <div class="max-w-3xl mx-auto text-center pb-8 md:pb-10" data-aos="fade-up">
+                <p class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-selva-500 mb-3">Novedades</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">El producto evoluciona <span class="text-tucano-400">todos los meses</span>.</h2>
+                <p class="text-lg text-gray-600">Mira lo que lanzamos, lo que estamos construyendo y vota por lo que tu agencia necesita.</p>
+            </div>
+            <div id="roadmap-home-lista" class="max-w-sm mx-auto grid gap-5 md:grid-cols-3 md:max-w-none mb-8 md:mb-10" hidden></div>
+            <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                <a href="roadmap/" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold text-gray-800 bg-white border border-gray-200 hover:border-gray-300 shadow-sm transition">Ver roadmap completo&nbsp;&#10095;</a>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="../assets/roadmap/config.js"></script>
+<script>
+(function () {
+  var cfg = window.ROADMAP_CONFIG || {}, box = document.getElementById("roadmap-home-lista");
+  if (!box || !cfg.supabaseUrl || !cfg.supabaseAnonKey) return;
+  var CAT = {crm:['CRM','#bdac95'],atendimento:['Atención','#1fb041'],agente_ia:['Agente de IA','#fd8baa'],redes_sociais:['Redes sociales','#feb494'],conversoes:['Conversiones','#a5ae96'],plataforma:['Plataforma','#99a1af']};
+  var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return {"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]; }); };
+  var ctl = new AbortController(), timer = setTimeout(function () { ctl.abort(); }, 3000);
+  fetch(cfg.supabaseUrl + "/rest/v1/lancamentos?select=id,data,titulo_pt,titulo_es,categoria&publicado=eq.true&order=data.desc&limit=3", {
+    headers: { apikey: cfg.supabaseAnonKey, Authorization: "Bearer " + cfg.supabaseAnonKey }, signal: ctl.signal
+  }).then(function (r) { return r.ok ? r.json() : Promise.reject(); }).then(function (list) {
+    clearTimeout(timer);
+    if (!Array.isArray(list) || !list.length) return;
+    box.innerHTML = list.map(function (l) {
+      var c = CAT[l.categoria] || [l.categoria, "#99a1af"];
+      var dia = new Date(String(l.data).slice(0, 10) + "T12:00").toLocaleDateString("es-MX", { day: "numeric", month: "short" }).replace(".", "");
+      return '<a href="roadmap/#l-' + esc(l.id) + '" class="relative block h-full bg-white rounded-2xl p-6 shadow-lg shadow-black/[0.03] hover:shadow-xl transition-shadow before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(theme(colors.gray.100),theme(colors.gray.200))_border-box] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] before:[mask-composite:exclude_!important] before:pointer-events-none">' +
+        '<p class="font-semibold text-gray-900 mb-3">' + esc(l.titulo_es || l.titulo_pt) + '</p>' +
+        '<div class="flex items-center justify-between gap-3 text-xs text-gray-500"><span class="inline-flex items-center gap-2"><span class="w-2 h-2 rounded-full shrink-0" style="background:' + c[1] + '"></span>' + esc(c[0]) + '</span><time datetime="' + esc(l.data) + '">' + esc(dia) + '</time></div></a>';
+    }).join("");
+    box.hidden = false;
+  }).catch(function () { clearTimeout(timer); });
+})();
+</script>
+
         <!-- CTA -->
         <section data-scrollspy-target>
     <div class="max-w-6xl mx-auto px-4 sm:px-6 md:mb-20">
@@ -8735,6 +8780,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <li><a href="tour/" class="text-gray-600 hover:text-gray-900 transition">Tour del producto</a></li>
                     <li><a href="quanto-voce-ganha/" class="text-gray-600 hover:text-gray-900 transition">Cuánto ganas</a></li>
                     <li><a href="comparativo/" class="text-gray-600 hover:text-gray-900 transition">Por qué Bolten</a></li>
+                    <li><a href="roadmap/" class="text-gray-600 hover:text-gray-900 transition">Roadmap</a></li>
                     <li>
                         <a href="https://bolten.gitbook.io/bolten-docs" id="gtm-conversion" class="text-gray-600 hover:text-gray-900 transition">Documentación</a>
                     </li>
