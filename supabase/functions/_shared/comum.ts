@@ -34,7 +34,7 @@ export function erro(req: Request, mensagem: string, status = 400): Response {
 export function admin() {
   return createClient(
     Deno.env.get("SUPABASE_URL")!,
-    Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
+    (Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? Deno.env.get("SUPABASE_SECRET_KEY"))!,
     { auth: { persistSession: false } },
   );
 }
