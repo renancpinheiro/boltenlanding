@@ -8256,7 +8256,7 @@ document.addEventListener('DOMContentLoaded', function() {
 (function () {
   var cfg = window.ROADMAP_CONFIG || {}, box = document.getElementById("roadmap-home-lista");
   if (!box || !cfg.supabaseUrl || !cfg.supabaseAnonKey) return;
-  var CAT = {crm:['CRM','#bdac95'],whatsapp:['WhatsApp','#1fb041'],agente_ia:['Agente de IA','#fd8baa'],redes_sociais:['Redes sociales','#feb494'],conversoes:['Conversiones','#a5ae96'],plataforma:['Plataforma','#99a1af']};
+  var CAT = {crm:['CRM','#bdac95'],atendimento:['Atención','#1fb041'],agente_ia:['Agente de IA','#fd8baa'],redes_sociais:['Redes sociales','#feb494'],conversoes:['Conversiones','#a5ae96'],plataforma:['Plataforma','#99a1af']};
   var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return {"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]; }); };
   var ctl = new AbortController(), timer = setTimeout(function () { ctl.abort(); }, 3000);
   fetch(cfg.supabaseUrl + "/rest/v1/lancamentos?select=id,data,titulo_pt,titulo_es,categoria&publicado=eq.true&order=data.desc&limit=3", {

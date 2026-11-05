@@ -41,7 +41,7 @@ window.ROADMAP_I18N = {
 };
 window.ROADMAP_CATS = {
   crm:{pt:"CRM",es:"CRM"},
-  whatsapp:{pt:"WhatsApp",es:"WhatsApp"},
+  atendimento:{pt:"Atendimento",es:"Atención"},
   agente_ia:{pt:"Agente de IA",es:"Agente de IA"},
   redes_sociais:{pt:"Redes sociais",es:"Redes sociales"},
   conversoes:{pt:"Conversões",es:"Conversiones"},

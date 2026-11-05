@@ -6,7 +6,7 @@
 // Enquanto supabaseUrl estiver vazio, a página usa os dados de exemplo
 // de assets/roadmap/dados-exemplo.js e não grava nada.
 window.ROADMAP_CONFIG = {
-  supabaseUrl: "",
-  supabaseAnonKey: "",
+  supabaseUrl: "https://jrigjnrwmvmkgybingdg.supabase.co",
+  supabaseAnonKey: "sb_publishable_M5p-Z91YUXQLn8-X6EDleA_AdwrFFH5",
   turnstileSiteKey: ""
 };

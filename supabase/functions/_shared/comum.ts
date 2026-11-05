@@ -1,7 +1,7 @@
 // Utilidades compartilhadas pelas Edge Functions públicas do roadmap.
 import { createClient } from "npm:@supabase/supabase-js@2";
 
-export const CATEGORIAS = ["crm", "whatsapp", "agente_ia", "redes_sociais", "conversoes", "plataforma"] as const;
+export const CATEGORIAS = ["crm", "atendimento", "agente_ia", "redes_sociais", "conversoes", "plataforma"] as const;
 export type Categoria = (typeof CATEGORIAS)[number];
 
 const ORIGENS_PERMITIDAS = (Deno.env.get("ORIGENS_PERMITIDAS") ?? "https://partners.bolten.io")

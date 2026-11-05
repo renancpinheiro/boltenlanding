@@ -6,7 +6,7 @@ create extension if not exists pgcrypto;
 -- ---------------------------------------------------------------
 -- Tipos
 -- ---------------------------------------------------------------
-create type categoria_item as enum ('crm', 'whatsapp', 'agente_ia', 'redes_sociais', 'conversoes', 'plataforma');
+create type categoria_item as enum ('crm', 'atendimento', 'agente_ia', 'redes_sociais', 'conversoes', 'plataforma');
 create type status_item as enum ('em_analise', 'aberto', 'planejado', 'em_construcao', 'lancado', 'recusado', 'mesclado');
 create type origem_registro as enum ('pagina', 'call', 'whatsapp', 'slack', 'fider', 'notion', 'mcp');
 

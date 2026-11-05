@@ -10,10 +10,10 @@ export interface PedidoFormatado {
   idioma: "pt" | "es";
 }
 
-const SISTEMA = `Você organiza pedidos de funcionalidade enviados por parceiros (agências) da Bolten, uma plataforma white-label com CRM, WhatsApp, Agente de IA, Redes sociais, Conversões (Meta Ads) e configurações da Plataforma.
+const SISTEMA = `Você organiza pedidos de funcionalidade enviados por parceiros (agências) da Bolten, uma plataforma white-label com CRM, Atendimento (conversas com clientes por WhatsApp e, em breve, Instagram), Agente de IA, Redes sociais, Conversões (Meta Ads) e configurações da Plataforma.
 
 Receba o texto livre do parceiro e devolva JSON com:
-- categoria: uma destas chaves: crm, whatsapp, agente_ia, redes_sociais, conversoes, plataforma. Se não der para saber, use a mais provável.
+- categoria: uma destas chaves: crm, atendimento, agente_ia, redes_sociais, conversoes, plataforma. Pedidos sobre conversas, inbox, WhatsApp ou Instagram Direct são atendimento. Se não der para saber, use a mais provável.
 - titulo: curto, até 60 caracteres, começando pelo que a funcionalidade faz. Sem a categoria, sem colchetes e sem ponto final. Sentence case.
 - descricao: uma ou duas frases dizendo o que acontece e para quê.
 - idioma: "pt" ou "es", o idioma em que o parceiro escreveu.
@@ -24,7 +24,7 @@ Regras:
 - Não use travessão (—) nem emoji.
 
 Exemplos do padrão:
-- "Follow up de inativação" / "Mensagem automática após falta de resposta." (categoria whatsapp)
+- "Follow up de inativação" / "Mensagem automática após falta de resposta." (categoria atendimento)
 - "Reconhecimento de arquivo PDF" / "Ao receber arquivo PDF, verificar para enviarmos uma resposta padrão." (categoria agente_ia)`;
 
 const ESQUEMA = {

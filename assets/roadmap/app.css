@@ -45,7 +45,7 @@ img,video{display:block;max-width:100%}
 /* categoria: ponto na cor da paleta da marca */
 .cat{display:inline-flex;align-items:center;gap:6px;font-size:12px;line-height:16px;color:var(--text-muted);white-space:nowrap}
 .cat::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c);flex:none}
-.c-crm{--c:var(--areia-500)}.c-whatsapp{--c:var(--selva-400)}.c-agente_ia{--c:var(--ipe-400)}.c-redes_sociais{--c:var(--tarde-400)}.c-conversoes{--c:var(--lago-500)}.c-plataforma{--c:var(--gray-400)}
+.c-crm{--c:var(--areia-500)}.c-atendimento{--c:var(--selva-400)}.c-agente_ia{--c:var(--ipe-400)}.c-redes_sociais{--c:var(--tarde-400)}.c-conversoes{--c:var(--lago-500)}.c-plataforma{--c:var(--gray-400)}
 
 /* ---------- lançamentos: resumo ---------- */
 .yr-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:8px}

@@ -88,7 +88,7 @@
       await new Promise((r) => setTimeout(r, 500));
       const s = texto.trim().replace(/\s+/g, " ");
       const n = s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
-      const chaves = { agente_ia: ["ia", "agente", "bot"], whatsapp: ["whatsapp", "wpp", "disparo"], redes_sociais: ["instagram", "post", "tiktok"], conversoes: ["conversao", "conversion", "pixel", "ads"], crm: ["lead", "funil", "card", "contato", "agenda", "calendar"], plataforma: ["dominio", "menu", "usuario", "marca"] };
+      const chaves = { agente_ia: ["ia", "agente", "bot"], atendimento: ["whatsapp", "wpp", "disparo", "atendimento", "conversa", "inbox", "instagram"], redes_sociais: ["instagram", "post", "tiktok"], conversoes: ["conversao", "conversion", "pixel", "ads"], crm: ["lead", "funil", "card", "contato", "agenda", "calendar"], plataforma: ["dominio", "menu", "usuario", "marca"] };
       const categoria = Object.keys(chaves).find((k) => chaves[k].some((w) => n.includes(w))) || "plataforma";
       const primeira = s.split(/[.!?]/)[0];
       return { categoria, titulo: primeira.charAt(0).toUpperCase() + primeira.slice(1, 60), descricao: s.charAt(0).toUpperCase() + s.slice(1), idioma };
