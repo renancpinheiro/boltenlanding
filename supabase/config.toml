@@ -1,0 +1,12 @@
+# Configuração do projeto Supabase do roadmap (supabase CLI).
+# O project_id é preenchido com `supabase link` depois que o projeto existir.
+project_id = "roadmap-bolten"
+
+[functions.votar]
+verify_jwt = false
+[functions.formatar_pedido]
+verify_jwt = false
+[functions.criar_pedido]
+verify_jwt = false
+[functions.comentar]
+verify_jwt = false

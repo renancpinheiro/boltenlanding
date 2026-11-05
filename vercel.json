@@ -5,7 +5,8 @@
   "redirects": [
     { "source": "/:lang(pt|es|en)/para/gestores-de-trafego/", "destination": "/:lang/para/agencia-de-trafego-pago/", "permanent": false },
     { "source": "/:lang(pt|es|en)/para/agencias/", "destination": "/:lang/", "permanent": false },
-    { "source": "/:lang(pt|es|en)/para/:old(revendedores-de-software|empreendedores-digitais|vendedores-de-curso|consultores-e-freelancers)/", "destination": "/:lang/", "permanent": false }
+    { "source": "/:lang(pt|es|en)/para/:old(revendedores-de-software|empreendedores-digitais|vendedores-de-curso|consultores-e-freelancers)/", "destination": "/:lang/", "permanent": false },
+    { "source": "/en/roadmap/", "destination": "/pt/roadmap/", "permanent": false }
   ],
   "headers": [
     {
@@ -25,6 +26,12 @@
       "source": "/assets/fonts/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/admin/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
       ]
     }
   ]

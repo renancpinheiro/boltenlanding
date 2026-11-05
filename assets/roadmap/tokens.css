@@ -1,0 +1,285 @@
+/* Bolten design system: tokens (Felipe Ohira). Extraído de docs/roadmap/prototipo-roadmap.html. */
+:root, [data-theme="light"] {
+  --white: #ffffff; /* `bg-white`. Card, modal and input surfaces in light mode; checkbox mark; switch knob. */
+  --stone-100: oklch(97% 0.001 106.424); /* `bg-stone-100` (Tailwind v4, ≈ #f5f5f4). Page background of the logged-in app and borderless Rails cards. */
+  --gray-50: oklch(98.5% 0.002 247.839); /* `gray-50` (≈ #f9fafb). Guest-layout page background. */
+  --gray-100: oklch(96.7% 0.003 264.542); /* `gray-100` / `gray-xlight` (≈ #f3f4f6). Primary-button label in light mode; primary-button fill and headings in dark mode. */
+  --gray-200: oklch(92.8% 0.006 264.531); /* `gray-200` / `gray-light` (≈ #e5e7eb). Default border: cards, secondary buttons, dividers. */
+  --gray-300: oklch(87.2% 0.01 258.338); /* `gray-300` (≈ #d1d5dc). Hover border on secondary buttons; label of secondary buttons in dark mode. Replaces Mosaic's custom #bfc4cd. */
+  --gray-400: oklch(70.7% 0.022 261.325); /* `gray-400` / `gray-medium` (≈ #99a1af). Body text in dark mode; transparent-button icon. 2.4:1 on `stone-100`, so it isn't text on light grounds. */
+  --gray-500: oklch(55.1% 0.027 264.364); /* `gray-500` (≈ #6a7282). Muted text. 4.8:1 on `white`, 4.4:1 on `stone-100`. Toast info icon. */
+  --gray-600: oklch(44.6% 0.03 256.802); /* `gray-600` (≈ #4a5565). Default body text (the `<body>` color); secondary-button hover border in dark mode. */
+  --gray-700: oklch(37.3% 0.034 259.733); /* `gray-700` (≈ #364153). Strong body text; card borders in dark mode. */
+  --gray-800: oklch(27.8% 0.033 256.848); /* `gray-800` / `gray-dark` (≈ #1e2939). Headings and secondary-button label in light mode; page and card surface in dark mode. */
+  --gray-900: oklch(21% 0.034 264.665); /* `gray-900` / `gray-xdark` (≈ #101828). Primary-button fill in light mode. */
+  --red-500: oklch(63.7% 0.237 25.331); /* `red-500` (≈ #fb2c36). Form error messages (simple_form `:error` wrapper), toast error icon, Tag red fill (at 70%). 3.8:1 on `white`. */
+  --red-300: oklch(80.8% 0.114 19.571); /* `border-red-300`. Input border when a field has errors. */
+  --yellow-100: oklch(97.3% 0.071 103.193); /* `yellow-100` (Tailwind v4). StatusPill yellow fill. */
+  --yellow-200: oklch(94.5% 0.129 101.54); /* `yellow-200` (Tailwind v4). StatusPill yellow label in dark mode. */
+  --yellow-400: oklch(85.2% 0.199 91.936); /* `yellow-400` (Tailwind v4). Banner warning fill. */
+  --yellow-800: oklch(47.6% 0.114 61.907); /* `yellow-800` (Tailwind v4). StatusPill yellow label; Banner warning fill in dark mode. */
+  --yellow-900: oklch(42.1% 0.095 57.708); /* `yellow-900` (Tailwind v4). StatusPill yellow fill in dark mode. */
+  --green-100: oklch(96.2% 0.044 156.743); /* `green-100` (Tailwind v4). StatusPill green fill. */
+  --green-200: oklch(92.5% 0.084 155.995); /* `green-200` (Tailwind v4). StatusPill green label in dark mode. */
+  --green-500: oklch(72.3% 0.219 149.579); /* `green-500` (Tailwind v4). Toast success icon. */
+  --green-800: oklch(44.8% 0.119 151.328); /* `green-800` (Tailwind v4). StatusPill green label. */
+  --green-900: oklch(39.3% 0.095 152.535); /* `green-900` (Tailwind v4). StatusPill green fill in dark mode. */
+  --red-100: oklch(93.6% 0.032 17.717); /* `red-100` (Tailwind v4). StatusPill red fill. */
+  --red-200: oklch(88.5% 0.062 18.334); /* `red-200` (Tailwind v4). StatusPill red label in dark mode. */
+  --red-400: oklch(70.4% 0.191 22.216); /* `red-400` (Tailwind v4). Banner danger fill. */
+  --red-800: oklch(44.4% 0.177 26.899); /* `red-800` (Tailwind v4). StatusPill red label; Banner danger fill in dark mode. */
+  --red-900: oklch(39.6% 0.141 25.723); /* `red-900` (Tailwind v4). StatusPill red fill in dark mode. */
+  --amber-300: oklch(87.9% 0.169 91.605); /* `amber-300` (Tailwind v4). Tag yellow fill in dark mode (at 80%). */
+  --amber-400: oklch(82.8% 0.189 84.429); /* `amber-400` (Tailwind v4). Tag yellow fill (at 50%). */
+  --blue-400: oklch(70.7% 0.165 254.624); /* `blue-400` (Tailwind v4). Tag blue fill (at 70%, 50% dark). */
+  --stone-300: oklch(86.9% 0.005 56.366); /* `stone-300` (Tailwind v4). Tag gray fill. */
+  --tucano-400: #ff6828; /* Bolten orange, the brand hue. Default `personalized-primary` (#FF6828). Use for fills and marks; white text on it is 2.9:1. */
+  --tucano-500: #cc5320; /* Tucano, one step darker. Hover or pressed state on brand-orange fills. */
+  --tucano-600: #a3431a; /* Tucano, darker still. Orange text on light grounds (6.2:1 on `white`). */
+  --tucano-700: #833514; /* Tucano, darkest. Deep accents. */
+  --selva-400: #1fb041; /* Selva green. Tag `green` fill (at 60%). Status colors use Tailwind `green-*`, not selva. */
+  --selva-500: #198d34; /* Selva, one step darker. */
+  --selva-600: #14712a; /* Selva, darker. Green text on light grounds. */
+  --selva-700: #105a21; /* Selva, darkest. */
+  --ipe-400: #fd8baa; /* Ipê pink. Decorative accent. */
+  --ipe-500: #ca6f88; /* Ipê, one step darker. */
+  --ipe-600: #a2596d; /* Ipê, darker. */
+  --ipe-700: #824757; /* Ipê, darkest. */
+  --lago-400: #ced9bb; /* Lago sage. Soft decorative fill. */
+  --lago-500: #a5ae96; /* Lago, one step darker. */
+  --lago-600: #848b78; /* Lago, darker. */
+  --lago-700: #696f60; /* Lago, darkest. */
+  --tarde-400: #feb494; /* Tarde peach. Soft decorative fill. */
+  --tarde-500: #cb9076; /* Tarde, one step darker. */
+  --tarde-600: #a3735f; /* Tarde, darker. */
+  --tarde-700: #825c4c; /* Tarde, darkest. */
+  --areia-400: #ecd7ba; /* Areia sand. Soft decorative fill. */
+  --areia-500: #bdac95; /* Areia, one step darker. */
+  --areia-600: #978a77; /* Areia, darker. */
+  --areia-700: #796e5f; /* Areia, darkest. */
+  --personalized-primary: var(--tucano-400); /* `--color-personalized-primary`. In client space the layout overwrites it with the project's `color_primary` (falls back to the parent template, then #FF6828). White-label accent. */
+  --personalized-secondary: var(--tucano-400); /* `--color-personalized-secondary`. Project's `color_secondary`, same fallback chain. */
+  --surface-page: var(--stone-100); /* Page background: `bg-stone-100 dark:bg-gray-800` on `<body>`. */
+  --surface-card: var(--white); /* Bordered card (`Card border: true`): `bg-white dark:bg-gray-800`. The React `Card` must match (it uses `gray-900` in dark mode today). */
+  --border-default: var(--gray-200); /* Card and divider border: `border-gray-200 dark:border-gray-700` (Rails `Card`). */
+  --text-heading: var(--gray-800); /* Headings: `text-gray-800 dark:text-gray-100`, as Modal and EmptyState titles set it. 13.5:1 on `surface-page` light. */
+  --text-body: var(--gray-600); /* Body copy: `text-gray-600 dark:text-gray-400`, inherited from `<body>`. 6.9:1 on `surface-page` light, 5.6:1 dark. */
+  --text-muted: var(--gray-500); /* Hints, timestamps, helper text: `text-gray-500`. 4.8:1 on `surface-card` light; 4.4:1 on `surface-page` light, 3.0:1 dark. */
+  --text-error: var(--red-500); /* Field errors: `text-xs text-red-500` (simple_form wrapper). 3.8:1 on `white`. */
+  --button-primary-bg: var(--gray-900); /* `.btn-primary` fill: `bg-gray-900 dark:bg-gray-100`. In client space it becomes `personalized-primary`. */
+  --button-primary-bg-hover: var(--gray-800); /* `.btn-primary:hover`: `hover:bg-gray-800 dark:hover:bg-white`. */
+  --button-primary-fg: var(--gray-100); /* `.btn-primary` label and icon: `text-gray-100 dark:text-gray-800`. 16:1 light, 13.4:1 dark on `button-primary-bg`. */
+  --button-secondary-border: var(--gray-200); /* `.btn-secondary` border: `border-gray-200 dark:border-gray-700/60`. The button has no fill; it sits on its ground. */
+  --button-secondary-border-hover: var(--gray-300); /* `.btn-secondary:hover` border: `hover:border-gray-300 dark:hover:border-gray-600`. */
+  --button-secondary-fg: var(--gray-800); /* `.btn-secondary` label: `text-gray-800 dark:text-gray-300`. 13.5:1 on `surface-page` light, 10:1 dark. */
+  --button-transparent-fg: var(--gray-400); /* `.btn-transparent` icon: `text-gray-medium`. 2.4:1 on `surface-page` light. */
+  --border-divider: var(--gray-200); /* Dividers inside a surface: `Modal` header and footer (`border-gray-200 dark:border-gray-700/60`). `Card`'s header rule should match (it uses `gray-200/70`). */
+  --overlay-backdrop: rgba(0, 0, 0, 0.3); /* `Modal::Backdrop` scrim: `bg-black/30 dark:bg-black/50`. */
+  --surface-modal: var(--white); /* `Modal::Dialog` panel: `bg-white dark:bg-gray-800`. Same values as `surface-card`. */
+  --modal-close-fg: var(--gray-400); /* `Modal::CloseModal` X icon: `text-gray-400 dark:text-gray-500`. */
+  --modal-close-fg-hover: var(--gray-500); /* `Modal::CloseModal` hover: `hover:text-gray-500 dark:hover:text-gray-400`. */
+  --input-bg: var(--white); /* `.form-input` / `.form-select` fill: white; `gray-900/30` in dark mode, so the surface shows through. */
+  --input-fg: var(--gray-800); /* Typed value in `.form-input` / `.form-select`: `text-gray-800 dark:text-gray-100`. */
+  --input-placeholder: var(--gray-400); /* Placeholder: `placeholder:text-gray-400 dark:placeholder:text-gray-500`. 2.6:1 on `input-bg` light; a placeholder is never the only label. */
+  --input-border: var(--gray-200); /* Input border at rest: `border-gray-200 dark:border-gray-700/60`. */
+  --input-border-hover: var(--gray-300); /* Input border on hover and focus: `hover:border-gray-300 focus:border-gray-300 dark:hover:border-gray-600`. It's the only focus cue today (there's no ring). */
+  --input-border-error: var(--red-300); /* Input border when the field has errors: `group-[.with-errors]:border-red-300`. */
+  --input-disabled-bg: var(--gray-300); /* Disabled input fill, border removed: `disabled:bg-gray-300 dark:disabled:bg-gray-700/50` (`:tailwind` wrapper). */
+  --input-chevron: var(--gray-500); /* `.form-select` chevron stroke (#6B7280 in the Mosaic forms plugin). */
+  --checkbox-border: var(--gray-400); /* `Checkbox` unchecked border: `border-gray-medium`. */
+  --checkbox-checked-bg: var(--gray-800); /* `Checkbox` checked fill and border: `bg-gray-dark dark:bg-gray-xlight`. */
+  --checkbox-checked-fg: var(--white); /* `Checkbox` check mark: `text-white dark:text-gray-dark`. */
+  --switch-track-off: var(--gray-400); /* `.form-switch` track, off: `bg-gray-400 dark:bg-gray-700` (set on the label in markup). */
+  --switch-track-on: var(--tucano-400); /* `.form-switch` track, on: `--color-tucano-400`. The one place the brand orange marks state. */
+  --switch-knob: var(--white); /* `.form-switch` knob: `bg-white shadow-sm`. */
+  --switch-disabled-bg: var(--gray-100); /* `.form-switch` disabled track, with a `border-default`-colored border. */
+  --switch-disabled-knob: var(--gray-400); /* `.form-switch` disabled knob. */
+  --surface-card-plain: var(--stone-100); /* Borderless `Card` (the default, `border: false`): `bg-stone-100 dark:bg-gray-800`, the same as `surface-page`, so it groups content without a visible edge. */
+  --accordion-bg: var(--gray-100); /* `Accordion` panel: `bg-gray-100 dark:bg-gray-700/70`. */
+  --accordion-chevron: var(--gray-700); /* `Accordion` chevron: `text-gray-700 dark:text-gray-500`. */
+  --accordion-chevron-hover: var(--gray-800); /* `Accordion` chevron on hover: `group-hover:text-gray-800 dark:group-hover:text-gray-400`. */
+  --tab-active: var(--tucano-400); /* Active `Tabs` label and its 2px underline: `text-tucano-400 border-tucano-400`. 2.7:1 on `surface-page`. */
+  --segmented-bg: var(--gray-100); /* `SegmentedControl` track: `bg-gray-xlight dark:bg-gray-dark`. In dark mode it matches `surface-page`, so the track only shows on a card. */
+  --segmented-selected-bg: var(--white); /* `SegmentedControl` selected pill: `bg-white dark:bg-gray-xdark`. */
+  --segmented-selected-fg: var(--gray-800); /* `SegmentedControl` selected label: `text-gray-dark dark:text-gray-xlight`, weight 500. */
+  --segmented-fg: var(--gray-400); /* `SegmentedControl` unselected label: `text-gray-medium`; hover goes to `segmented-selected-fg`. 2.4:1 on `segmented-bg` light. */
+  --status-neutral-bg: var(--gray-100); /* StatusPill `gray` (default) fill: `bg-gray-100 dark:bg-gray-700`. */
+  --status-neutral-fg: var(--gray-800); /* StatusPill `gray` label. 13.4:1 light, 8.3:1 dark. */
+  --status-warning-bg: var(--yellow-100); /* StatusPill `yellow` fill: `bg-yellow-100 dark:bg-yellow-900`. Pending, in progress, incomplete. */
+  --status-warning-fg: var(--yellow-800); /* StatusPill `yellow` label. 6.4:1 light, 7.5:1 dark. */
+  --status-success-bg: var(--green-100); /* StatusPill `green` fill: `bg-green-100 dark:bg-green-900`. Completed, active, paid. */
+  --status-success-fg: var(--green-800); /* StatusPill `green` label. 6.5:1 light, 7.5:1 dark. */
+  --status-danger-bg: var(--red-100); /* StatusPill `red` fill: `bg-red-100 dark:bg-red-900`. Failed, overdue, cancelled. */
+  --status-danger-fg: var(--red-800); /* StatusPill `red` label. 6.9:1 light, 6.9:1 dark. */
+  --banner-info-bg: var(--gray-200); /* Banner `:info` (default) fill: `bg-gray-200 dark:bg-gray-600`. */
+  --banner-warning-bg: var(--yellow-400); /* Banner `:warning` fill: `bg-yellow-400 dark:bg-yellow-800`. */
+  --banner-danger-bg: var(--red-400); /* Banner `:danger` fill: `bg-red-400 dark:bg-red-800`. */
+  --banner-fg: var(--gray-800); /* Banner text and icon on every theme: `text-gray-800 dark:text-gray-200`. At least 5.1:1 on every banner fill. */
+  --tag-gray-bg: var(--stone-300); /* Tag `gray` (default) fill: `bg-stone-300 dark:bg-gray-600`. */
+  --tag-green-bg: rgba(31, 176, 65, 0.6); /* Tag `green` fill: `bg-selva-400/60 dark:bg-selva-400/50`. */
+  --tag-red-bg: rgba(251, 44, 54, 0.7); /* Tag `red` fill: `bg-red-500/70 dark:bg-red-500/50`. */
+  --tag-yellow-bg: rgba(255, 185, 0, 0.5); /* Tag `yellow` fill: `bg-amber-400/50 dark:bg-amber-300/80`. Its label stays `gray-800` in dark mode. */
+  --tag-blue-bg: rgba(81, 162, 255, 0.7); /* Tag `blue` fill: `bg-blue-400/70 dark:bg-blue-400/50`. */
+  --tag-fg: var(--gray-800); /* Tag label: `text-gray-800 dark:text-gray-200` (the yellow tag keeps `gray-800`). At least 4.8:1 on every tag fill over `surface-card`. */
+  --toast-bg: var(--white); /* Toast panel: `bg-white dark:bg-gray-800`. */
+  --toast-border: var(--gray-200); /* Toast border: `border-gray-200 dark:border-gray-700/60`. */
+  --toast-fg: var(--gray-600); /* Toast message: `text-gray-600 dark:text-gray-100`. */
+  --toast-icon-success: var(--green-500); /* Toast `success` icon. 2.2:1 on `white`; the message text carries the meaning. */
+  --toast-icon-error: var(--red-500); /* Toast `error` icon. */
+  --toast-icon-info: var(--gray-500); /* Toast default (`notice`, `alert`) icon. */
+  --tooltip-bg: var(--white); /* Tooltip bubble: `bg-white dark:bg-gray-800`. */
+  --tooltip-border: var(--gray-200); /* Tooltip border: `border-gray-200 dark:border-gray-700`. */
+  --tooltip-fg: var(--gray-600); /* Tooltip body text: `text-gray-600 dark:text-gray-400`. */
+  --tooltip-title: var(--gray-800); /* Tooltip title: `text-gray-800 dark:text-gray-200`, weight 500. */
+  --tooltip-trigger: var(--gray-400); /* Default info-icon trigger: `text-gray-400 dark:text-gray-500`. 2.4:1 on `surface-page`. */
+  --empty-icon-from: var(--gray-300); /* EmptyState icon disc, gradient start (45°): `from-gray-300 dark:from-gray-700`. */
+  --empty-icon-to: var(--gray-200); /* EmptyState icon disc, gradient end: `to-gray-200 dark:to-gray-800`. */
+  --empty-icon-top: var(--gray-500); /* EmptyState box glyph, top face: `text-gray-500 dark:text-gray-600`. */
+  --empty-icon-left: var(--gray-300); /* EmptyState box glyph, left face: `text-gray-300 dark:text-gray-400`. */
+  --empty-icon-right: var(--gray-400); /* EmptyState box glyph, right face: `text-gray-400 dark:text-gray-500`. */
+  --chart-empty-bg: var(--gray-600); /* ChartEmptyState block: `bg-gray-600 dark:bg-gray-700`. Dark in both themes. */
+  --chart-empty-fg: var(--gray-300); /* ChartEmptyState icon and message: `text-gray-300 dark:text-gray-500`. 2.1:1 on `chart-empty-bg` dark. */
+  --table-border: var(--gray-200); /* `TableViewComponent` outer border: `border dark:border-gray-700`. The light color comes only from Mosaic's reset (`#E5E7EB`); set `border-gray-200` explicitly. */
+  --table-head-bg: var(--gray-100); /* Table header row: `bg-gray-100 dark:bg-gray-600`. `dark:bg-opacity-50` has no effect under Tailwind v4, so dark mode renders solid `gray-600`. */
+  --table-head-fg: var(--gray-500); /* Table header labels: `text-xs uppercase text-gray-500 dark:text-gray-200`. 4.4:1 on `table-head-bg` light, 6.1:1 dark. */
+  --table-row-bg: var(--white); /* Table body: `bg-white dark:bg-gray-800`. */
+  --table-fg: var(--gray-600); /* Table cell text: inherits `text-body` in light mode, `dark:text-gray-300` in dark. 7.6:1 light, 10:1 dark. */
+  --table-divider: var(--gray-100); /* Row dividers: `divide-y divide-gray-100 dark:divide-gray-700/60`. */
+  --skeleton-bg: var(--gray-200); /* `ChartSkeleton` pulsing block: `bg-gray-200 dark:bg-gray-700`. */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* `shadow-xs` on every `.btn` except `.btn-transparent`, and on `.form-input` / `.form-select`. */
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1); /* `shadow-sm` (Tailwind v4 value): `Accordion`, `Banner`, toasts and the `.form-switch` knob. Cards have no shadow (see `Card`). */
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); /* `shadow-lg`. `Modal::Dialog` and `Tooltip`, the floating surfaces. */
+}
+[data-theme="dark"] {
+  --personalized-primary: var(--tucano-400);
+  --personalized-secondary: var(--tucano-400);
+  --surface-page: var(--gray-800);
+  --surface-card: var(--gray-800);
+  --border-default: var(--gray-700);
+  --text-heading: var(--gray-100);
+  --text-body: var(--gray-400);
+  --text-muted: var(--gray-500);
+  --text-error: var(--red-500);
+  --button-primary-bg: var(--gray-100);
+  --button-primary-bg-hover: var(--white);
+  --button-primary-fg: var(--gray-800);
+  --button-secondary-border: rgba(54, 65, 83, 0.6);
+  --button-secondary-border-hover: var(--gray-600);
+  --button-secondary-fg: var(--gray-300);
+  --button-transparent-fg: var(--gray-400);
+  --border-divider: rgba(54, 65, 83, 0.6);
+  --overlay-backdrop: rgba(0, 0, 0, 0.5);
+  --surface-modal: var(--gray-800);
+  --modal-close-fg: var(--gray-500);
+  --modal-close-fg-hover: var(--gray-400);
+  --input-bg: rgba(16, 24, 40, 0.3);
+  --input-fg: var(--gray-100);
+  --input-placeholder: var(--gray-500);
+  --input-border: rgba(54, 65, 83, 0.6);
+  --input-border-hover: var(--gray-600);
+  --input-border-error: var(--red-300);
+  --input-disabled-bg: rgba(54, 65, 83, 0.5);
+  --input-chevron: var(--gray-500);
+  --checkbox-border: var(--gray-400);
+  --checkbox-checked-bg: var(--gray-100);
+  --checkbox-checked-fg: var(--gray-800);
+  --switch-track-off: var(--gray-700);
+  --switch-track-on: var(--tucano-400);
+  --switch-knob: var(--white);
+  --switch-disabled-bg: rgba(54, 65, 83, 0.2);
+  --switch-disabled-knob: var(--gray-600);
+  --surface-card-plain: var(--gray-800);
+  --accordion-bg: rgba(54, 65, 83, 0.7);
+  --accordion-chevron: var(--gray-500);
+  --accordion-chevron-hover: var(--gray-400);
+  --tab-active: var(--tucano-400);
+  --segmented-bg: var(--gray-800);
+  --segmented-selected-bg: var(--gray-900);
+  --segmented-selected-fg: var(--gray-100);
+  --segmented-fg: var(--gray-400);
+  --status-neutral-bg: var(--gray-700);
+  --status-neutral-fg: var(--gray-200);
+  --status-warning-bg: var(--yellow-900);
+  --status-warning-fg: var(--yellow-200);
+  --status-success-bg: var(--green-900);
+  --status-success-fg: var(--green-200);
+  --status-danger-bg: var(--red-900);
+  --status-danger-fg: var(--red-200);
+  --banner-info-bg: var(--gray-600);
+  --banner-warning-bg: var(--yellow-800);
+  --banner-danger-bg: var(--red-800);
+  --banner-fg: var(--gray-200);
+  --tag-gray-bg: var(--gray-600);
+  --tag-green-bg: rgba(31, 176, 65, 0.5);
+  --tag-red-bg: rgba(251, 44, 54, 0.5);
+  --tag-yellow-bg: rgba(255, 210, 48, 0.8);
+  --tag-blue-bg: rgba(81, 162, 255, 0.5);
+  --tag-fg: var(--gray-200);
+  --toast-bg: var(--gray-800);
+  --toast-border: rgba(54, 65, 83, 0.6);
+  --toast-fg: var(--gray-100);
+  --toast-icon-success: var(--green-500);
+  --toast-icon-error: var(--red-500);
+  --toast-icon-info: var(--gray-500);
+  --tooltip-bg: var(--gray-800);
+  --tooltip-border: var(--gray-700);
+  --tooltip-fg: var(--gray-400);
+  --tooltip-title: var(--gray-200);
+  --tooltip-trigger: var(--gray-500);
+  --empty-icon-from: var(--gray-700);
+  --empty-icon-to: var(--gray-800);
+  --empty-icon-top: var(--gray-600);
+  --empty-icon-left: var(--gray-400);
+  --empty-icon-right: var(--gray-500);
+  --chart-empty-bg: var(--gray-700);
+  --chart-empty-fg: var(--gray-500);
+  --table-border: var(--gray-700);
+  --table-head-bg: var(--gray-600);
+  --table-head-fg: var(--gray-200);
+  --table-row-bg: var(--gray-800);
+  --table-fg: var(--gray-300);
+  --table-divider: rgba(54, 65, 83, 0.6);
+  --skeleton-bg: var(--gray-700);
+}
+:root {
+  --spacing-2xsmall: 4px; /* `*-2xsmall` = 1 × spacing. Tight gaps inside chips. */
+  --spacing-xsmall: 8px; /* `*-xsmall` = 2 × spacing. Gap between icon and label in `.btn`; horizontal padding of `.btn-sm`. */
+  --spacing-small: 12px; /* `*-small` = 3 × spacing. Horizontal padding of `.btn`. */
+  --spacing-medium: 16px; /* `*-medium` = 4 × spacing. Card body padding. */
+  --spacing-large: 24px; /* `*-large` = 6 × spacing. Space between stacked sections. */
+  --spacing-xlarge: 32px; /* `*-xlarge` = 8 × spacing. Page-level gutters. */
+  --spacing-icon-sm: 16px; /* `size-icon-sm`. Icons inside buttons and inline with `text-sm`. */
+  --spacing-icon-md: 24px; /* `size-icon-md`. Standalone icons; default `ActivityIndicator`. */
+  --spacing-icon-lg: 32px; /* `size-icon-lg`. Empty states and large indicators. */
+  --page-gap: 24px; /* `gap-6` in `Clients::Page`: space between the page header and each section, and between sections. */
+  --radius-sm: 4px; /* `rounded-sm`. `Checkbox`. */
+  --radius-md: 6px; /* `rounded-md`. The selected pill and items inside `SegmentedControl`. */
+  --radius-lg: 8px; /* `rounded-lg`. Buttons, inputs, selects, cards, accordions, modals, toasts, tooltips, the `SegmentedControl` track. The `TableViewComponent` frame. */
+  --radius-xl: 12px; /* `rounded-xl`. `Banner`, `ChartEmptyState` and `ChartSkeleton`. Not for cards. */
+  --radius-full: 9999px; /* `rounded-full`. `.form-switch`, `StatusPill`, `Tag`, the `EmptyState` icon disc. */
+  --button-height: 38px; /* `--button-height` (9.5 × spacing). Height of `.btn` / `.btn-lg`, and the width of a square `.btn-icon`. */
+  --button-height-sm: 30px; /* `--button-height-sm` (7.5 × spacing). Height of `.btn-sm` / `.btn-xs`, and a small square `.btn-icon`. */
+  --modal-width-sm: 480px; /* `w-120`. `Modal::Dialog` width below `sm`. */
+  --modal-width-md: 600px; /* `sm:w-150`. `Modal::Dialog` width from `sm`. */
+  --modal-width-lg: 840px; /* `xl:w-210`. `Modal::Dialog` width from `xl`. */
+  --switch-width: 44px; /* `.form-switch` track width; the track is 24px tall with a 20px knob inset 2px. */
+  --toast-min-width: 320px; /* `min-w-80` toast width; `md:min-w-120` (480px) from `md`. */
+  --table-cell-max-width: 192px; /* `max-w-48` on every `TableViewComponent` cell; longer content truncates with an ellipsis. */
+  --font-sans: Inter, sans-serif;
+  --font-public: Arimo, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --text-page-title: 700 1.875rem/36px var(--font-sans); /* `Clients::Page` title, the one `<h1>` per page: `text-3xl font-bold` at every width, color `text-heading`. */
+  --text-empty-title: 700 1.5rem/32px var(--font-sans); /* `EmptyState` title: `text-2xl font-bold text-gray-800 dark:text-gray-100`. */
+  --text-section-title: 700 1.25rem/28px var(--font-sans); /* Convention, no component yet. Section heading inside a page: `text-xl font-bold text-gray-800 dark:text-gray-100`. */
+  --text-card-title: 600 1rem/24px var(--font-sans); /* `Modal::WithForm` header and `Card` title: `font-semibold` at 16px, `text-gray-800 dark:text-gray-100` (`text-heading`), as the modal sets it. */
+  --text-label: 500 0.875rem/20px var(--font-sans); /* simple_form labels (`block text-sm font-medium mb-1`) and `.btn` labels. */
+  --text-caption: 400 0.75rem/16px var(--font-sans); /* Metadata and field errors (`text-xs`). Color `text-muted` or `text-error`. */
+  --text-text-xs: 400 0.75rem/16px var(--font-sans); /* `text-xs`: 12px / 16px (Tailwind v4 default, no tracking). */
+  --text-text-sm: 400 0.875rem/20px var(--font-sans); /* `text-sm`: 14px / 20px (Tailwind v4 default, no tracking). */
+  --text-text-base: 400 1rem/24px var(--font-sans); /* `text-base`: 16px / 24px, the inherited body size (Tailwind v4 default, no tracking). */
+  --text-text-lg: 400 1.125rem/28px var(--font-sans); /* `text-lg`: 18px / 28px (Tailwind v4 default, no tracking). */
+  --text-text-xl: 400 1.25rem/28px var(--font-sans); /* `text-xl`: 20px / 28px (Tailwind v4 default, no tracking). */
+  --text-text-2xl: 400 1.5rem/32px var(--font-sans); /* `text-2xl`: 24px / 32px (Tailwind v4 default, no tracking). */
+  --text-text-3xl: 400 1.875rem/36px var(--font-sans); /* `text-3xl`: 30px / 36px (Tailwind v4 default, no tracking). */
+  --text-text-4xl: 400 2.25rem/40px var(--font-sans); /* `text-4xl`: 36px / 40px (Tailwind v4 default, no tracking). */
+}
