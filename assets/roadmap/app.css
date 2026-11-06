@@ -72,7 +72,7 @@ img,video{display:block;max-width:100%}
 /* linha do tempo horizontal: meses em colunas, do mais antigo ao futuro */
 .months{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,1fr);gap:48px;overflow-x:auto;scroll-snap-type:x mandatory;padding:20px 2px 8px;margin-top:8px;scrollbar-width:thin}
 .mrow{position:relative;display:flex;flex-direction:column;gap:28px;scroll-snap-align:start;min-width:0}
-.mrow::before{content:"";position:absolute;left:0;right:-48px;top:6px;height:2px;background:var(--gray-300)}
+.mrow::before{content:"";position:absolute;left:0;right:-48px;top:6px;height:2px;background:var(--gray-500)}
 .mrow:last-child::before{display:none}
 .mrow.pre-soon::before{background:repeating-linear-gradient(to right,var(--gray-300) 0 5px,transparent 5px 10px)}
 .months .mname{padding:28px 0 4px}
