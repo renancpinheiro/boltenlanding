@@ -111,7 +111,7 @@
       <div class="two"><div class="field" style="margin-bottom:0"><label class="field-label" for="ec">Categoria</label><select class="form-select" id="ec">${Object.keys(CATS).map((c) => `<option value="${c}" ${c === it.categoria ? "selected" : ""}>${CATS[c].pt}</option>`).join("")}</select></div>
       <div class="field" style="margin-bottom:0"><label class="field-label" for="es">Status</label><select class="form-select" id="es">${st.map((s) => `<option value="${s}" ${s === it.status ? "selected" : ""}>${STATUS[s]}</option>`).join("")}</select></div></div>
       ${it.texto_original ? `<p class="orig"><b>Texto original</b>${esc(it.texto_original)}</p>` : ""}`,
-      `<button class="btn btn-transparent" data-retraduzir="item" data-id="${it.id}" title="Refaz a tradução automática do idioma que falta"><span>Traduzir de novo</span></button><button class="btn btn-secondary" data-close><span>Cancelar</span></button><button class="btn btn-primary" data-saveitem="${it.id}"><span>Salvar</span></button>`);
+      `<button class="btn btn-transparent perigo" data-delitem="${it.id}"><span>Apagar</span></button><button class="btn btn-transparent" data-retraduzir="item" data-id="${it.id}" title="Refaz a tradução automática do idioma que falta"><span>Traduzir de novo</span></button><button class="btn btn-secondary" data-close><span>Cancelar</span></button><button class="btn btn-primary" data-saveitem="${it.id}"><span>Salvar</span></button>`);
   }
   function formLanc(l) {
     l = l || { data: new Date().toISOString().slice(0, 10), categoria: "plataforma", publicado: false };
@@ -125,7 +125,7 @@
         ${l.midia_url ? `<label class="check" style="margin-top:8px"><input type="checkbox" id="lm-rm"> Remover a mídia atual</label>` : ""}</div>
       <label class="check"><input type="checkbox" id="lp" ${l.publicado ? "checked" : ""}> Publicado (aparece na página)</label>
       <p class="form-error" id="lerr" hidden></p>`,
-      `${l.id ? `<button class="btn btn-transparent" data-retraduzir="lancamento" data-id="${l.id}" title="Refaz a tradução automática para ES"><span>Traduzir de novo</span></button>` : ""}<button class="btn btn-secondary" data-close><span>Cancelar</span></button><button class="btn btn-primary" data-savelanc="${l.id || ""}"><span>Salvar</span></button>`);
+      `${l.id ? `<button class="btn btn-transparent perigo" data-dellanc="${l.id}"><span>Apagar</span></button>` : ""}${l.id ? `<button class="btn btn-transparent" data-retraduzir="lancamento" data-id="${l.id}" title="Refaz a tradução automática para ES"><span>Traduzir de novo</span></button>` : ""}<button class="btn btn-secondary" data-close><span>Cancelar</span></button><button class="btn btn-primary" data-savelanc="${l.id || ""}"><span>Salvar</span></button>`);
   }
   async function salvarLanc(id, b) {
     const err = $("#lerr"); err.hidden = true;
@@ -177,6 +177,25 @@
       if (virouLancado && confirm("Criar o lançamento já ligado a este item?")) {
         formLanc({ data: new Date().toISOString().slice(0, 10), categoria: campos.categoria, titulo_pt: campos.titulo_pt, titulo_es: campos.titulo_es, texto_pt: campos.descricao_pt, texto_es: campos.descricao_es, item_id: it.id, publicado: false });
       } else closeModal();
+    }
+    else if (d.delitem) {
+      const it = ITENS.find((i) => i.id === d.delitem);
+      if (!confirm(`Apagar "${it.titulo_pt}"? Os votos e comentários dele também somem. Não dá para desfazer.`)) return;
+      busy(b, true);
+      const r = await supa.from("itens").delete().eq("id", it.id);
+      if (r.error) { busy(b, false); toast(r.error.message); return; }
+      closeModal(); toast("Pedido apagado"); await carregar();
+    }
+    else if (d.dellanc) {
+      const l = LANC.find((x) => x.id === d.dellanc);
+      if (!confirm(`Apagar o lançamento "${l.titulo_pt}"? Não dá para desfazer.`)) return;
+      busy(b, true);
+      const r = await supa.from("lancamentos").delete().eq("id", l.id);
+      if (r.error) { busy(b, false); toast(r.error.message); return; }
+      // Mídia que estava no Storage do roadmap sai junto (se falhar, só fica um arquivo órfão).
+      const caminho = (l.midia_url || "").split("/object/public/roadmap/")[1];
+      if (caminho) await supa.storage.from("roadmap").remove([decodeURIComponent(caminho)]).catch(() => {});
+      closeModal(); toast("Lançamento apagado"); await carregar();
     }
     else if (d.retraduzir) {
       busy(b, true);

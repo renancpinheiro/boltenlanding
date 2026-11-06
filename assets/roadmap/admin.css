@@ -28,3 +28,6 @@
   .req.item,.req.lanc{grid-template-columns:1fr}
   .req.lanc .mini,.req.lanc .semmidia{width:100%}
 }
+
+.perigo{color:var(--red-500);margin-right:auto}
+#mfoot{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;align-items:center}
