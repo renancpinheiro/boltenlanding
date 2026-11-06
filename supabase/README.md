@@ -52,11 +52,12 @@ Secrets (Project > Edge Functions > Secrets, ou `supabase secrets set`):
 | `ANTHROPIC_API_KEY` | `formatar_pedido` (IA que organiza o pedido) |
 | `TURNSTILE_SECRET` | captcha invisível em `criar_pedido` e `comentar` (opcional; sem ele, não exige captcha) |
 | `ORIGENS_PERMITIDAS` | CORS, separado por vírgula. Padrão: `https://partners.bolten.io` |
+| `ROADMAP_MCP_KEY` | chave do servidor MCP (string longa e aleatória) |
 
 `SUPABASE_URL` e `SUPABASE_SERVICE_ROLE_KEY` já existem automaticamente nas funções.
 
 ```bash
-supabase functions deploy votar formatar_pedido criar_pedido comentar traduzir --no-verify-jwt
+supabase functions deploy votar formatar_pedido criar_pedido comentar traduzir mcp --no-verify-jwt
 ```
 
 Limites por IP (hash): 30 votos/hora, 20 formatações/hora, 5 pedidos/dia, 10 comentários/hora.
@@ -86,6 +87,21 @@ window.ROADMAP_CONFIG = {
 
 Sem `supabaseUrl`, a página mostra os dados de exemplo de `assets/roadmap/dados-exemplo.js` e não grava nada.
 
+## Servidor MCP (`mcp`)
+
+Edge Function que expõe o roadmap como servidor MCP (Streamable HTTP, sem sessão) para o Claude e para o n8n.
+URL: `https://<ref>.supabase.co/functions/v1/mcp`. Autenticação por chave, no secret `ROADMAP_MCP_KEY`:
+
+- **Claude Code**: `claude mcp add --transport http roadmap https://<ref>.supabase.co/functions/v1/mcp --header "Authorization: Bearer <chave>"`
+- **claude.ai e Claude Desktop** (Configurações > Conectores > Adicionar conector personalizado): a tela só aceita URL,
+  então a chave vai nela: `https://<ref>.supabase.co/functions/v1/mcp?chave=<chave>`. Sem OAuth.
+- **n8n**: nó MCP Client com transporte HTTP e credencial Bearer com a chave.
+
+Ferramentas: `buscar_itens`, `ver_item`, `criar_pedido` (formata pela IA, entra como `aberto`, devolve parecidos em vez de
+duplicar), `votar`, `comentar` (como Time Bolten), `listar_pendentes`, `aprovar`, `mudar_status`, `mesclar`,
+`criar_lancamento` e `listar_lancados_do_mes` (base do e-mail mensal). A busca usa `pg_trgm` + `unaccent`
+pela função SQL `buscar_itens`; a mesclagem usa `mesclar_itens_servico` (só service role).
+
 ## Migração do Fider e do Notion (feita em 06/11/2026)
 
 Os pedidos vieram da base "Feature Request - Bolten" do Notion, que já consolidava Fider e Slack sem duplicidade:
@@ -97,4 +113,4 @@ e `integracoes`. O SQL dos lotes não fica no repositório porque contém nomes 
 
 ## Próximas rodadas (fora desta entrega)
 
-- Servidor MCP (seção 8) e migração do Fider/Notion (seção 9).
+- Comentários do Fider (não estavam no Notion) e desligamento do Fider após a divulgação.

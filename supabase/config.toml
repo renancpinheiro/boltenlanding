@@ -12,3 +12,5 @@ verify_jwt = false
 verify_jwt = false
 [functions.traduzir]
 verify_jwt = false
+[functions.mcp]
+verify_jwt = false
