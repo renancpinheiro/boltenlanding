@@ -10,3 +10,5 @@ verify_jwt = false
 verify_jwt = false
 [functions.comentar]
 verify_jwt = false
+[functions.traduzir]
+verify_jwt = false

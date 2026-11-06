@@ -25,13 +25,13 @@ Deno.serve(async (req) => {
   if (!(await dentroDoLimite("criar_pedido", hashIp, 5, 86400))) return erro(req, "Limite de pedidos por dia atingido.", 429);
 
   const linha = {
-    categoria, status: "em_analise", criado_por_origem: "pagina",
+    categoria, status: "em_analise", criado_por_origem: "pagina", idioma_origem: idioma,
     texto_original: original, autor_nome: nome, autor_email: email,
     titulo_pt: idioma === "pt" ? titulo : null, descricao_pt: idioma === "pt" ? descricao : null,
     titulo_es: idioma === "es" ? titulo : null, descricao_es: idioma === "es" ? descricao : null,
   };
   // titulo_pt e descricao_pt são obrigatórios no banco: quando o pedido vem em ES,
-  // guardamos o ES nos dois e o painel marca a tradução como automática depois.
+  // guardamos o ES nos dois; a function `traduzir` preenche o PT quando o time aprova.
   if (idioma === "es") { linha.titulo_pt = titulo; linha.descricao_pt = descricao; }
 
   const { data, error } = await admin().from("itens").insert(linha).select("id").single();

@@ -22,7 +22,7 @@ psql "$DATABASE_URL" -f supabase/seed.sql
 
 Ou colar `migrations/20261105000000_roadmap.sql` e depois `seed.sql` no SQL Editor.
 
-A migração cria tabelas (`itens`, `votos`, `lancamentos`, `comentarios`, `admins`, `limites`), as views públicas
+As migrações criam tabelas (`itens`, `votos`, `lancamentos`, `comentarios`, `admins`, `limites`), as views públicas
 (`itens_com_votos`, `comentarios_publicos`), a view do time (`itens_admin`), o bucket `roadmap` no Storage,
 as funções `is_admin()`, `incrementar_limite()` e `mesclar_itens()`, e a RLS:
 
@@ -56,10 +56,21 @@ Secrets (Project > Edge Functions > Secrets, ou `supabase secrets set`):
 `SUPABASE_URL` e `SUPABASE_SERVICE_ROLE_KEY` já existem automaticamente nas funções.
 
 ```bash
-supabase functions deploy votar formatar_pedido criar_pedido comentar --no-verify-jwt
+supabase functions deploy votar formatar_pedido criar_pedido comentar traduzir --no-verify-jwt
 ```
 
 Limites por IP (hash): 30 votos/hora, 20 formatações/hora, 5 pedidos/dia, 10 comentários/hora.
+
+### Tradução automática (`traduzir`)
+
+Só o time chama, com a própria sessão do painel (a function valida o token no Auth e confere `admins`).
+Recebe `{ tipo: "item" | "lancamento", id, forcar? }` e preenche o idioma que falta com a API do Claude,
+marcando `traducao_automatica_es` (ou `traducao_automatica_pt`, para pedidos escritos em espanhol) até alguém
+editar aquele lado na mão. O painel chama sozinho ao aprovar um pedido e ao salvar item ou lançamento sem ES;
+o botão "Traduzir de novo" nos formulários refaz com `forcar: true`.
+
+`itens.idioma_origem` guarda em que idioma o parceiro escreveu. Pedido em ES entra com o ES copiado no PT
+(o PT é obrigatório) e ganha o PT traduzido na aprovação.
 
 ## 5. Ligar a página
 
@@ -77,5 +88,4 @@ Sem `supabaseUrl`, a página mostra os dados de exemplo de `assets/roadmap/dados
 
 ## Próximas rodadas (fora desta entrega)
 
-- `traduzir`: Edge Function que preenche PT ou ES quando um idioma vem vazio (seção 7 do briefing).
 - Servidor MCP (seção 8) e migração do Fider/Notion (seção 9).
