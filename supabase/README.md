@@ -86,6 +86,15 @@ window.ROADMAP_CONFIG = {
 
 Sem `supabaseUrl`, a página mostra os dados de exemplo de `assets/roadmap/dados-exemplo.js` e não grava nada.
 
+## Migração do Fider e do Notion (feita em 06/11/2026)
+
+Os pedidos vieram da base "Feature Request - Bolten" do Notion, que já consolidava Fider e Slack sem duplicidade:
+196 itens e 1.985 votos (origem `fider` ou `slack`, um registro por voto, para a contagem bater). Cada item guarda a
+URL do Notion em `itens.ref_externa`, as "Variações conhecidas" em `texto_original` (visível só para o time) e o ES
+marcado como tradução automática. Regra de status: Backlog com 3 votos ou mais virou `aberto`; o resto entrou como
+`em_analise` para o time decidir no painel. Categorias novas criadas para a migração: `relatorios`, `pagamentos`
+e `integracoes`. O SQL dos lotes não fica no repositório porque contém nomes de parceiros.
+
 ## Próximas rodadas (fora desta entrega)
 
 - Servidor MCP (seção 8) e migração do Fider/Notion (seção 9).

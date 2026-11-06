@@ -14,7 +14,7 @@ const GLOSSARIO = [
   ["parceiro", "partner"], ["parceiros", "partners"], ["pedido", "solicitud"], ["pedidos", "solicitudes"],
   ["lançamento", "lanzamiento"], ["novidades", "novedades"], ["planejado", "planeado"], ["em construção", "en construcción"],
   ["lançado", "lanzado"], ["em breve", "próximamente"], ["atendimento", "atención"], ["redes sociais", "redes sociales"],
-  ["conversões", "conversiones"], ["agente de IA", "agente de IA"], ["plataforma", "plataforma"], ["projeto", "proyecto"],
+  ["conversões", "conversiones"], ["relatórios", "reportes"], ["pagamentos", "pagos"], ["integrações", "integraciones"], ["agente de IA", "agente de IA"], ["plataforma", "plataforma"], ["projeto", "proyecto"],
   ["cliente", "cliente"], ["registro", "registro"], ["arquivados", "archivados"], ["conversa", "conversación"],
   ["e-mail", "correo"], ["agenda", "calendario"], ["usuário", "usuario"], ["card", "tarjeta"], ["etiqueta", "etiqueta"],
   ["domínio", "dominio"], ["fora do horário", "fuera de horario"], ["menu lateral", "menú lateral"], ["configurações", "configuración"],

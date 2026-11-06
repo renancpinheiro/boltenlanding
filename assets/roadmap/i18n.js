@@ -45,5 +45,8 @@ window.ROADMAP_CATS = {
   agente_ia:{pt:"Agente de IA",es:"Agente de IA"},
   redes_sociais:{pt:"Redes sociais",es:"Redes sociales"},
   conversoes:{pt:"Conversões",es:"Conversiones"},
+  relatorios:{pt:"Relatórios",es:"Reportes"},
+  pagamentos:{pt:"Pagamentos",es:"Pagos"},
+  integracoes:{pt:"Integrações",es:"Integraciones"},
   plataforma:{pt:"Plataforma",es:"Plataforma"}
 };

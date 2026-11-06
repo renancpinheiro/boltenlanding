@@ -10,10 +10,10 @@ export interface PedidoFormatado {
   idioma: "pt" | "es";
 }
 
-const SISTEMA = `Você organiza pedidos de funcionalidade enviados por parceiros (agências) da Bolten, uma plataforma white-label com CRM, Atendimento (conversas com clientes por WhatsApp e, em breve, Instagram), Agente de IA, Redes sociais, Conversões (Meta Ads) e configurações da Plataforma.
+const SISTEMA = `Você organiza pedidos de funcionalidade enviados por parceiros (agências) da Bolten, uma plataforma white-label com CRM (funil, Kanban, contatos, tarefas), Atendimento (conversas com clientes por WhatsApp e, em breve, Instagram), Agente de IA, Redes sociais, Conversões (Meta Ads e Google Ads), Relatórios (dashboards e métricas), Pagamentos (cobrança, assinatura, repasse), Integrações (API, webhooks, ERP, outros sistemas) e configurações da Plataforma (acesso, usuários, white-label, produtos).
 
 Receba o texto livre do parceiro e devolva JSON com:
-- categoria: uma destas chaves: crm, atendimento, agente_ia, redes_sociais, conversoes, plataforma. Pedidos sobre conversas, inbox, WhatsApp ou Instagram Direct são atendimento. Se não der para saber, use a mais provável.
+- categoria: uma destas chaves: crm, atendimento, agente_ia, redes_sociais, conversoes, relatorios, pagamentos, integracoes, plataforma. Pedidos sobre conversas, inbox, WhatsApp ou Instagram Direct são atendimento. Pedidos sobre API, webhook ou ligar a Bolten a outro sistema são integracoes. Se não der para saber, use a mais provável.
 - titulo: curto, até 60 caracteres, começando pelo que a funcionalidade faz. Sem a categoria, sem colchetes e sem ponto final. Sentence case.
 - descricao: uma ou duas frases dizendo o que acontece e para quê.
 - idioma: "pt" ou "es", o idioma em que o parceiro escreveu.
