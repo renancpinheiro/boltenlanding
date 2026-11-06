@@ -13,7 +13,7 @@ const ORIGENS = ["call", "whatsapp", "slack", "mcp"] as const;
 const PAGINA = "https://partners.bolten.io/pt/roadmap/";
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
-const INSTRUCOES = `Roadmap público dos parceiros da Bolten (${PAGINA}). Antes de criar_pedido, use buscar_itens: se já existe um pedido parecido, registre o interesse com votar (origem e partner_ref) em vez de criar outro. Pedidos criados aqui já entram aprovados (status aberto) e são formatados pela IA no padrão do time; a tradução para espanhol é automática. Categorias: ${CATEGORIAS.join(", ")}. Status: ${STATUS.join(", ")}. Origens de pedido e voto: ${ORIGENS.join(", ")}. partner_ref é o nome do parceiro ou da agência (ex.: "Match6 Marketing, call de 06/11").`;
+const INSTRUCOES = `Roadmap público dos parceiros da Bolten (${PAGINA}). Antes de criar_pedido, use buscar_itens: se já existe um pedido parecido, registre o interesse com votar (origem e partner_ref) em vez de criar outro. Pedidos criados aqui são formatados pela IA no padrão do time e, por padrão, entram aprovados (status aberto); use status em_analise para mandar à fila de aprovação do painel. A tradução para espanhol é automática. Categorias: ${CATEGORIAS.join(", ")}. Status: ${STATUS.join(", ")}. Origens de pedido e voto: ${ORIGENS.join(", ")}. partner_ref é o nome do parceiro ou da agência (ex.: "Match6 Marketing, call de 06/11").`;
 
 const s = (v: unknown, max = 2000) => String(v ?? "").trim().slice(0, max);
 const uuid = (v: unknown, campo: string) => { const x = s(v, 40); if (!UUID.test(x)) throw new Error(`${campo} precisa ser um UUID válido.`); return x; };
@@ -53,7 +53,7 @@ const FERRAMENTAS = [
   },
   {
     name: "criar_pedido",
-    description: "Cria um pedido a partir de texto livre (de uma call, WhatsApp ou Slack). A IA formata título, descrição e categoria; o pedido entra aprovado (aberto). Se houver pedido parecido, devolve os parecidos sem criar; para criar mesmo assim, repita com confirmar: true. Com partner_ref, registra também um voto desse parceiro.",
+    description: "Cria um pedido a partir de texto livre (de uma call, WhatsApp ou Slack). A IA formata título, descrição e categoria. Por padrão entra aprovado (aberto); com status em_analise, vai para a fila de aprovação do painel. Se houver pedido parecido (relevância 0,6 ou mais), devolve os parecidos sem criar; para criar mesmo assim, repita com confirmar: true. Com partner_ref, registra também um voto desse parceiro.",
     inputSchema: { type: "object", properties: {
       texto: { type: "string", description: "O que o parceiro pediu, com as palavras dele" },
       origem: { type: "string", enum: [...ORIGENS], default: "mcp" },
@@ -61,6 +61,8 @@ const FERRAMENTAS = [
       categoria: { type: "string", enum: [...CATEGORIAS], description: "Opcional: força a categoria em vez da sugerida pela IA" },
       idioma: { type: "string", enum: ["pt", "es"], description: "Idioma em que o parceiro escreveu, se souber" },
       ref_externa: { type: "string", description: "Referência na origem (link da mensagem do Slack, id da call)" },
+      status: { type: "string", enum: ["aberto", "em_analise"], default: "aberto", description: "em_analise manda para a fila de aprovação do painel" },
+      observacao: { type: "string", description: "Nota do time ou da automação guardada junto do texto original (ex.: parecido com outro pedido), visível só no painel" },
       confirmar: { type: "boolean", default: false },
     }, required: ["texto"] },
   },
@@ -171,15 +173,23 @@ async function executar(nome: string, a: Obj): Promise<unknown> {
       const f = await formatarPedido(livre, s(a.idioma, 2) || undefined);
       const categoria = (CATEGORIAS as readonly string[]).includes(String(a.categoria)) ? String(a.categoria) : f.categoria;
       if (a.confirmar !== true) {
-        const parecidos = (await buscar(f.titulo, null, ["aberto", "planejado", "em_construcao", "em_analise"], 5)).filter((p) => Number(p.relevancia) >= 0.6);
+        // Compara o título formatado e o texto do parceiro; fica com a maior relevância de cada item.
+        const ativos = ["aberto", "planejado", "em_construcao", "em_analise"];
+        const porId = new Map<string, Obj>();
+        for (const lista of [await buscar(f.titulo, null, ativos, 5), await buscar(livre.slice(0, 200), null, ativos, 5)]) {
+          for (const p of lista) { const atual = porId.get(String(p.id)); if (!atual || Number(p.relevancia) > Number(atual.relevancia)) porId.set(String(p.id), p); }
+        }
+        const parecidos = [...porId.values()].filter((p) => Number(p.relevancia) >= 0.6).sort((x, y) => Number(y.relevancia) - Number(x.relevancia));
         if (parecidos.length) {
           return { criado: false, pedido_formatado: { ...f, categoria }, parecidos: parecidos.map(resumo), dica: "Se um dos parecidos é o mesmo pedido, use votar nele com o partner_ref. Para criar mesmo assim, chame criar_pedido de novo com confirmar: true." };
         }
       }
       const partner = s(a.partner_ref, 80) || null;
+      const status = a.status === "em_analise" ? "em_analise" : "aberto";
+      const obs = s(a.observacao, 600);
       const linha: Obj = {
-        categoria, status: "aberto", criado_por_origem: origem, idioma_origem: f.idioma,
-        texto_original: livre, autor_nome: partner, ref_externa: s(a.ref_externa, 300) || null,
+        categoria, status, criado_por_origem: origem, idioma_origem: f.idioma,
+        texto_original: obs ? `${livre}\n\nNota: ${obs}` : livre, autor_nome: partner, ref_externa: s(a.ref_externa, 300) || null,
         titulo_pt: f.titulo, descricao_pt: f.descricao,
         titulo_es: f.idioma === "es" ? f.titulo : null, descricao_es: f.idioma === "es" ? f.descricao : null,
       };
@@ -187,7 +197,9 @@ async function executar(nome: string, a: Obj): Promise<unknown> {
       if (error) throw new Error(error.message);
       if (partner) await db.from("votos").insert({ item_id: data.id, origem, partner_ref: partner });
       const traduzido = await completarTraducao(data as Obj);
-      return { criado: true, item: resumo({ ...data, votos: partner ? 1 : 0 }), traducao_automatica: traduzido };
+      const out: Obj = { criado: true, item: resumo({ ...data, votos: partner ? 1 : 0 }), traducao_automatica: traduzido };
+      if (status === "em_analise") out.dica = "O pedido está na fila de aprovação do painel e só aparece na página depois de aprovado.";
+      return out;
     }
     case "votar": {
       const id = uuid(a.item_id, "item_id");

@@ -97,10 +97,11 @@ URL: `https://<ref>.supabase.co/functions/v1/mcp`. Autenticação por chave, no 
   então a chave vai nela: `https://<ref>.supabase.co/functions/v1/mcp?chave=<chave>`. Sem OAuth.
 - **n8n**: nó MCP Client com transporte HTTP e credencial Bearer com a chave.
 
-Ferramentas: `buscar_itens`, `ver_item`, `criar_pedido` (formata pela IA, entra como `aberto`, devolve parecidos em vez de
-duplicar), `votar`, `comentar` (como Time Bolten), `listar_pendentes`, `aprovar`, `mudar_status`, `mesclar`,
+Ferramentas: `buscar_itens`, `ver_item`, `criar_pedido` (formata pela IA, entra como `aberto` ou, com `status: em_analise`,
+na fila do painel; devolve parecidos em vez de duplicar; `observacao` guarda uma nota junto do texto original), `votar`, `comentar` (como Time Bolten), `listar_pendentes`, `aprovar`, `mudar_status`, `mesclar`,
 `criar_lancamento` e `listar_lancados_do_mes` (base do e-mail mensal). A busca usa `pg_trgm` + `unaccent`
 pela função SQL `buscar_itens`; a mesclagem usa `mesclar_itens_servico` (só service role).
+A rotina semanal do #client-feedbacks que alimenta o roadmap está em `docs/roadmap/ROTINA-CLIENT-FEEDBACKS.md`.
 
 ## Migração do Fider e do Notion (feita em 06/11/2026)
 
