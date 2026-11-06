@@ -3,7 +3,7 @@
 // Autenticação por chave (secret ROADMAP_MCP_KEY): header "Authorization: Bearer <chave>"
 // (Claude Code, n8n) ou "?chave=<chave>" na URL (conector do claude.ai, que só aceita URL).
 import { admin, CATEGORIAS, cors } from "../_shared/comum.ts";
-import { formatarPedido } from "../_shared/formatar.ts";
+import { formatarPedido, mesmosPedidos } from "../_shared/formatar.ts";
 import { type Idioma, traduzir } from "../_shared/traduzir.ts";
 
 type Obj = Record<string, unknown>;
@@ -38,7 +38,7 @@ function autorizado(req: Request): boolean {
 const FERRAMENTAS = [
   {
     name: "buscar_itens",
-    description: "Busca pedidos do roadmap por texto (sem acento, por similaridade), categoria e status. Use antes de criar_pedido para não duplicar. relevancia acima de 0,6 costuma ser o mesmo pedido; entre 0,4 e 0,6 é só assunto parecido.",
+    description: "Busca pedidos do roadmap por texto (sem acento, por similaridade), categoria e status. Use antes de criar_pedido para não duplicar. relevancia é só similaridade de texto (ruidosa em frases curtas): para saber se é o mesmo pedido, prefira criar_pedido, que faz a comparação semântica.",
     inputSchema: { type: "object", properties: {
       texto: { type: "string", description: "Palavras ou frase curta do pedido" },
       categoria: { type: "string", enum: [...CATEGORIAS] },
@@ -53,7 +53,7 @@ const FERRAMENTAS = [
   },
   {
     name: "criar_pedido",
-    description: "Cria um pedido a partir de texto livre (de uma call, WhatsApp ou Slack). A IA formata título, descrição e categoria. Por padrão entra aprovado (aberto); com status em_analise, vai para a fila de aprovação do painel. Se houver pedido parecido (relevância 0,6 ou mais), devolve os parecidos sem criar; para criar mesmo assim, repita com confirmar: true. Com partner_ref, registra também um voto desse parceiro.",
+    description: "Cria um pedido a partir de texto livre (de uma call, WhatsApp ou Slack). A IA formata título, descrição e categoria. Por padrão entra aprovado (aberto); com status em_analise, vai para a fila de aprovação do painel. Antes de criar, a IA compara com os pedidos existentes: se algum pede a mesma coisa, devolve criado: false com a lista em parecidos, sem criar nada; nesse caso use votar no primeiro. Para criar mesmo assim, repita com confirmar: true. Com partner_ref, registra também um voto desse parceiro.",
     inputSchema: { type: "object", properties: {
       texto: { type: "string", description: "O que o parceiro pediu, com as palavras dele" },
       origem: { type: "string", enum: [...ORIGENS], default: "mcp" },
@@ -179,9 +179,12 @@ async function executar(nome: string, a: Obj): Promise<unknown> {
         for (const lista of [await buscar(f.titulo, null, ativos, 5), await buscar(livre.slice(0, 200), null, ativos, 5)]) {
           for (const p of lista) { const atual = porId.get(String(p.id)); if (!atual || Number(p.relevancia) > Number(atual.relevancia)) porId.set(String(p.id), p); }
         }
-        const parecidos = [...porId.values()].filter((p) => Number(p.relevancia) >= 0.6).sort((x, y) => Number(y.relevancia) - Number(x.relevancia));
+        // Candidatos com alguma similaridade passam pelo julgamento da IA: só os que pedem a mesma coisa voltam.
+        const candidatos = [...porId.values()].filter((p) => Number(p.relevancia) >= 0.3).sort((x, y) => Number(y.relevancia) - Number(x.relevancia)).slice(0, 6);
+        const mesmos = await mesmosPedidos({ titulo: f.titulo, descricao: f.descricao, texto_original: livre }, candidatos.map((c) => ({ id: String(c.id), titulo: String(c.titulo_pt), descricao: String(c.descricao_pt) })));
+        const parecidos = candidatos.filter((c) => mesmos.includes(String(c.id)));
         if (parecidos.length) {
-          return { criado: false, pedido_formatado: { ...f, categoria }, parecidos: parecidos.map(resumo), dica: "Se um dos parecidos é o mesmo pedido, use votar nele com o partner_ref. Para criar mesmo assim, chame criar_pedido de novo com confirmar: true." };
+          return { criado: false, pedido_formatado: { ...f, categoria }, parecidos: parecidos.map(resumo), dica: "A IA avaliou que estes pedidos já existentes pedem a mesma coisa. Use votar no primeiro com o partner_ref. Para criar mesmo assim, chame criar_pedido de novo com confirmar: true." };
         }
       }
       const partner = s(a.partner_ref, 80) || null;

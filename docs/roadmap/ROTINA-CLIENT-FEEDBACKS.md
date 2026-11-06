@@ -45,17 +45,18 @@ Extraia todos os pedidos distintos: funcionalidade nova, melhoria, mudança de c
 
 Se o mesmo parceiro repete o mesmo pedido no mesmo post, conta uma vez só.
 
-## PASSO 4 — Para cada pedido, buscar no roadmap
+## PASSO 4 — Registrar cada pedido no roadmap
 
-Chame buscar_itens com o texto do pedido (frase curta, 3 a 8 palavras com o essencial). Olhe a relevância do primeiro resultado:
+Para cada pedido, chame criar_pedido com: texto (as palavras do parceiro), origem "slack", partner_ref, ref_externa (permalink) e status "em_analise". Não passe confirmar.
 
-Relevância 0,6 ou mais, mesmo pedido: chame votar com item_id, origem "slack" e o partner_ref. Não crie nada.
+A ferramenta compara o pedido com os existentes usando IA e responde de dois jeitos:
 
-Relevância entre 0,4 e 0,6, assunto parecido: chame criar_pedido com texto, origem "slack", partner_ref, ref_externa, status "em_analise", confirmar true e observacao "Parecido com: [título do candidato] ([url do candidato]). Avaliar mesclar." O time decide no painel.
+- criado: false, com uma lista em "parecidos": já existe um pedido que pede a mesma coisa. Chame votar com o item_id do primeiro da lista, origem "slack" e o mesmo partner_ref. Não crie nada.
+- criado: true: o pedido era novo e entrou na fila de aprovação do painel. Anote o título e a url que vieram na resposta.
 
-Relevância abaixo de 0,4, pedido novo: chame criar_pedido com texto, origem "slack", partner_ref, ref_externa e status "em_analise". Se a resposta vier com criado false e uma lista de parecidos, trate o primeiro parecido como no caso de 0,6 ou mais (vote nele) e não crie.
+Se o pedido parecido estiver com status lancado, a votação é recusada: anote como "já lançado" no resumo, com o link.
 
-Se o pedido já existir no roadmap com status lancado, não vote: anote como "já lançado" no resumo, com o link.
+Nunca chame criar_pedido com confirmar: true nesta rotina.
 
 ## PASSO 5 — Resumo no #business-core
 
@@ -70,9 +71,6 @@ Votos registrados:
 Pedidos novos na fila de aprovação do painel:
 - [título] ([parceiro]) [url]
 
-Parecidos para o time avaliar mesclar:
-- [título novo] parecido com [título existente] [url]
-
 Já lançados (sem voto):
 - [título] [url]
 
@@ -86,7 +84,7 @@ Nenhuma mensagem nova no #client-feedbacks nos últimos 7 dias."
 
 ## REGRAS
 
-1. Nunca invente pedido, parceiro ou voto. Na dúvida, crie como em_analise com uma observacao explicando a dúvida.
+1. Nunca invente pedido, parceiro ou voto. Na dúvida sobre o que o parceiro quis dizer, crie como em_analise com uma observacao explicando a dúvida.
 2. Nunca aprove, recuse, mescle nem mude status de pedido: isso é do time, no painel.
 3. Nunca crie pedido com status aberto nesta rotina: sempre em_analise.
 4. Um parceiro, um pedido, um voto.
