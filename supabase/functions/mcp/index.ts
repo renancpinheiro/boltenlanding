@@ -38,7 +38,7 @@ function autorizado(req: Request): boolean {
 const FERRAMENTAS = [
   {
     name: "buscar_itens",
-    description: "Busca pedidos do roadmap por texto (sem acento, por similaridade), categoria e status. Use antes de criar_pedido para não duplicar. relevancia acima de 0,45 costuma ser o mesmo pedido.",
+    description: "Busca pedidos do roadmap por texto (sem acento, por similaridade), categoria e status. Use antes de criar_pedido para não duplicar. relevancia acima de 0,6 costuma ser o mesmo pedido; entre 0,4 e 0,6 é só assunto parecido.",
     inputSchema: { type: "object", properties: {
       texto: { type: "string", description: "Palavras ou frase curta do pedido" },
       categoria: { type: "string", enum: [...CATEGORIAS] },
@@ -171,7 +171,7 @@ async function executar(nome: string, a: Obj): Promise<unknown> {
       const f = await formatarPedido(livre, s(a.idioma, 2) || undefined);
       const categoria = (CATEGORIAS as readonly string[]).includes(String(a.categoria)) ? String(a.categoria) : f.categoria;
       if (a.confirmar !== true) {
-        const parecidos = (await buscar(f.titulo, null, ["aberto", "planejado", "em_construcao", "em_analise"], 5)).filter((p) => Number(p.relevancia) >= 0.45);
+        const parecidos = (await buscar(f.titulo, null, ["aberto", "planejado", "em_construcao", "em_analise"], 5)).filter((p) => Number(p.relevancia) >= 0.6);
         if (parecidos.length) {
           return { criado: false, pedido_formatado: { ...f, categoria }, parecidos: parecidos.map(resumo), dica: "Se um dos parecidos é o mesmo pedido, use votar nele com o partner_ref. Para criar mesmo assim, chame criar_pedido de novo com confirmar: true." };
         }

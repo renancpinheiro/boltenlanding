@@ -5,7 +5,7 @@ create extension if not exists unaccent with schema extensions;
 create extension if not exists pg_trgm with schema extensions;
 
 -- Busca em itens por texto (sem acento, por similaridade de trigramas), categoria e status.
--- Devolve relevancia de 0 a 1; acima de 0,45 costuma ser o mesmo pedido.
+-- Devolve relevancia de 0 a 1; acima de 0,6 costuma ser o mesmo pedido, entre 0,4 e 0,6 é só assunto parecido.
 create or replace function buscar_itens(p_texto text default null, p_categoria text default null, p_status text[] default null, p_limite integer default 10)
 returns table (
   id uuid, titulo_pt text, titulo_es text, descricao_pt text, descricao_es text,
