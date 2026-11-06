@@ -119,7 +119,7 @@
       }
       const its = ITENS.filter((i) => i.status === s).sort((a, b) => votosDe(b) - votosDe(a));
       return `<div class="col"><h2><i style="background:${c}"></i>${T().cols[s]}<span class="n">${its.length}</span></h2>
-        <ul>${its.length ? its.map((i) => `<li><b>${esc(tx(i, "titulo"))}</b><div class="row">${catEl(i.categoria)}<span>${T().votes(votosDe(i))}</span></div></li>`).join("") : `<li class="empty">${T().noItems}</li>`}</ul></div>`;
+        <ul>${its.length ? its.map((i) => `<li><b>${esc(tx(i, "titulo"))}</b><div class="row">${catEl(i.categoria)}</div></li>`).join("") : `<li class="empty">${T().noItems}</li>`}</ul></div>`;
     }).join("");
   }
 
