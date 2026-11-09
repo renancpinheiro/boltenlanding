@@ -38,6 +38,7 @@ function autorizado(req: Request): boolean {
 const FERRAMENTAS = [
   {
     name: "buscar_itens",
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     description: "Busca pedidos do roadmap por texto (sem acento, por similaridade), categoria e status. Use antes de criar_pedido para não duplicar. relevancia é só similaridade de texto (ruidosa em frases curtas): para saber se é o mesmo pedido, prefira criar_pedido, que faz a comparação semântica.",
     inputSchema: { type: "object", properties: {
       texto: { type: "string", description: "Palavras ou frase curta do pedido" },
@@ -48,11 +49,13 @@ const FERRAMENTAS = [
   },
   {
     name: "ver_item",
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     description: "Detalhes de um pedido: textos em PT e ES, votos, texto original do parceiro e comentários.",
     inputSchema: { type: "object", properties: { item_id: { type: "string" } }, required: ["item_id"] },
   },
   {
     name: "criar_pedido",
+    annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: false },
     description: "Cria um pedido a partir de texto livre (de uma call, WhatsApp ou Slack). A IA formata título, descrição e categoria. Por padrão entra aprovado (aberto); com status em_analise, vai para a fila de aprovação do painel. Antes de criar, a IA compara com os pedidos existentes: se algum pede a mesma coisa, devolve criado: false com a lista em parecidos, sem criar nada; nesse caso use votar no primeiro. Para criar mesmo assim, repita com confirmar: true. Com partner_ref, registra também um voto desse parceiro.",
     inputSchema: { type: "object", properties: {
       texto: { type: "string", description: "O que o parceiro pediu, com as palavras dele" },
@@ -68,6 +71,7 @@ const FERRAMENTAS = [
   },
   {
     name: "votar",
+    annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: false },
     description: "Registra um voto (interesse) de um parceiro num pedido existente, com origem e partner_ref.",
     inputSchema: { type: "object", properties: {
       item_id: { type: "string" }, origem: { type: "string", enum: [...ORIGENS], default: "mcp" }, partner_ref: { type: "string" },
@@ -75,31 +79,37 @@ const FERRAMENTAS = [
   },
   {
     name: "comentar",
+    annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: false },
     description: "Publica um comentário como Time Bolten num pedido (ex.: resposta dada em call). Aparece na página na hora.",
     inputSchema: { type: "object", properties: { item_id: { type: "string" }, texto: { type: "string" } }, required: ["item_id", "texto"] },
   },
   {
     name: "listar_pendentes",
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     description: "Lista os pedidos em análise (vindos da página), do mais recente ao mais antigo.",
     inputSchema: { type: "object", properties: { limite: { type: "integer", minimum: 1, maximum: 100, default: 30 } } },
   },
   {
     name: "aprovar",
+    annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: false },
     description: "Aprova (vira aberto, com tradução automática) ou recusa um pedido em análise.",
     inputSchema: { type: "object", properties: { item_id: { type: "string" }, decisao: { type: "string", enum: ["aprovar", "recusar"] } }, required: ["item_id", "decisao"] },
   },
   {
     name: "mudar_status",
+    annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: false },
     description: "Muda o status de um pedido. Ao mudar para lancado, crie o lançamento com criar_lancamento (passando item_id) para ele aparecer em Lançamentos.",
     inputSchema: { type: "object", properties: { item_id: { type: "string" }, status: { type: "string", enum: [...STATUS] } }, required: ["item_id", "status"] },
   },
   {
     name: "mesclar",
+    annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: false },
     description: "Junta um pedido duplicado em outro: os votos e comentários vão para o destino e a origem fica como mesclado.",
     inputSchema: { type: "object", properties: { origem_id: { type: "string", description: "Pedido que vai sumir" }, destino_id: { type: "string", description: "Pedido que fica" } }, required: ["origem_id", "destino_id"] },
   },
   {
     name: "criar_lancamento",
+    annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: false },
     description: "Cria um lançamento (novidade publicada). Texto em PT; o ES é traduzido automaticamente. Com item_id, liga ao pedido de origem e marca o pedido como lançado.",
     inputSchema: { type: "object", properties: {
       titulo: { type: "string" }, texto: { type: "string" }, categoria: { type: "string", enum: [...CATEGORIAS] },
@@ -109,6 +119,7 @@ const FERRAMENTAS = [
   },
   {
     name: "listar_lancados_do_mes",
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     description: "Lançamentos publicados de um mês (base do e-mail mensal), com quantos parceiros pediram cada um.",
     inputSchema: { type: "object", properties: { mes: { type: "string", description: "AAAA-MM, padrão o mês atual" } } },
   },
